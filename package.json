@@ -9,7 +9,14 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "react-router-dom": "^6.2.1",
+    "web-vitals": "^2.1.4",
+    "classnames": "^2.3.1",
+    "debounce": "^1.2.1",
+    "lodash": "^4.17.21",
+    "mobx": "^6.3.12",
+    "mobx-react": "^7.2.1",
+    "query-string": "^7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

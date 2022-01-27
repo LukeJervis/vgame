@@ -1,0 +1,25 @@
+
+.heroWeaponShop__container {
+    /* padding: 20px; */
+}
+
+.heroWeaponShop__weapon {
+    border: blue solid;
+    margin: 10px;
+}
+
+.heroWeaponShop__name {
+    padding: 10px 0 2px;
+}
+
+.heroWeaponShop__cost {
+    padding: 2px;
+}
+
+.heroWeaponShop__damage {
+    padding: 2px;
+}
+
+.heroWeaponShop__buyButton {
+    margin-bottom: 10px;
+}
