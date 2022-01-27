@@ -1,5 +1,6 @@
 import HeroEquipmentShop from '../components/HeroEquipmentShop'
 import HeroInventoryModal from '../components/HeroInventoryModal'
+import './navBar.css'
 
 const NavBar = () => {
 

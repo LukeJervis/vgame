@@ -25,7 +25,7 @@ const MasterModal = (props) => {
                     <span className="modal--close" onClick={closeModal}>&times;</span>
                     <div className="modalContents">
                         Inventory
-                        <{props} />
+                        {/* <{props} /> */}
                     </div>
                 </div>
             </div>

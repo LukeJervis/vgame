@@ -18,9 +18,12 @@
 
 .App__navBar {
   display: flex;
-  justify-content: left;
+  justify-content: center;
+  border: rgb(255, 255, 255) solid;
+  background-color: rgb(132, 132, 255);
   width: 200px;
-  padding: 20px;
+  margin: 20px 0 0 20px;
+  height: 680px;
 }
 
 .App__actionArea {
