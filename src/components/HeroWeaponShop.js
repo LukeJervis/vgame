@@ -21,6 +21,7 @@ const HeroWeaponShop = () => {
     )
 
     return (
+
         <div className="heroWeaponShop__container">
             {listHeroWeapons}
         </div>

@@ -1,0 +1,44 @@
+import { observer } from 'mobx-react-lite'
+import { useRootStore } from '../provider/RootStoreProvider'
+
+const HeroXpStatExchange = () => {
+    const { heroStatsStore: { strength, speed, constitution, luck, statCost, handleStatBuy } } = useRootStore()
+    const { countStore: { experiance } } = useRootStore()
+
+    const strengthBuy = 'strength'
+    const speedBuy = 'speed'
+    const constitutionBuy = 'constitution'
+    const luckBuy = 'luck'
+
+    const statBuy = (selectedStat) => {
+        if (experiance < statCost) {
+            console.log('Not enough XP!');
+        } else {
+            handleStatBuy(selectedStat)            
+        }
+    }
+
+    return (
+        <div className='HeroXpStatExchange__container'>
+            <div className='HeroXpStatExchange__strength'>
+                Strength: {strength}
+                <button className='HeroXpStatExchange__strength--button' onClick={() => statBuy(strengthBuy)}>Buy {statCost}XP</button>
+            </div>
+            <div className='HeroXpStatExchange__speed'>
+                Speed: {speed}
+                <button className='HeroXpStatExchange__Speed--button' onClick={() => statBuy(speedBuy)}>Buy {statCost}XP</button>
+            </div>
+            <div className='HeroXpStatExchange__constitution'>
+                Constitution: {constitution}
+                <button className='HeroXpStatExchange__Constitution--button' onClick={() => statBuy(constitutionBuy)}>Buy {statCost}XP</button>
+            </div>
+            <div className='HeroXpStatExchange__luck'>
+                Luck: {luck}
+                <button className='HeroXpStatExchange__Luck--button' onClick={() => statBuy(luckBuy)}>Buy {statCost}XP</button>
+            </div>
+        </div>
+    )
+
+}
+
+export default observer(HeroXpStatExchange)
