@@ -50,6 +50,10 @@ class CountStore {
         this.heroMoney = this.heroMoney - amount
     }
 
+    spendExperiance = (amount) => {
+        this.experiance  = this.experiance - amount
+    }
+
 }
 
 export default CountStore

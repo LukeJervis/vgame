@@ -10,10 +10,10 @@ const ExperianceCounter = () => {
 
     <div className="ExperianceCounter__container">
         <div className='ExperianceCounter__count'>
-            XP {experiance}
+            XP {Math.round(experiance)}
         </div>
         <div className='ExperianceCounter__experianceNeeded'>
-            XP Needed {experianceNeeded}
+            XP Needed {experianceNeeded.toFixed(2)}
         </div>
     </div>
 

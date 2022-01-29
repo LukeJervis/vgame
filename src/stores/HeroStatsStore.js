@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 class HeroStatsStore {
 
     health = 100
-    strength = 100
+    strength = 1
     speed = 1
     constitution = 1
     luck = 1
@@ -11,7 +11,7 @@ class HeroStatsStore {
     statCost = 100
 
     equipedHeroWeapon = {}
-    equipedHeroWeaponDamage = 0
+    equipedHeroWeaponDamage = 1
 
     heroAttackAmount = 1
 
@@ -20,7 +20,7 @@ class HeroStatsStore {
     }
 
     heroAttackCalc = () => {
-        this.heroAttackAmount = this.strength + this.equipedHeroWeaponDamage
+        this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage
     }
 
     equipHeroWeapon = (HeroWeaponId) => {
@@ -35,16 +35,16 @@ class HeroStatsStore {
     handleStatBuy = (statPurchase) => {
         if (statPurchase === 'strength'){
             this.strength++
-            this.statCost = this.statCost * 2
+            this.statCost = this.statCost * 1.1
         } else if (statPurchase === 'speed') {
             this.speed++
-            this.statCost = this.statCost * 2
+            this.statCost = this.statCost * 1.1
         } else if (statPurchase === 'constitution') {
             this.constitution++
-            this.statCost = this.statCost * 2
+            this.statCost = this.statCost * 1.1
         } else if (statPurchase === 'luck') {
             this.luck++
-            this.statCost = this.statCost * 2
+            this.statCost = this.statCost * 1.1
         } else {
             console.log('handleStatBuy Error');
         }

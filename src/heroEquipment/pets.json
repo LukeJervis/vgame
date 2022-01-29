@@ -1,0 +1,41 @@
+
+[
+    {
+        "id": 2001,
+        "name": "Rat",
+        "health": 5,
+        "healthIncrease": 1,
+        "strength": 1,
+        "strengthIncrease": 1,
+        "speed": 1,
+        "speedIncrease": 1,
+        "luck": 10,
+        "luckIncrease": 10
+    }, 
+    
+    {
+        "id": 2002,
+        "name": "Cat",
+        "health": 9,
+        "healthIncrease": 2,
+        "strength": 1,
+        "strengthIncrease": 1,
+        "speed": 4,
+        "speedIncrease": 2,
+        "luck": 1,
+        "luckIncrease": 1
+    },
+
+    {
+        "id": 2003,
+        "name": "Dog",
+        "health": 7,
+        "healthIncrease": 1,
+        "strength": 4,
+        "strengthIncrease": 2,
+        "speed": 2,
+        "speedIncrease": 1,
+        "luck": 5,
+        "luckIncrease": 5
+    },
+]
