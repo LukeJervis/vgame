@@ -3,11 +3,15 @@ import { useRootStore } from '../provider/RootStoreProvider'
 
 const HeroInventory = () => {
 
-    const { heroInventoryStore: { heroInventorySlotsArray } } = useRootStore()
-    const { heroStatsStore: { heroWeaponEquip } } = useRootStore()
+    const { heroInventoryStore: { heroInventorySlotsArray, heroPetSlotsArray } } = useRootStore()
+    const { heroStatsStore: { heroWeaponEquip, equipPet } } = useRootStore()
 
     const heroWeaponEquipHandler = (heroEquipment) => {
         heroWeaponEquip(heroEquipment)
+    }
+
+    const heroPetEquipHandler = (heroPet) => {
+        equipPet(heroPet)
     }
 
     const heroSlotCount = heroInventorySlotsArray.map(heroEquipment => 
@@ -18,9 +22,25 @@ const HeroInventory = () => {
         </div>
     )
 
+    const heroPetCount = heroPetSlotsArray.map(heroPet =>
+        <div>
+            <div key={Math.random().toString(36)}>{heroPet.name}</div>
+            <div key={Math.random().toString(36)}>Health: {heroPet.health}</div>
+            <div key={Math.random().toString(36)}>Damage Multiplier: {heroPet.strength}</div>
+            <div key={Math.random().toString(36)}>Speed: {heroPet.speed}</div>
+            <div key={Math.random().toString(36)}>Luck: {heroPet.luck}</div>
+            <button onClick={() => heroPetEquipHandler(heroPet)} key={heroPet.id}>Equip</button>
+        </div>    
+    )
+
     return (
         <div>
-            {heroSlotCount}
+            <div>
+                {heroSlotCount}
+            </div>
+            <div>
+                {heroPetCount}
+            </div>
         </div>
     )
 

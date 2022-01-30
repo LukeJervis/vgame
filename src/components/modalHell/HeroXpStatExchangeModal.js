@@ -1,5 +1,5 @@
 import HeroXpStatExchange from '../HeroXpStatExchange'
-import './HeroXpStatExchangeModal.css'
+import './heroXpStatExchangeModal.css'
 
 const HeroXpStatExchangeModal = () => {
     // const heroInventoryModal = document.querySelector(".heroInventory__modal");

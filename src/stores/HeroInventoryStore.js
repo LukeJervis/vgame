@@ -2,12 +2,15 @@ import { makeAutoObservable } from "mobx";
 
 class HeroInventoryStore {
 
+    allStores;
+
     heroInventorySlots = 10
     heroInventoryUsedSlots = 0
-
     heroInventorySlotsArray = []
 
-    allStores;
+    heroPetSlots = 1
+    heroPetSlotsUsed = 0
+    heroPetSlotsArray = []
 
     constructor(store) {
         this.allStores = store
@@ -28,6 +31,22 @@ class HeroInventoryStore {
         } else {
             this.heroInventoryPurchase(purchase)
         }
+    }
+
+    handlePetBuy = (pet) => {
+        if (pet.cost > this.allStores.countStore.heroMoney) {
+            console.log("Not enough money!");
+        } else if (this.heroPetSlotsUsed >= this.heroPetSlots) {
+            console.log("Not enough pokeballs!");
+        } else {
+            this.petPurchase(pet)
+        }
+    }
+
+    petPurchase = (pet) => {
+        this.heroPetSlotsArray.push(pet)
+        this.heroPetSlotsUsed = this.heroPetSlotsUsed + 1
+        this.allStores.countStore.purchaseMoneyCount(pet.cost)
     }
 
 }

@@ -13,10 +13,10 @@ class RootStore {
     heroInventoryStore;
 
     constructor() {
-        this.countStore = new CountStore();
-        this.heroStatsStore = new HeroStatsPage();
+        this.countStore = new CountStore(this);
+        this.heroStatsStore = new HeroStatsPage(this);
         this.heroInventoryStore = new HeroInventoryStore(this)
-        this.heroEquipmentShopStore = new HeroEquipmentShopStore();
+        this.heroEquipmentShopStore = new HeroEquipmentShopStore(this);
         this.appStore = new AppStore(this);
         makeAutoObservable(this);
     }

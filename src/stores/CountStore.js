@@ -4,7 +4,6 @@ class CountStore {
 
     experiance = 0
     heroWeapon = 0
-    // experianceGain = 1 + this.heroWeapon
     heroLevel = 1
     levelMultiplier = 1.5
     experianceNeeded = 10

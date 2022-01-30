@@ -2,8 +2,10 @@ import { makeAutoObservable } from "mobx";
 
 class HeroStatsStore {
 
+    allStores
+
     health = 100
-    strength = 1
+    strength = 1000000
     speed = 1
     constitution = 1
     luck = 1
@@ -15,7 +17,17 @@ class HeroStatsStore {
 
     heroAttackAmount = 1
 
-    constructor() {
+    petHealth
+    petStrength
+    petSpeed
+    petLuck
+
+    equipedPet = {}
+
+    petAttackAmount = 0
+
+    constructor(store) {
+        this.allStores = store
         makeAutoObservable(this);
     }
 
@@ -25,6 +37,18 @@ class HeroStatsStore {
 
     equipHeroWeapon = (HeroWeaponId) => {
         this.equipedHeroWeapon = HeroWeaponId
+    }
+
+    equipPet = (heroPet) => {
+        if (this.equipedPet === heroPet) {
+            
+        }
+        this.equipedPet = heroPet
+        this.petStrength = heroPet.strength
+        this.petSpeed = heroPet.speed
+        this.petAttackAmount = this.petStrength
+        console.log(this.allStores.countStore.experiance);
+        this.heroPetAttackInterval()
     }
 
     heroWeaponEquip = (weaponEquip) => {
@@ -48,6 +72,15 @@ class HeroStatsStore {
         } else {
             console.log('handleStatBuy Error');
         }
+    }
+
+    heroPetAttackInterval = () => {
+        setInterval(this.heroPetAttack, 1000 / this.equipedPet.speed)
+        console.log("hit", this.equipedPet.speed);
+    }
+
+    heroPetAttack = () => {
+        this.allStores.countStore.experiance = this.allStores.countStore.experiance + this.petAttackAmount
     }
 
 }

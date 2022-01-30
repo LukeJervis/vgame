@@ -3,39 +3,48 @@
     {
         "id": 2001,
         "name": "Rat",
+        "cost": 100,
         "health": 5,
         "healthIncrease": 1,
+        "healthStatMulti": 4,
         "strength": 1,
         "strengthIncrease": 1,
         "speed": 1,
         "speedIncrease": 1,
         "luck": 10,
-        "luckIncrease": 10
-    }, 
+        "luckIncrease": 10,
+        "statMulti": 2
+    },
     
     {
         "id": 2002,
         "name": "Cat",
+        "cost": 100000,
         "health": 9,
         "healthIncrease": 2,
+        "healthStatMulti": 4,
         "strength": 1,
         "strengthIncrease": 1,
         "speed": 4,
         "speedIncrease": 2,
         "luck": 1,
-        "luckIncrease": 1
+        "luckIncrease": 1,
+        "statMulti": 2
     },
 
     {
         "id": 2003,
         "name": "Dog",
+        "cost": 500000,
         "health": 7,
         "healthIncrease": 1,
+        "healthStatMulti": 4,
         "strength": 4,
         "strengthIncrease": 2,
         "speed": 2,
         "speedIncrease": 1,
         "luck": 5,
-        "luckIncrease": 5
-    },
+        "luckIncrease": 5,
+        "statMulti": 1.9
+    }
 ]

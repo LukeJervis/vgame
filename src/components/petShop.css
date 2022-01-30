@@ -1,0 +1,25 @@
+
+.petShop__container {
+    /* padding: 20px; */
+}
+
+.petShop__weapon {
+    border: blue solid;
+    margin: 10px;
+}
+
+.petShop__name {
+    padding: 10px 0 2px;
+}
+
+.petShop__cost {
+    padding: 2px;
+}
+
+.petShop__damage {
+    padding: 2px;
+}
+
+.petShop__buyButton {
+    margin-bottom: 10px;
+}
