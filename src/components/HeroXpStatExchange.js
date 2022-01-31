@@ -11,6 +11,7 @@ const HeroXpStatExchange = () => {
     const luckBuy = 'luck'
 
     const statBuy = (selectedStat) => {
+        console.log('selectedStat', selectedStat);
         if (experiance < statCost) {
             console.log('Not enough XP!');
         } else {

@@ -26,7 +26,7 @@ const HeroInventory = () => {
         <div key={Math.random().toString(36)}>
             <div key={Math.random().toString(36)}>{heroPet.name}</div>
             <div key={Math.random().toString(36)}>Health: {heroPet.health}</div>
-            <div key={Math.random().toString(36)}>Damage Multiplier: {heroPet.strength}</div>
+            <div key={Math.random().toString(36)}>Strength: {heroPet.strength}</div>
             <div key={Math.random().toString(36)}>Speed: {heroPet.speed}</div>
             <div key={Math.random().toString(36)}>Luck: {heroPet.luck}</div>
             <button onClick={() => heroPetEquipHandler(heroPet)} key={heroPet.id}>Equip</button>

@@ -75,6 +75,29 @@ class HeroStatsStore {
         }
     }
 
+    handlePetStatBuy = (petObject, petStat) => {
+        if (petStat === 'strength') {
+            console.log(petObject);
+            petObject.strength = petObject.strength + petObject.strengthIncrease
+            petObject.statCost = petObject.statCost * petObject.statMulti
+        } else if (petStat === 'speed') {
+            petObject.speed = petObject.speed + petObject.speedIncrease
+            petObject.statCost = petObject.statCost * petObject.statMulti
+        } else if (petStat === 'constitution') {
+            petObject.constitution = petObject.constitution + petObject.constitutionIncrease
+            petObject.statCost = petObject.statCost * petObject.statMulti
+        } else if (petStat === 'luck') {
+            petObject.luck = petObject.luck + petObject.luckIncrease
+            petObject.statCost = petObject.statCost * petObject.statMulti
+        } else if (petStat === 'health') {
+            petObject.health = petObject.health + petObject.healthIncrease
+            petObject.healthStatCost = petObject.healthStatCost * petObject.healthStatMulti
+        } else {
+            console.log('handlePetStatBuy Error');
+        }
+    }
+
+
     heroPetAttackInterval = () => {
         setInterval(this.heroPetAttack, 1000 / this.equipedPet.speed)
         console.log("hit", this.equipedPet.speed);
