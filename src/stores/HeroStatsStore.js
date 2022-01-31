@@ -41,14 +41,15 @@ class HeroStatsStore {
 
     equipPet = (heroPet) => {
         if (this.equipedPet === heroPet) {
-            
+            console.log("Pet Already Equiped");
+        } else {
+            this.equipedPet = heroPet
+            this.petStrength = heroPet.strength
+            this.petSpeed = heroPet.speed
+            this.petAttackAmount = this.petStrength
+            console.log(this.allStores.countStore.experiance);
+            this.heroPetAttackInterval()
         }
-        this.equipedPet = heroPet
-        this.petStrength = heroPet.strength
-        this.petSpeed = heroPet.speed
-        this.petAttackAmount = this.petStrength
-        console.log(this.allStores.countStore.experiance);
-        this.heroPetAttackInterval()
     }
 
     heroWeaponEquip = (weaponEquip) => {

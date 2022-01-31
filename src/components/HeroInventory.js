@@ -23,7 +23,7 @@ const HeroInventory = () => {
     )
 
     const heroPetCount = heroPetSlotsArray.map(heroPet =>
-        <div>
+        <div key={Math.random().toString(36)}>
             <div key={Math.random().toString(36)}>{heroPet.name}</div>
             <div key={Math.random().toString(36)}>Health: {heroPet.health}</div>
             <div key={Math.random().toString(36)}>Damage Multiplier: {heroPet.strength}</div>
