@@ -5,7 +5,7 @@ class HeroStatsStore {
     allStores
 
     health = 100
-    strength = 10000
+    strength = 1
     speed = 1
     constitution = 1
     luck = 1
@@ -48,13 +48,13 @@ class HeroStatsStore {
         }
     }
 
-    // unequipPet = () => {
-    //     this.equipedPet.unshift()
-    //     this.equipedPet = 0
-    //     this.petStrength = 0
-    //     this.petSpeed = 0
-    //     this.petAttackAmount = 0
-    // }
+    unequipPet = () => {
+        this.equipedPet.shift()
+        this.equipedPet = 0
+        this.petStrength = 0
+        this.petSpeed = 0
+        this.petAttackAmount = 0
+    }
 
     heroWeaponEquip = (weaponEquip) => {
         this.equipedHeroWeapon = weaponEquip
