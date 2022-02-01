@@ -16,7 +16,7 @@ const PetShop = () => {
             <div key={Math.random().toString(36)} className="petShop__name">{petList.name}</div>
             <div key={Math.random().toString(36)} className="petShop__cost">Cost: {heroMoneyConverter(petList.cost)}</div>
             <div key={Math.random().toString(36)} className="petShop__health">Health: {petList.health}</div>
-            <div key={Math.random().toString(36)} className="petShop__damage">Damage Multiplier: {petList.strength}</div>
+            <div key={Math.random().toString(36)} className="petShop__damage">Strength: {petList.strength}</div>
             <div key={Math.random().toString(36)} className="petShop__speed">Speed: {petList.speed}</div>
             <div key={Math.random().toString(36)} className="petShop__luck">Luck: {petList.luck}</div>
             <button className="petShop__buyButton" onClick={() => petPurchase(petList)} key={petList.id}>Buy</button>
