@@ -15,11 +15,11 @@ const HeroPetXpStatExchange = () => {
         if (experiance < petObject.statCost) {
             console.log('Not enough XP!');
         } else if (petStat === 'health'){
-            handlePetStatBuy(petObject, petStat)
             spendExperiance(petObject.healthStatCost)
-        } else {
             handlePetStatBuy(petObject, petStat)
+        } else {
             spendExperiance(petObject.statCost)
+            handlePetStatBuy(petObject, petStat)
         }
     }
 

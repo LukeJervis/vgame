@@ -5,7 +5,7 @@ class HeroStatsStore {
     allStores
 
     health = 100
-    strength = 1000000
+    strength = 10000
     speed = 1
     constitution = 1
     luck = 1
@@ -21,10 +21,8 @@ class HeroStatsStore {
     petStrength
     petSpeed
     petLuck
-
     equipedPet = {}
-
-    petAttackAmount = 0
+    petInterval
 
     constructor(store) {
         this.allStores = store
@@ -46,11 +44,17 @@ class HeroStatsStore {
             this.equipedPet = heroPet
             this.petStrength = heroPet.strength
             this.petSpeed = heroPet.speed
-            this.petAttackAmount = this.petStrength
-            console.log(this.allStores.countStore.experiance);
             this.heroPetAttackInterval()
         }
     }
+
+    // unequipPet = () => {
+    //     this.equipedPet.unshift()
+    //     this.equipedPet = 0
+    //     this.petStrength = 0
+    //     this.petSpeed = 0
+    //     this.petAttackAmount = 0
+    // }
 
     heroWeaponEquip = (weaponEquip) => {
         this.equipedHeroWeapon = weaponEquip
@@ -58,7 +62,7 @@ class HeroStatsStore {
     }
 
     handleStatBuy = (statPurchase) => {
-        if (statPurchase === 'strength'){
+        if (statPurchase === 'strength') {
             this.strength++
             this.statCost = this.statCost * 1.1
         } else if (statPurchase === 'speed') {
@@ -77,7 +81,6 @@ class HeroStatsStore {
 
     handlePetStatBuy = (petObject, petStat) => {
         if (petStat === 'strength') {
-            console.log(petObject);
             petObject.strength = petObject.strength + petObject.strengthIncrease
             petObject.statCost = petObject.statCost * petObject.statMulti
         } else if (petStat === 'speed') {
@@ -95,16 +98,17 @@ class HeroStatsStore {
         } else {
             console.log('handlePetStatBuy Error');
         }
+
+        clearInterval(this.petInterval)
+        this.heroPetAttackInterval()
     }
 
-
     heroPetAttackInterval = () => {
-        setInterval(this.heroPetAttack, 1000 / this.equipedPet.speed)
-        console.log("hit", this.equipedPet.speed);
+        this.petInterval = setInterval(this.heroPetAttack, 1000 / this.equipedPet.speed)
     }
 
     heroPetAttack = () => {
-        this.allStores.countStore.experiance = this.allStores.countStore.experiance + this.petAttackAmount
+        this.allStores.countStore.experiance = this.allStores.countStore.experiance + this.equipedPet.strength
     }
 
 }

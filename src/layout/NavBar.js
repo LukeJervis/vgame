@@ -1,8 +1,9 @@
 import HeroEquipmentShop from '../components/HeroEquipmentShop'
 import HeroInventoryModal from '../components/HeroInventoryModal'
 import HeroXpStatExchangeModal from '../components/modalHell/HeroXpStatExchangeModal'
-import PetShopModal from '../components/modalHell/PetShopModal'
+import MasterModal from '../components/modalHell/MasterModal'
 import HeroPetXpStatExchangeModal from '../components/modalHell/HeroPetXpStatExchangeModal'
+import PetShop from '../components/PetShop'
 
 const NavBar = () => {
 
@@ -18,7 +19,9 @@ const NavBar = () => {
                 <HeroXpStatExchangeModal />
             </div>
             <div className='navBar__button'>
-                <PetShopModal />
+                <MasterModal buttonName='Pet Shop' title='Pet Shop'>
+                    <PetShop />
+                </MasterModal>
             </div>
             <div className='navBar__button'>
                 <HeroPetXpStatExchangeModal />

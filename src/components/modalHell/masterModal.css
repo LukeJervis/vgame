@@ -1,5 +1,5 @@
 
-.petShopModal__modal {
+.masterModal__modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -13,7 +13,7 @@
 }
   
   /* Modal Content/Box */
-.petShopModal__modal--open {
+.masterModal__modal--open {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -21,22 +21,22 @@
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.petShopModal__modalContents {
+.masterModal__modalContents {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
   
   /* The Close Button */
-.petShopModal__modal--close {
+.masterModal__modal--close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
   
-.petShopModal__modal--close:hover,
-.petShopModal__modal--close:focus {
+.masterModal__modal--close:hover,
+.masterModal__modal--close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
