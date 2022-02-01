@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Slime",
+        "id": "3001",
+        "level": "1",
+        "health": "50",
+        "strength": "4",
+        "speed": "2",
+        "constitution": "1",
+        "luck": "1",
+        "xp": "100",
+        "moneyMin": "1",
+        "moneyMax": "10"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3002",
+        "level": "2",
+        "health": "60",
+        "strength": "5",
+        "speed": "3",
+        "constitution": "1",
+        "luck": "2",
+        "xp": "150",
+        "moneyMin": "5",
+        "moneyMax": "15"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3003",
+        "level": "3",
+        "health": "70",
+        "strength": "6",
+        "speed": "3",
+        "constitution": "1",
+        "luck": "3",
+        "xp": "200",
+        "moneyMin": "10",
+        "moneyMax": "20"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3004",
+        "level": "4",
+        "health": "80",
+        "strength": "7",
+        "speed": "4",
+        "constitution": "1",
+        "luck": "4",
+        "xp": "250",
+        "moneyMin": "15",
+        "moneyMax": "25"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3005",
+        "level": "5",
+        "health": "90",
+        "strength": "8",
+        "speed": "4",
+        "constitution": "1",
+        "luck": "5",
+        "xp": "300",
+        "moneyMin": "20",
+        "moneyMax": "30"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3006",
+        "level": "6",
+        "health": "100",
+        "strength": "9",
+        "speed": "5",
+        "constitution": "1",
+        "luck": "6",
+        "xp": "350",
+        "moneyMin": "25",
+        "moneyMax": "35"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3007",
+        "level": "7",
+        "health": "110",
+        "strength": "11",
+        "speed": "5",
+        "constitution": "1",
+        "luck": "7",
+        "xp": "400",
+        "moneyMin": "30",
+        "moneyMax": "40"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3008",
+        "level": "8",
+        "health": "120",
+        "strength": "12",
+        "speed": "6",
+        "constitution": "1",
+        "luck": "8",
+        "xp": "450",
+        "moneyMin": "35",
+        "moneyMax": "45"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3009",
+        "level": "9",
+        "health": "130",
+        "strength": "13",
+        "speed": "7",
+        "constitution": "1",
+        "luck": "9",
+        "xp": "500",
+        "moneyMin": "40",
+        "moneyMax": "50"
+    },
+
+    {
+        "name": "Slime",
+        "id": "3010",
+        "level": "10",
+        "health": "140",
+        "strength": "14",
+        "speed": "8",
+        "constitution": "1",
+        "luck": "10",
+        "xp": "550",
+        "moneyMin": "45",
+        "moneyMax": "55"
+    }
+]
+
