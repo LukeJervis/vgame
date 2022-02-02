@@ -3,9 +3,14 @@ import { observer } from "mobx-react"
 
 const BattleLocations = () => {
 
-    const randomMonster = () => {
-        
-    }
+    return (
+        <div className='battleLocations'>
+            <div className='battleLocations__cityOutskirts'>
+                City Outskirts
+                <button className='battleLocations__cityOutskirts--button'>Fight</button>
+            </div>
+        </div>
+    )
 
 }
 

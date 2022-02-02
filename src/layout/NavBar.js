@@ -4,6 +4,7 @@ import HeroXpStatExchangeModal from '../components/modalHell/HeroXpStatExchangeM
 import MasterModal from '../components/modalHell/MasterModal'
 import HeroPetXpStatExchangeModal from '../components/modalHell/HeroPetXpStatExchangeModal'
 import PetShop from '../components/PetShop'
+import BattleLocations from '../components/BattleLocations'
 
 const NavBar = () => {
 
@@ -25,6 +26,11 @@ const NavBar = () => {
             </div>
             <div className='navBar__button'>
                 <HeroPetXpStatExchangeModal />
+            </div>
+            <div className='navBar__button'>
+                <MasterModal>
+                    <BattleLocations buttonName='Patrol Areas' title='Patrol Areas'/>
+                </MasterModal>
             </div>
         </div>
     )
