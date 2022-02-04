@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import CountStore from './CountStore'
 import HeroStatsPage from './HeroStatsStore'
-import HeroEquipmentShopStore from './HeroEquipmentShopStore'
+import HeroActionStore from './HeroActionStore'
 import HeroInventoryStore from './HeroInventoryStore'
 import AppStore from './AppStore'
 
@@ -9,14 +9,14 @@ class RootStore {
     countStore;
     appStore;
     heroStatsPage;
-    heroEquipmentShopStore;
+    heroActionStore;
     heroInventoryStore;
 
     constructor() {
         this.countStore = new CountStore(this);
         this.heroStatsStore = new HeroStatsPage(this);
         this.heroInventoryStore = new HeroInventoryStore(this)
-        this.heroEquipmentShopStore = new HeroEquipmentShopStore(this);
+        this.heroActionStore = new HeroActionStore(this);
         this.appStore = new AppStore(this);
         makeAutoObservable(this);
     }

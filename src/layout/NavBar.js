@@ -28,8 +28,8 @@ const NavBar = () => {
                 <HeroPetXpStatExchangeModal />
             </div>
             <div className='navBar__button'>
-                <MasterModal>
-                    <BattleLocations buttonName='Patrol Areas' title='Patrol Areas'/>
+                <MasterModal buttonName='Patrol Areas' title='Patrol Areas'>
+                    <BattleLocations />
                 </MasterModal>
             </div>
         </div>

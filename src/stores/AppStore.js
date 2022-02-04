@@ -4,7 +4,7 @@ class AppStore {
     rootStore = null;
     countStore = null;
     heroStatsPage = null;
-    heroEquipmentShopStore = null;
+    heroActionStore = null;
     heroInventoryStore = null;
 
     constructor(rootStore) {
@@ -12,7 +12,7 @@ class AppStore {
         this.countStore = rootStore.countStore;
         this.heroStatsPage = rootStore.heroStatsPage;
         this.heroInventoryStore = rootStore.heroInventoryStore;
-        this.heroEquipmentShopStore = rootStore.heroEquipmentShopStore;
+        this.heroActionStore = rootStore.heroActionStore;
         makeAutoObservable(this);
     }
 }

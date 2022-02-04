@@ -1,16 +1,19 @@
-import Clicker from "../components/Clicker"
+import { observer } from "mobx-react"
+import { useRootStore } from '../provider/RootStoreProvider'
 import './actionArea.css'
 
 const ActionArea = () => {
+
+    const { heroActionStore: { selectedActionArea } } = useRootStore()
     
     return (
         <div className="actionArea__container">
             <div className="actionArea__clicker">
-                <Clicker />
+                {selectedActionArea}
             </div>
         </div>
     )
 
 }
 
-export default ActionArea
+export default observer(ActionArea)
