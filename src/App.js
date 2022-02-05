@@ -1,7 +1,8 @@
 import './App.css';
 import Header from './layout/Header'
 import ActionArea from './layout/ActionArea'
-import NavBar from './layout/NavBar';
+import NavBar from './layout/NavBar'
+import HeroStatus from './layout/HeroStatus';
 
 function App() {
 
@@ -16,6 +17,9 @@ function App() {
         </div>
         <div className='App__actionArea'>
           <ActionArea />
+        </div>
+        <div className='App__heroStatus'>
+          <HeroStatus />
         </div>
       </div>
     </div>

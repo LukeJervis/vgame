@@ -1,0 +1,22 @@
+
+.patrolBattle__container {
+    width: 100%;
+    height: 100%
+}
+
+.patrolBattle__infoCollection {
+    background-color: rgb(132, 132, 255);
+    border-bottom: white solid;
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.PatrolBattle--attack {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border: rgb(255, 255, 255) solid;
+    background-color: rgb(132, 132, 255);
+    height: 100%
+}

@@ -6,3 +6,7 @@ export const heroMoneyConverter = (amount) => {
     const goldCoin = (amount.toString().slice(-8, -6) <= 0) ? 0 : amount.toString().slice(-8, -6)
         return `Iron Coins: ${ironCoin} - Copper Coins: ${copperCoin} - Silver Coins: ${silverCoin} - Gold Coins: ${goldCoin}`
 }
+
+export const randomNumber = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min)
+}
