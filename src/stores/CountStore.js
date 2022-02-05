@@ -8,7 +8,7 @@ class CountStore {
     levelMultiplier = 1.5
     experianceNeeded = 10
 
-    heroMoney = 100
+    heroMoney = 0
     ironCoin = '0'
     copperCoin = '0'
     silverCoin = '0'
