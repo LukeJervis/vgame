@@ -50,8 +50,8 @@ export default observer(PatrolBattle)
     create attack logic          }                      /
     create being attacked logic  ¦                      /
     check monster health above 0 ¦                      /
-    check hero health above 0    }---- Maybe in store - HeroActionStore
-    hero death penalty           ¦
+    check hero health above 0    }                      /
+    hero death penalty           ¦                      
     monster death reward         }                      /
-    Create continue button
+    Create continue button                              /
 */

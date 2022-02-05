@@ -1,6 +1,5 @@
 import { observer } from "mobx-react"
 import { useRootStore } from '../provider/RootStoreProvider'
-import PatrolBattle from './PatrolLocations/PatrolBattle'
 
 const BattleLocations = () => {
 

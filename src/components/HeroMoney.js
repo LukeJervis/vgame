@@ -8,6 +8,7 @@ const HeroMoney = () => {
 
     useEffect(() => {
         coinSort()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [heroMoney])
 
     return (
