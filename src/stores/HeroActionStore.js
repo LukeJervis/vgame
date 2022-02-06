@@ -39,6 +39,7 @@ class HeroActionStore {
             this.monsterMoneyDrop = 0
             this.selectedActionArea = null
             this.selectedActionArea = <Clicker />
+            this.allStores.heroStatsStore.health = 100
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
         } else {
