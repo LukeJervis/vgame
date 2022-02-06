@@ -36,6 +36,7 @@ const PatrolBattle = (props) => {
                 </div>
                 HIT
                 <button className='PatrolBattle__continueButton' onClick={continuePatrol}>Continue</button>
+                <button className='PatrolBattle__backButton' onClick={() => patrolBattleStart()}>Back</button>
             </div>
         </div>
     )

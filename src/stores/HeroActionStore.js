@@ -30,6 +30,15 @@ class HeroActionStore {
     patrolBattleStart = (location) => {
         if (!location) {
             this.selectedActionArea = <Clicker />
+            this.monster = null
+            this.monsterName = 0
+            this.monsterHealth = 0
+            this.monsterStrength = 0
+            this.monsterSpeed = 0
+            this.monsterLevel = 0
+            this.monsterMoneyDrop = 0
+            this.selectedActionArea = null
+            this.selectedActionArea = <Clicker />
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
         } else {
