@@ -3,12 +3,18 @@ import { useRootStore } from '../provider/RootStoreProvider'
 
 const HeroStatus = () => {
 
-    const { heroStatsStore: { health } } = useRootStore()
+    const { heroStatsStore: { maxHealth, health, equipedHeroWeapon, equipedPet } } = useRootStore()
 
     return (
         <div className="heroStatus__container">
             <div className="heroStatus__health">
-                Health: {health}
+                Health: {health}/{maxHealth}
+            </div>
+            <div className='heroStatus__weapon'>
+                Eqiuped weapon: {equipedHeroWeapon.name}
+            </div>
+            <div className='heroStatus__pet'>
+                Equiped pet: {equipedPet.name}
             </div>
         </div>
     )

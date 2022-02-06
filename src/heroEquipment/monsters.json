@@ -22,7 +22,7 @@
         "speed": "3",
         "constitution": "1",
         "luck": "2",
-        "xp": "150",
+        "xp": "110",
         "moneyMin": "5",
         "moneyMax": "15"
     },
@@ -31,12 +31,12 @@
         "name": "Slime",
         "id": "3003",
         "level": "3",
-        "health": "70",
+        "health": "80",
         "strength": "6",
         "speed": "3",
-        "constitution": "1",
+        "constitution": "2",
         "luck": "3",
-        "xp": "200",
+        "xp": "120",
         "moneyMin": "10",
         "moneyMax": "20"
     },
@@ -45,12 +45,12 @@
         "name": "Slime",
         "id": "3004",
         "level": "4",
-        "health": "80",
+        "health": "100",
         "strength": "7",
         "speed": "4",
-        "constitution": "1",
+        "constitution": "2",
         "luck": "4",
-        "xp": "250",
+        "xp": "130",
         "moneyMin": "15",
         "moneyMax": "25"
     },
@@ -59,12 +59,12 @@
         "name": "Slime",
         "id": "3005",
         "level": "5",
-        "health": "90",
+        "health": "120",
         "strength": "8",
         "speed": "4",
-        "constitution": "1",
+        "constitution": "3",
         "luck": "5",
-        "xp": "300",
+        "xp": "140",
         "moneyMin": "20",
         "moneyMax": "30"
     },
@@ -73,12 +73,12 @@
         "name": "Slime",
         "id": "3006",
         "level": "6",
-        "health": "100",
+        "health": "140",
         "strength": "9",
         "speed": "5",
-        "constitution": "1",
+        "constitution": "3",
         "luck": "6",
-        "xp": "350",
+        "xp": "150",
         "moneyMin": "25",
         "moneyMax": "35"
     },
@@ -87,12 +87,12 @@
         "name": "Slime",
         "id": "3007",
         "level": "7",
-        "health": "110",
+        "health": "160",
         "strength": "11",
         "speed": "5",
-        "constitution": "1",
+        "constitution": "4",
         "luck": "7",
-        "xp": "400",
+        "xp": "160",
         "moneyMin": "30",
         "moneyMax": "40"
     },
@@ -101,12 +101,12 @@
         "name": "Slime",
         "id": "3008",
         "level": "8",
-        "health": "120",
+        "health": "180",
         "strength": "12",
         "speed": "6",
-        "constitution": "1",
+        "constitution": "4",
         "luck": "8",
-        "xp": "450",
+        "xp": "170",
         "moneyMin": "35",
         "moneyMax": "45"
     },
@@ -115,12 +115,12 @@
         "name": "Slime",
         "id": "3009",
         "level": "9",
-        "health": "130",
+        "health": "200",
         "strength": "13",
         "speed": "7",
-        "constitution": "1",
+        "constitution": "5",
         "luck": "9",
-        "xp": "500",
+        "xp": "180",
         "moneyMin": "40",
         "moneyMax": "50"
     },
@@ -129,14 +129,366 @@
         "name": "Slime",
         "id": "3010",
         "level": "10",
-        "health": "140",
+        "health": "220",
         "strength": "14",
         "speed": "8",
-        "constitution": "1",
+        "constitution": "5",
         "luck": "10",
-        "xp": "550",
+        "xp": "190",
         "moneyMin": "45",
         "moneyMax": "55"
+    },
+
+
+
+    {
+        "name": "Silver Slime",
+        "id": "3011",
+        "level": "11",
+        "health": "250",
+        "strength": "10",
+        "speed": "10",
+        "constitution": "15",
+        "luck": "11",
+        "xp": "200",
+        "moneyMin": "55",
+        "moneyMax": "65"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3012",
+        "level": "12",
+        "health": "260",
+        "strength": "10",
+        "speed": "12",
+        "constitution": "20",
+        "luck": "12",
+        "xp": "210",
+        "moneyMin": "65",
+        "moneyMax": "75"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3013",
+        "level": "13",
+        "health": "280",
+        "strength": "10",
+        "speed": "14",
+        "constitution": "25",
+        "luck": "13",
+        "xp": "220",
+        "moneyMin": "75",
+        "moneyMax": "85"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3014",
+        "level": "14",
+        "health": "300",
+        "strength": "10",
+        "speed": "16",
+        "constitution": "35",
+        "luck": "14",
+        "xp": "230",
+        "moneyMin": "85",
+        "moneyMax": "95"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3015",
+        "level": "15",
+        "health": "320",
+        "strength": "10",
+        "speed": "18",
+        "constitution": "40",
+        "luck": "15",
+        "xp": "240",
+        "moneyMin": "95",
+        "moneyMax": "105"
+    },
+
+    {
+        "name": "Horned Boar",
+        "id": "30016",
+        "level": "15",
+        "health": "600",
+        "strength": "40",
+        "speed": "5",
+        "constitution": "5",
+        "luck": "15",
+        "xp": "260",
+        "moneyMin": "90",
+        "moneyMax": "110"
+    },
+
+    {
+        "name": "Flash Rabbit",
+        "id": "3017",
+        "level": "15",
+        "health": "200",
+        "strength": "5",
+        "speed": "45",
+        "constitution": "2",
+        "luck": "16",
+        "xp": "260",
+        "moneyMin": "90",
+        "moneyMax": "110"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3018",
+        "level": "16",
+        "health": "340",
+        "strength": "10",
+        "speed": "20",
+        "constitution": "45",
+        "luck": "17",
+        "xp": "280",
+        "moneyMin": "100",
+        "moneyMax": "110"
+    },
+
+    {
+        "name": "Horned Boar",
+        "id": "3019",
+        "level": "16",
+        "health": "650",
+        "strength": "42",
+        "speed": "5",
+        "constitution": "5",
+        "luck": "9",
+        "xp": "300",
+        "moneyMin": "100",
+        "moneyMax": "110"
+    },
+
+    {
+        "name": "Flash Rabbit",
+        "id": "3020",
+        "level": "16",
+        "health": "220",
+        "strength": "5",
+        "speed": "48",
+        "constitution": "2",
+        "luck": "10",
+        "xp": "280",
+        "moneyMin": "100",
+        "moneyMax": "110"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3021",
+        "level": "17",
+        "health": "360",
+        "strength": "10",
+        "speed": "22",
+        "constitution": "50",
+        "luck": "17",
+        "xp": "300",
+        "moneyMin": "110",
+        "moneyMax": "120"
+    },
+
+    {
+        "name": "Horned Boar",
+        "id": "3022",
+        "level": "17",
+        "health": "700",
+        "strength": "46",
+        "speed": "5",
+        "constitution": "5",
+        "luck": "9",
+        "xp": "310",
+        "moneyMin": "110",
+        "moneyMax": "120"
+    },
+
+    {
+        "name": "Flash Rabbit",
+        "id": "3023",
+        "level": "17",
+        "health": "240",
+        "strength": "5",
+        "speed": "50",
+        "constitution": "2",
+        "luck": "10",
+        "xp": "310",
+        "moneyMin": "110",
+        "moneyMax": "120"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3022",
+        "level": "18",
+        "health": "380",
+        "strength": "10",
+        "speed": "24",
+        "constitution": "55",
+        "luck": "17",
+        "xp": "320",
+        "moneyMin": "120",
+        "moneyMax": "130"
+    },
+
+    {
+        "name": "Horned Boar",
+        "id": "3023",
+        "level": "18",
+        "health": "750",
+        "strength": "48",
+        "speed": "5",
+        "constitution": "5",
+        "luck": "9",
+        "xp": "330",
+        "moneyMin": "120",
+        "moneyMax": "130"
+    },
+
+    {
+        "name": "Flash Rabbit",
+        "id": "3024",
+        "level": "18",
+        "health": "260",
+        "strength": "5",
+        "speed": "52",
+        "constitution": "2",
+        "luck": "10",
+        "xp": "310",
+        "moneyMin": "120",
+        "moneyMax": "130"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3025",
+        "level": "19",
+        "health": "400",
+        "strength": "10",
+        "speed": "26",
+        "constitution": "60",
+        "luck": "17",
+        "xp": "340",
+        "moneyMin": "130",
+        "moneyMax": "140"
+    },
+
+    {
+        "name": "Horned Boar",
+        "id": "3026",
+        "level": "19",
+        "health": "800",
+        "strength": "52",
+        "speed": "5",
+        "constitution": "5",
+        "luck": "9",
+        "xp": "350",
+        "moneyMin": "130",
+        "moneyMax": "140"
+    },
+
+    {
+        "name": "Flash Rabbit",
+        "id": "3027",
+        "level": "19",
+        "health": "280",
+        "strength": "5",
+        "speed": "56",
+        "constitution": "2",
+        "luck": "10",
+        "xp": "350",
+        "moneyMin": "130",
+        "moneyMax": "140"
+    },
+
+    {
+        "name": "Silver Slime",
+        "id": "3028",
+        "level": "20",
+        "health": "420",
+        "strength": "10",
+        "speed": "26",
+        "constitution": "65",
+        "luck": "17",
+        "xp": "360",
+        "moneyMin": "140",
+        "moneyMax": "150"
+    },
+
+    {
+        "name": "Horned Boar",
+        "id": "3029",
+        "level": "20",
+        "health": "850",
+        "strength": "56",
+        "speed": "5",
+        "constitution": "5",
+        "luck": "9",
+        "xp": "370",
+        "moneyMin": "140",
+        "moneyMax": "150"
+    },
+
+    {
+        "name": "Flash Rabbit",
+        "id": "3030",
+        "level": "20",
+        "health": "300",
+        "strength": "5",
+        "speed": "60",
+        "constitution": "2",
+        "luck": "10",
+        "xp": "370",
+        "moneyMin": "140",
+        "moneyMax": "150"
+    },
+
+    {
+        "name": "Giant Slime (Field Boss)",
+        "id": "3031",
+        "level": "20",
+        "health": "1500",
+        "strength": "30",
+        "speed": "20",
+        "constitution": "20",
+        "luck": "100",
+        "xp": "1000",
+        "moneyMin": "350",
+        "moneyMax": "450"
+    },
+
+    {
+        "name": "Steel Horned Boar (Field Boss)",
+        "id": "3032",
+        "level": "20",
+        "health": "2000",
+        "strength": "120",
+        "speed": "5",
+        "constitution": "20",
+        "luck": "9",
+        "xp": "1000",
+        "moneyMin": "350",
+        "moneyMax": "450"
+    },
+
+    {
+        "name": "Evansish Rabbit (Field Boss)",
+        "id": "3030",
+        "level": "20",
+        "health": "1000",
+        "strength": "12",
+        "speed": "60",
+        "constitution": "2",
+        "luck": "10",
+        "xp": "1000",
+        "moneyMin": "350",
+        "moneyMax": "450"
     }
 ]
 

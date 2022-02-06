@@ -18,6 +18,7 @@ class HeroActionStore {
     monsterLuck
     monsterLevel
     monsterInterval
+    monsterXp
     underAttack = false
 
     heroHealthCheckInterval
@@ -27,9 +28,8 @@ class HeroActionStore {
         makeAutoObservable(this);
     }
 
-    patrolBattleStart = (location) => {
+    patrolBattleStart = (location, num1, num2) => {
         if (!location) {
-            this.selectedActionArea = <Clicker />
             this.monster = null
             this.monsterName = 0
             this.monsterHealth = 0
@@ -37,20 +37,25 @@ class HeroActionStore {
             this.monsterSpeed = 0
             this.monsterLevel = 0
             this.monsterMoneyDrop = 0
+            this.monsterXp = 0
             this.selectedActionArea = null
-            this.selectedActionArea = <Clicker />
             this.allStores.heroStatsStore.health = 100
+            clearInterval(this.monsterInterval)
+            clearInterval(this.heroHealthCheckInterval)
+            this.selectedActionArea = <Clicker />
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
         } else {
-            this.monster = monsters[randomNumber(0, 9)]
+            console.log(num1);
+            this.monster = monsters[randomNumber(num1, num2)]
             this.monsterName = this.monster.name
             this.monsterHealth = this.monster.health
             this.monsterStrength = this.monster.strength - this.allStores.heroStatsStore.constitution
             this.monsterSpeed = this.monster.speed / this.allStores.heroStatsStore.speed
             this.monsterLevel = this.monster.level
+            this.monsterXp = this.monster.xp
             this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
-            this.selectedActionArea = <PatrolBattle location="City Outskirts" />
+            this.selectedActionArea = <PatrolBattle location={location} />
         }
     }
     
@@ -104,12 +109,14 @@ class HeroActionStore {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
+        
     }
 
     patrolLoss = () => {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
         this.allStores.countStore.money = this.allStores.countStore.heroMoney *= 0.9
+        this.allStores.countStore.coinSort()
         this.allStores.heroStatsStore.equipedPet.health--
     }
     

@@ -2,6 +2,8 @@ import { makeAutoObservable } from "mobx";
 
 class CountStore {
 
+    allStores
+
     experiance = 0
     heroWeapon = 0
     heroLevel = 1
@@ -14,7 +16,8 @@ class CountStore {
     silverCoin = '0'
     goldCoin = '0'
 
-    constructor() {
+    constructor(store) {
+        this.allStores = store
         makeAutoObservable(this);
     }
 
@@ -31,6 +34,8 @@ class CountStore {
 
     HerolevelIncrease = () => {
         this.heroLevel++
+        this.allStores.heroStatsStore.maxHealth = this.allStores.heroStatsStore.maxHealth + 10
+        this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth
         this.experianceNeeded = this.heroLevel * (this.heroLevel * (this.heroLevel * this.heroLevel)) * this.levelMultiplier
         this.experiance = 0
         if (this.heroLevel.toString().slice(-1)) {
@@ -43,6 +48,10 @@ class CountStore {
         this.copperCoin = (this.heroMoney.toString().slice(-4, -2) <= 0) ? 0 : this.heroMoney.toString().slice(-4, -2)
         this.silverCoin = (this.heroMoney.toString().slice(-6, -4) <= 0) ? 0 : this.heroMoney.toString().slice(-6, -4)
         this.goldCoin = (this.heroMoney.toString().slice(-8, -6) <= 0) ? 0 : this.heroMoney.toString().slice(-8, -6)
+        this.heroMoney = Math.floor(this.heroMoney)
+        if (this.heroMoney <= 0) {
+            this.heroMoney = 0
+        }
     }
 
     purchaseMoneyCount = (amount) => {
