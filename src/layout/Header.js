@@ -12,7 +12,7 @@ const Header = () => {
             <div className="header__heroLevel">
                 <HeroLevelDisplay />
             </div>
-            <div className="header__heroExperiance">
+            <div className="header__heroExperience">
                 <Counter />
             </div>
             <div className="header__heroMoney">

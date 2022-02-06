@@ -4,12 +4,12 @@ import './clicker.css'
 
 const Clicker = () => {
 
-    const { countStore: { experianceIncrease } } = useRootStore()
+    const { countStore: { experienceIncrease } } = useRootStore()
     const { heroStatsStore: { heroAttackAmount, heroAttackCalc } } = useRootStore()
 
     const heroAttack = () => {
         heroAttackCalc()
-        experianceIncrease(heroAttackAmount)
+        experienceIncrease(heroAttackAmount)
     }
 
     return (

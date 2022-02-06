@@ -3,7 +3,7 @@ import { observer } from "mobx-react"
 
 const HeroPetXpStatExchange = () => {
     const { heroInventoryStore: { heroPetSlotsArray } } = useRootStore()
-    const { countStore: { experiance, spendExperiance } } = useRootStore ()
+    const { countStore: { experience, spendexperience } } = useRootStore ()
     const { heroStatsStore: { handlePetStatBuy } } = useRootStore()
 
     const strengthBuy = 'strength'
@@ -12,13 +12,13 @@ const HeroPetXpStatExchange = () => {
     const healthBuy = 'health'
 
     const petStatBuy = (petObject, petStat) => {
-        if (experiance < petObject.statCost) {
+        if (experience < petObject.statCost) {
             console.log('Not enough XP!');
         } else if (petStat === 'health'){
-            spendExperiance(petObject.healthStatCost)
+            spendexperience(petObject.healthStatCost)
             handlePetStatBuy(petObject, petStat)
         } else {
-            spendExperiance(petObject.statCost)
+            spendexperience(petObject.statCost)
             handlePetStatBuy(petObject, petStat)
         }
     }

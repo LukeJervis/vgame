@@ -3,7 +3,7 @@ import { useRootStore } from '../provider/RootStoreProvider'
 
 const HeroXpStatExchange = () => {
     const { heroStatsStore: { strength, speed, constitution, luck, statCost, handleStatBuy } } = useRootStore()
-    const { countStore: { experiance, spendExperiance } } = useRootStore()
+    const { countStore: { experience, spendexperience } } = useRootStore()
 
     const strengthBuy = 'strength'
     const speedBuy = 'speed'
@@ -12,11 +12,11 @@ const HeroXpStatExchange = () => {
 
     const statBuy = (selectedStat) => {
         console.log('selectedStat', selectedStat);
-        if (experiance < statCost) {
+        if (experience < statCost) {
             console.log('Not enough XP!');
         } else {
             handleStatBuy(selectedStat)
-            spendExperiance(statCost)
+            spendexperience(statCost)
         }
     }
 

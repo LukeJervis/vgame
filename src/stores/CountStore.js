@@ -4,11 +4,11 @@ class CountStore {
 
     allStores
 
-    experiance = 0
+    experience = 0
     heroWeapon = 0
     heroLevel = 1
     levelMultiplier = 1.5
-    experianceNeeded = 10
+    experienceNeeded = 10
 
     heroMoney = 0
     ironCoin = '0'
@@ -21,13 +21,13 @@ class CountStore {
         makeAutoObservable(this);
     }
 
-    experianceIncrease = (props) => {
-        this.experiance = this.experiance + props
+    experienceIncrease = (props) => {
+        this.experience = this.experience + props
         this.levelCalc()
     }
 
     levelCalc = () => {
-        if (this.experianceNeeded <= this.experiance) {
+        if (this.experienceNeeded <= this.experience) {
             this.HerolevelIncrease()
         }
     }
@@ -36,8 +36,8 @@ class CountStore {
         this.heroLevel++
         this.allStores.heroStatsStore.maxHealth = this.allStores.heroStatsStore.maxHealth + 10
         this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth
-        this.experianceNeeded = this.heroLevel * (this.heroLevel * (this.heroLevel * this.heroLevel)) * this.levelMultiplier
-        this.experiance = 0
+        this.experienceNeeded = this.heroLevel * (this.heroLevel * (this.heroLevel * this.heroLevel)) * this.levelMultiplier
+        this.experience = 0
         if (this.heroLevel.toString().slice(-1)) {
             this.heroMoney = this.heroMoney + (this.heroLevel * this.heroLevel)
         }
@@ -58,8 +58,8 @@ class CountStore {
         this.heroMoney = this.heroMoney - amount
     }
 
-    spendExperiance = (amount) => {
-        this.experiance  = this.experiance - amount
+    spendexperience = (amount) => {
+        this.experience  = this.experience - amount
     }
 
 }

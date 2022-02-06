@@ -2,22 +2,22 @@ import { observer } from 'mobx-react'
 import { useRootStore } from '../provider/RootStoreProvider'
 import './counter.css'
 
-const ExperianceCounter = () => {
+const ExperienceCounter = () => {
 
-    const { countStore: {experiance, experianceNeeded} } = useRootStore()
+    const { countStore: {experience, experienceNeeded} } = useRootStore()
 
     return(
 
-    <div className="ExperianceCounter__container">
-        <div className='ExperianceCounter__count'>
-            XP {Math.round(experiance)}
+    <div className="experienceCounter__container">
+        <div className='experienceCounter__count'>
+            XP {Math.round(experience)}
         </div>
-        <div className='ExperianceCounter__experianceNeeded'>
-            XP Needed {experianceNeeded.toFixed(2)}
+        <div className='experienceCounter__experienceNeeded'>
+            XP Needed {experienceNeeded.toFixed(2)}
         </div>
     </div>
 
     )
 }
 
-export default observer(ExperianceCounter)
+export default observer(ExperienceCounter)

@@ -109,8 +109,8 @@ class HeroStatsStore {
     }
 
     heroPetAttack = () => {
-        this.allStores.countStore.experiance = this.allStores.countStore.experiance + this.equipedPet.strength
-        if (this.allStores.countStore.experiance >= this.allStores.countStore.experianceNeeded) {   
+        this.allStores.countStore.experience = this.allStores.countStore.experience + this.equipedPet.strength
+        if (this.allStores.countStore.experience >= this.allStores.countStore.experienceNeeded) {   
             this.allStores.countStore.HerolevelIncrease()
         }
     }

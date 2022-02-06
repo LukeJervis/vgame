@@ -109,7 +109,7 @@ class HeroActionStore {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
-        this.allStores.countStore.experiance = this.allStores.countStore.experiance + this.monsterXp
+        this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
     }
 
     patrolLoss = () => {
