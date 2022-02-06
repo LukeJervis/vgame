@@ -5,10 +5,13 @@ import './patrolBattle.css'
 const PatrolBattle = (props) => {
     
     const { heroActionStore: { patrolBattleAttack, monsterHealth, monsterLevel, monsterName, underAttack, patrolBattleStart } } = useRootStore()
+    const { heroStatsStore: { health } } = useRootStore()
 
     const continuePatrol = () => {
         if (underAttack) {
             console.log('Still in battle')
+        } else if (health <= 0){
+            console.log('You is dead brah');
         } else {
             patrolBattleStart(props.location)
         }

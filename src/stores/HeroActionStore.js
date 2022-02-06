@@ -30,6 +30,8 @@ class HeroActionStore {
     patrolBattleStart = (location) => {
         if (!location) {
             this.selectedActionArea = <Clicker />
+        } else if (this.allStores.heroStatsStore.health <= 0) {
+            console.log('Erm... your dead?')
         } else {
             this.monster = monsters[randomNumber(0, 9)]
             this.monsterName = this.monster.name
@@ -45,11 +47,14 @@ class HeroActionStore {
     patrolBattleAttack = () => {
         this.allStores.heroStatsStore.heroAttackCalc()
 
-        if (this.monsterHealth <= 0 ) {
+        if (this.monsterHealth <= 0) {
             console.log('He dead yo!');
         } else if (this.allStores.heroStatsStore.heroAttackAmount > this.monsterHealth) {
             this.monsterHealth = 0
+            this.underAttack = false
             this.patrolWin()
+        } else if (this.allStores.heroStatsStore.health <= 0) {
+            console.log('ye ded!');
         } else {
             if (!this.underAttack) {
                 this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount
@@ -59,6 +64,7 @@ class HeroActionStore {
             } else {
                 this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount
                 if (this.monsterHealth <= 0) {
+                    this.underAttack = false
                     this.patrolWin()
                 }
             }
@@ -71,6 +77,7 @@ class HeroActionStore {
     
     heroHealthStatement = () => {
         if (this.allStores.heroStatsStore.health <= 0) {
+            this.underAttack = false
             this.patrolLoss()
         }
     }
@@ -86,14 +93,12 @@ class HeroActionStore {
     patrolWin = () => {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
-        this.underAttack = false
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
     }
 
     patrolLoss = () => {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
-        this.underAttack = false
         this.allStores.countStore.money = this.allStores.countStore.heroMoney *= 0.9
         this.allStores.heroStatsStore.equipedPet.health--
     }
