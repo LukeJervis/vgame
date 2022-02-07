@@ -56,7 +56,7 @@ class HeroActionStore {
             this.monsterStrength = this.monster.strength - this.allStores.heroStatsStore.constitution
             this.monsterSpeed = this.monster.speed / this.allStores.heroStatsStore.speed
             this.monsterLevel = this.monster.level
-            this.monsterXp = this.monster.xp
+            this.monsterXp = +this.monster.xp
             this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
             this.selectedActionArea = <PatrolBattle location={location} num1={num1} num2={num2} />
         }
