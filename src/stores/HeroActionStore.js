@@ -3,7 +3,6 @@ import Clicker from "../components/Clicker";
 import monsters from '../heroEquipment/monsters.json'
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from '../components/helpers'
-import InfoModal from '../components/modalHell/InfoModal'
 
 class HeroActionStore {
 
