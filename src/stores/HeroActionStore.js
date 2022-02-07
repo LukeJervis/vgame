@@ -42,7 +42,7 @@ class HeroActionStore {
             this.monsterMoneyDrop = 0
             this.monsterXp = 0
             this.selectedActionArea = null
-            this.allStores.heroStatsStore.health = 100
+            this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth
             clearInterval(this.monsterInterval)
             clearInterval(this.heroHealthCheckInterval)
             this.selectedActionArea = <Clicker />
