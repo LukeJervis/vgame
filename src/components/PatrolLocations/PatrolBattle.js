@@ -13,7 +13,7 @@ const PatrolBattle = (props) => {
         } else if (health <= 0){
             console.log('You is dead brah');
         } else {
-            patrolBattleStart(props.location)
+            patrolBattleStart(props.location, props.num1, props.num2)
         }
     }
 
@@ -43,19 +43,3 @@ const PatrolBattle = (props) => {
 }
 
 export default observer(PatrolBattle)
-
-/*
-    load hero health                                    /
-    random number maker 0 - 9                           /
-    number used to select slime in array                /
-    get stats of slime                                  /
-    use stats to remove hero health                     /
-    clickable div to reduce monster health              /
-    create attack logic          }                      /
-    create being attacked logic  ¦                      /
-    check monster health above 0 ¦                      /
-    check hero health above 0    }                      /
-    hero death penalty           ¦                      
-    monster death reward         }                      /
-    Create continue button                              /
-*/

@@ -6,7 +6,7 @@ class HeroStatsStore {
 
     maxHealth = 100
     health = 100
-    strength = 1
+    strength = 10
     speed = 1
     constitution = 1
     luck = 1
