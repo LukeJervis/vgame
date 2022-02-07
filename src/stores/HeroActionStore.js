@@ -3,6 +3,7 @@ import Clicker from "../components/Clicker";
 import monsters from '../heroEquipment/monsters.json'
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from '../components/helpers'
+import InfoModal from '../components/modalHell/InfoModal'
 
 class HeroActionStore {
 
@@ -19,6 +20,8 @@ class HeroActionStore {
     monsterLevel
     monsterInterval
     monsterXp
+    monsterMoneyDrop
+    monsterDeath = false
     underAttack = false
 
     heroHealthCheckInterval
@@ -55,7 +58,7 @@ class HeroActionStore {
             this.monsterLevel = this.monster.level
             this.monsterXp = this.monster.xp
             this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
-            this.selectedActionArea = <PatrolBattle location={location} />
+            this.selectedActionArea = <PatrolBattle location={location} num1={num1} num2={num2} />
         }
     }
     
@@ -108,8 +111,12 @@ class HeroActionStore {
     patrolWin = () => {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
-        this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
+        this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
+        this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
+        console.log('this.monsterDeath', this.monsterDeath);
+        this.monsterDeath = true
+        console.log('this.monsterDeath', this.monsterDeath);
     }
 
     patrolLoss = () => {
