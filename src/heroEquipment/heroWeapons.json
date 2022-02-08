@@ -23,16 +23,44 @@
 
     {
         "id": 4,
-        "name": "Wooden Sword",
+        "name": "Pickaxe Handle",
         "cost": 200,
         "damage": 2.5
     }, 
 
     {
         "id": 5,
-        "name": "Training Sword",
+        "name": "Bronze Short Sword",
         "cost": 1000,
         "damage": 4
+    },
+
+    {
+        "id": 6,
+        "name": "Supi",
+        "cost": 2000,
+        "damage": 5
+    },
+
+    {
+        "id": 7,
+        "name": "Sali",
+        "cost": 4000,
+        "damage": 6
+    },
+
+    {
+        "id": 8,
+        "name": "Flail",
+        "cost": 8000,
+        "damage": 8
+    },
+
+    {
+        "id": 9,
+        "name": "Morning Star",
+        "cost": 16000,
+        "damage": 10
     }
 
 ]

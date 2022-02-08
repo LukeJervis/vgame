@@ -30,6 +30,10 @@ class HeroStatsStore {
         makeAutoObservable(this);
     }
 
+    get heroDeath() {
+        return this.health <= 0
+    }
+
     heroAttackCalc = () => {
         this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage
     }

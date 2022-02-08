@@ -3,6 +3,7 @@ import Clicker from "../components/Clicker";
 import monsters from '../heroEquipment/monsters.json'
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from '../components/helpers'
+import InfoModal from "../components/modalHell/InfoModal";
 
 class HeroActionStore {
 
@@ -11,8 +12,8 @@ class HeroActionStore {
     selectedActionArea = <Clicker />
 
     monster
-    monsterName
-    monsterHealth = '0'
+    monsterName = ''
+    monsterHealth = 1
     monsterStrength
     monsterSpeed
     monsterLuck
@@ -20,7 +21,6 @@ class HeroActionStore {
     monsterInterval
     monsterXp
     monsterMoneyDrop
-    monsterDeath = false
     underAttack = false
 
     heroHealthCheckInterval
@@ -30,11 +30,14 @@ class HeroActionStore {
         makeAutoObservable(this);
     }
 
+    get monsterDeath() {
+        return this.monsterHealth <= 0
+    }
+
     patrolBattleStart = (location, num1, num2) => {
         if (!location) {
             this.monster = null
             this.monsterName = 0
-            this.monsterHealth = 0
             this.monsterStrength = 0
             this.monsterSpeed = 0
             this.monsterLevel = 0
@@ -48,7 +51,6 @@ class HeroActionStore {
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
         } else {
-            console.log(num1);
             this.monster = monsters[randomNumber(num1, num2)]
             this.monsterName = this.monster.name
             this.monsterHealth = this.monster.health
@@ -113,9 +115,6 @@ class HeroActionStore {
         this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
-        console.log('this.monsterDeath', this.monsterDeath);
-        this.monsterDeath = true
-        console.log('this.monsterDeath', this.monsterDeath);
     }
 
     patrolLoss = () => {
