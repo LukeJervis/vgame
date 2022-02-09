@@ -14,7 +14,7 @@
         "luck": 10,
         "luckIncrease": 10,
         "statMulti": 2,
-        "statCost": 1000,
+        "statCost": 100,
         "healthStatCost": 1000
     },
     
@@ -32,7 +32,7 @@
         "luck": 1,
         "luckIncrease": 1,
         "statMulti": 2,
-        "statCost": 1000,
+        "statCost": 100,
         "healthStatCost": 1000
     },
 
@@ -50,7 +50,7 @@
         "luck": 5,
         "luckIncrease": 5,
         "statMulti": 1.9,
-        "statCost": 1000,
+        "statCost": 100,
         "healthStatCost": 1000
     }
 ]

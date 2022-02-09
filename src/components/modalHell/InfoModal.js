@@ -75,7 +75,6 @@ const InfoModal = () => {
             <div className="infoModal">
                 <div id={`infoModal__${monsterName}`} className="infoModal__modal">
                     <div className='infoModal__modal--open'>
-                        {/* <span className="infoModal__modal--close" onClick={closeModal}>&times;</span>  */}
                         <div className='infoModal__modalContents'>
                             {`You killed ${monsterName} level: ${monsterLevel}!`}
                         </div>
@@ -96,7 +95,6 @@ const InfoModal = () => {
                 <div className="infoModal">
                 <div id={`infoModal__${monsterName}`} className="infoModal__modal">
                     <div className='infoModal__modal--open'>
-                        {/* <span className="infoModal__modal--close" onClick={closeModal}>&times;</span>   */}
                         <div className='infoModal__modalContents'>
                             {`You were killed by a ${monsterName} level: ${monsterLevel}!`}
                         </div>

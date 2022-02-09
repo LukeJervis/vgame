@@ -72,10 +72,9 @@ class HeroActionStore {
     
     patrolBattleAttack = () => {
         this.allStores.heroStatsStore.heroAttackCalc()
-
         if (this.monsterHealth <= 0) {
             console.log('He dead yo!');
-        } else if (this.allStores.heroStatsStore.heroAttackAmount > this.monsterHealth) {
+        } else if (this.allStores.heroStatsStore.heroAttackAmount >= this.monsterHealth) {
             this.monsterHealth = 0
             this.underAttack = false
             this.patrolWin()
