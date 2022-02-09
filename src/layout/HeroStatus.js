@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { useRootStore } from '../provider/RootStoreProvider'
+import './heroStatus.css'
 
 const HeroStatus = () => {
 

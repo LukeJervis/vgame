@@ -1,0 +1,13 @@
+
+.heroStatus__health {
+    border-bottom: white solid;
+    height: 50px;
+}
+
+.heroStatus__weapon {
+    border-bottom: white solid;
+}
+
+.heroStatus__pet {
+    border-bottom: white solid;  
+}
