@@ -1,7 +1,7 @@
 import './infoModal.css'
 import { observer } from 'mobx-react'
 import { useRootStore } from '../../provider/RootStoreProvider'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { heroMoneyConverter } from '../helpers'
 
 const InfoModal = () => {
@@ -21,17 +21,21 @@ const InfoModal = () => {
 
     const { heroStatsStore: { heroDeath, health } } = useRootStore()
 
+    const [ buttonBoolean, setButtonBoolean ] = useState(true)
+
     useEffect(() => {
         if (monsterDeath) {
             const openModal = () => {
                 document.getElementById(`infoModal__${monsterName}`).style.display = "block";
             }
             openModal()
+            buttonTimer()
         } else if (heroDeath) {
             const openModal = () => {
                 document.getElementById(`infoModal__${monsterName}`).style.display = "block";
             }
             openModal()
+            buttonTimer()
         }
     }, [monsterDeath, heroDeath])
 
@@ -39,18 +43,31 @@ const InfoModal = () => {
         document.getElementById(`infoModal__${monsterName}`).style.display = "none";
     }
 
-    const handleBackContinueButton = () => {
+    const handleContinueButton = () => {
         if (underAttack) {
             console.log('Still in battle')
         } else if (health <= 0){
             console.log('You is dead brah');
         } else {
+            setButtonBoolean(true)
             patrolBattleStart(location,
                 monsterLevelMin,
                 monsterLevelMax,)
-            console.log('test', location, monsterLevelMin, monsterLevelMax);
         }
         closeModal()
+    }
+    
+    const handleBackButton = () => {
+        setButtonBoolean(true)
+        patrolBattleStart()
+    }
+
+    const buttonTimer = () => {
+        setTimeout(toggleDisabled, 1000)
+    }
+
+    const toggleDisabled = () => {
+        setButtonBoolean(false)
     }
 
     if (monsterDeath) {
@@ -58,7 +75,7 @@ const InfoModal = () => {
             <div className="infoModal">
                 <div id={`infoModal__${monsterName}`} className="infoModal__modal">
                     <div className='infoModal__modal--open'>
-                        <span className="infoModal__modal--close" onClick={closeModal}>&times;</span>  
+                        {/* <span className="infoModal__modal--close" onClick={closeModal}>&times;</span>  */}
                         <div className='infoModal__modalContents'>
                             {`You killed ${monsterName} level: ${monsterLevel}!`}
                         </div>
@@ -68,8 +85,8 @@ const InfoModal = () => {
                         <div className='infoModal__patrolWin__moneyReward'>
                             {heroMoneyConverter(monsterMoneyDrop)} Gained.
                         </div>
-                        <button className='PatrolBattle__continueButton' onClick={() => handleBackContinueButton()}>Continue</button>
-                        <button className='PatrolBattle__backButton' onClick={() => patrolBattleStart()}>Back</button>
+                        <button className='PatrolBattle__continueButton' disabled={buttonBoolean} onClick={() => handleContinueButton()}>Continue</button>
+                        <button className='PatrolBattle__backButton' disabled={buttonBoolean} onClick={() => handleBackButton()}>Back</button>
                     </div>
                 </div>
             </div>
@@ -79,14 +96,14 @@ const InfoModal = () => {
                 <div className="infoModal">
                 <div id={`infoModal__${monsterName}`} className="infoModal__modal">
                     <div className='infoModal__modal--open'>
-                        <span className="infoModal__modal--close" onClick={closeModal}>&times;</span>  
+                        {/* <span className="infoModal__modal--close" onClick={closeModal}>&times;</span>   */}
                         <div className='infoModal__modalContents'>
                             {`You were killed by a ${monsterName} level: ${monsterLevel}!`}
                         </div>
                         <div className='infoModal__patrolWin__moneyLoss'>
                             It will cost you 10% of your money to revive!
                         </div>
-                        <button className='PatrolBattle__backButton' onClick={() => patrolBattleStart()}>Back</button>
+                        <button className='PatrolBattle__backButton' disabled={buttonBoolean} onClick={() => handleBackButton()}>Back</button>
                     </div>
                 </div>
             </div>

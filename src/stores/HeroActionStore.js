@@ -3,7 +3,6 @@ import Clicker from "../components/Clicker";
 import monsters from '../heroEquipment/monsters.json'
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from '../components/helpers'
-import InfoModal from "../components/modalHell/InfoModal";
 
 class HeroActionStore {
 
@@ -40,7 +39,6 @@ class HeroActionStore {
 
     patrolBattleStart = (location, num1, num2) => {
         if (!location) {
-            console.log('really?');
             this.monster = null
             this.monsterName = 0
             this.monsterStrength = 0
@@ -124,6 +122,7 @@ class HeroActionStore {
         this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
+        this.allStores.countStore.levelCalc()
     }
 
     patrolLoss = () => {
