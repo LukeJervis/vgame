@@ -1,13 +1,24 @@
 
 .heroStatus__health {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-bottom: white solid;
     height: 50px;
 }
 
 .heroStatus__weapon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-bottom: white solid;
+    height: 50px;
 }
 
 .heroStatus__pet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-bottom: white solid;  
+    height: 50px;
 }
