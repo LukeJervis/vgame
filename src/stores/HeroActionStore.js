@@ -11,6 +11,10 @@ class HeroActionStore {
 
     selectedActionArea = <Clicker />
 
+    location
+    monsterLevelMin
+    monsterLevelMax
+
     monster
     monsterName = ''
     monsterHealth = 1
@@ -36,6 +40,7 @@ class HeroActionStore {
 
     patrolBattleStart = (location, num1, num2) => {
         if (!location) {
+            console.log('really?');
             this.monster = null
             this.monsterName = 0
             this.monsterStrength = 0
@@ -43,6 +48,7 @@ class HeroActionStore {
             this.monsterLevel = 0
             this.monsterMoneyDrop = 0
             this.monsterXp = 0
+            this.monsterHealth = 1
             this.selectedActionArea = null
             this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth
             clearInterval(this.monsterInterval)
@@ -51,6 +57,9 @@ class HeroActionStore {
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
         } else {
+            this.location = location
+            this.monsterLevelMin = num1
+            this.monsterLevelMax = num2
             this.monster = monsters[randomNumber(num1, num2)]
             this.monsterName = this.monster.name
             this.monsterHealth = this.monster.health

@@ -6,8 +6,20 @@ import { heroMoneyConverter } from '../helpers'
 
 const InfoModal = () => {
 
-    const { heroActionStore: { monsterName, monsterLevel, monsterXp, monsterMoneyDrop, monsterDeath, patrolBattleStart } } = useRootStore()
-    const { heroStatsStore: { heroDeath } } = useRootStore()
+    const { heroActionStore: { 
+        monsterName,
+        monsterLevel,
+        monsterXp,
+        monsterMoneyDrop,
+        monsterDeath,
+        patrolBattleStart,
+        location,
+        monsterLevelMin,
+        monsterLevelMax,
+        underAttack
+        }} = useRootStore()
+
+    const { heroStatsStore: { heroDeath, health } } = useRootStore()
 
     useEffect(() => {
         if (monsterDeath) {
@@ -27,8 +39,17 @@ const InfoModal = () => {
         document.getElementById(`infoModal__${monsterName}`).style.display = "none";
     }
 
-    const handleBackButton = () => {
-        patrolBattleStart()
+    const handleBackContinueButton = () => {
+        if (underAttack) {
+            console.log('Still in battle')
+        } else if (health <= 0){
+            console.log('You is dead brah');
+        } else {
+            patrolBattleStart(location,
+                monsterLevelMin,
+                monsterLevelMax,)
+            console.log('test', location, monsterLevelMin, monsterLevelMax);
+        }
         closeModal()
     }
 
@@ -47,7 +68,8 @@ const InfoModal = () => {
                         <div className='infoModal__patrolWin__moneyReward'>
                             {heroMoneyConverter(monsterMoneyDrop)} Gained.
                         </div>
-                        <button className='PatrolBattle__backButton' onClick={() => handleBackButton()}>Back</button>
+                        <button className='PatrolBattle__continueButton' onClick={() => handleBackContinueButton()}>Continue</button>
+                        <button className='PatrolBattle__backButton' onClick={() => patrolBattleStart()}>Back</button>
                     </div>
                 </div>
             </div>
@@ -64,7 +86,7 @@ const InfoModal = () => {
                         <div className='infoModal__patrolWin__moneyLoss'>
                             It will cost you 10% of your money to revive!
                         </div>
-                        <button className='PatrolBattle__backButton' onClick={() => handleBackButton()}>Back</button>
+                        <button className='PatrolBattle__backButton' onClick={() => patrolBattleStart()}>Back</button>
                     </div>
                 </div>
             </div>
