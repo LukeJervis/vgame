@@ -456,8 +456,8 @@
         "health": "1500",
         "strength": "30",
         "speed": "20",
-        "constitution": "20",
-        "luck": "100",
+        "constitution": "100",
+        "luck": "10",
         "xp": "1000",
         "moneyMin": "350",
         "moneyMax": "450"

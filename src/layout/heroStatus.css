@@ -1,10 +1,15 @@
 
+.heroStatus__container {
+    width: 100%;
+}
+
 .heroStatus__health {
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
     height: 50px;
+
 }
 
 .heroStatus__weapon {
