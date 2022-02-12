@@ -25,7 +25,7 @@ const PatrolBattle = (props) => {
                         Health: {monsterHealth}
                     </div>
                     <div>
-                        <img src={slimeImage} height='200px'/>
+                        <img src={slimeImage} height='200px' alt='slime'/>
                     </div>
                 </div>
                 <div className='patrolBattle__attackArea'>
