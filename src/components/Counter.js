@@ -13,7 +13,7 @@ const ExperienceCounter = () => {
             XP {Math.round(experience)}
         </div>
         <div className='experienceCounter__experienceNeeded'>
-            XP Needed {experienceNeeded.toFixed(2)}
+            XP Needed {Math.ceil(experienceNeeded)}
         </div>
     </div>
 
