@@ -1,5 +1,10 @@
 
 .heroMoneyConverter__container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    padding: 5px;
+}
+
+.heroMoneyConverter__coin {
+    padding: 0 5px 0 5px;
 }

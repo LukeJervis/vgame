@@ -10,7 +10,7 @@ class CountStore {
     levelMultiplier = 1.5
     experienceNeeded = 10
 
-    heroMoney = 0
+    heroMoney = 123456789
     ironCoin = '0'
     copperCoin = '0'
     silverCoin = '0'
@@ -47,7 +47,7 @@ class CountStore {
         this.ironCoin = (this.heroMoney.toString().slice(-2) <= 0) ? 0 : this.heroMoney.toString().slice(-2)
         this.copperCoin = (this.heroMoney.toString().slice(-4, -2) <= 0) ? 0 : this.heroMoney.toString().slice(-4, -2)
         this.silverCoin = (this.heroMoney.toString().slice(-6, -4) <= 0) ? 0 : this.heroMoney.toString().slice(-6, -4)
-        this.goldCoin = (this.heroMoney.toString().slice(-8, -6) <= 0) ? 0 : this.heroMoney.toString().slice(-8, -6)
+        this.goldCoin = (this.heroMoney.toString().slice(-8, -6) <= 0) ? 0 : this.heroMoney.toString().slice(-9, -6)
         this.heroMoney = Math.floor(this.heroMoney)
         if (this.heroMoney <= 0) {
             this.heroMoney = 0

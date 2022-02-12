@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react'
 import { useRootStore } from '../../provider/RootStoreProvider'
+import slimeImage from '../images/SlimeTransparent.png'
 import './patrolBattle.css'
 
 const PatrolBattle = (props) => {
@@ -22,6 +23,9 @@ const PatrolBattle = (props) => {
                     </div>
                     <div className='PatrolBattle__monsterHealth'>
                         Health: {monsterHealth}
+                    </div>
+                    <div>
+                        <img src={slimeImage} height='200px'/>
                     </div>
                 </div>
                 <div className='patrolBattle__attackArea'>

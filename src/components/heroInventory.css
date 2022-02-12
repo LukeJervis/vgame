@@ -1,0 +1,48 @@
+
+.HeroInventory__equipment {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    flex-direction: column;
+    border: blue solid;
+    margin: 5px;
+    width: 200px;
+    height: 100px;
+}
+
+.HeroInventory__equipmentSlots {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.HeroInventory__equipmentName {
+    font-weight: bolder;
+}
+
+.HeroInventory__pets {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    flex-direction: column;
+    border: blue solid;
+    margin: 5px;
+    width: 200px;
+    height: 130px;
+}
+
+.HeroInventory__petName {
+    font-weight: bolder;
+}
+
+.HeroInventory__weaponsTitle {
+    font-size: large;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.HeroInventory__petsTitle {
+    font-size: large;
+    font-weight: bolder;
+    text-decoration: underline;
+}

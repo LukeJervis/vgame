@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { useRootStore } from '../provider/RootStoreProvider'
+import './heroInventory.css'
 
 const HeroInventory = () => {
 
@@ -15,16 +16,16 @@ const HeroInventory = () => {
     }
 
     const heroSlotCount = heroInventorySlotsArray.map(heroEquipment => 
-        <div key={Math.random().toString(36)}>
-            <div key={Math.random().toString(36)}>{heroEquipment.name}</div>
+        <div key={Math.random().toString(36)} className='HeroInventory__equipment'>
+            <div key={Math.random().toString(36)} className='HeroInventory__equipmentName'>{heroEquipment.name}</div>
             <div key={Math.random().toString(36)}>Damage Multiplier: {heroEquipment.damage}</div>
             <button onClick={() => heroWeaponEquipHandler(heroEquipment)} key={heroEquipment.id}>Equip</button>
         </div>
     )
 
     const heroPetCount = heroPetSlotsArray.map(heroPet =>
-        <div key={Math.random().toString(36)}>
-            <div key={Math.random().toString(36)}>{heroPet.name}</div>
+        <div key={Math.random().toString(36)} className='HeroInventory__pets'>
+            <div key={Math.random().toString(36)} className='HeroInventory__petName'>{heroPet.name}</div>
             <div key={Math.random().toString(36)}>Health: {heroPet.health}</div>
             <div key={Math.random().toString(36)}>Strength: {heroPet.strength}</div>
             <div key={Math.random().toString(36)}>Speed: {heroPet.speed}</div>
@@ -35,8 +36,14 @@ const HeroInventory = () => {
 
     return (
         <div>
-            <div>
+            <div className='HeroInventory__weaponsTitle'>
+                Weapons
+            </div>
+            <div className='HeroInventory__equipmentSlots'>
                 {heroSlotCount}
+            </div>
+            <div className='HeroInventory__petsTitle'>
+                Pets
             </div>
             <div>
                 {heroPetCount}
