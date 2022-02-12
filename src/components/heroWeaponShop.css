@@ -1,11 +1,13 @@
 
 .heroWeaponShop__container {
-    /* padding: 20px; */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .heroWeaponShop__weapon {
     border: blue solid;
     margin: 10px;
+    width: 180px;
 }
 
 .heroWeaponShop__name {

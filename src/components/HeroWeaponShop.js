@@ -15,7 +15,7 @@ const HeroWeaponShop = () => {
         <div key={heroWeapons.id + Math.random().toString(36)} className="heroWeaponShop__weapon">
             <div key={heroWeapons.id + Math.random().toString(36)} className="heroWeaponShop__name">{heroWeapons.name}</div>
             <div key={heroWeapons.id + Math.random().toString(36)} className="heroWeaponShop__cost">Cost: {heroMoneyConverter(heroWeapons.cost)}</div>
-            <div key={heroWeapons.id + Math.random().toString(36)} className="heroWeaponShop__damage">Damage Multiplier: {heroWeapons.damage}</div>
+            <div key={heroWeapons.id + Math.random().toString(36)} className="heroWeaponShop__damage">Damage Multi: {heroWeapons.damage}</div>
             <button className="heroWeaponShop__buyButton" onClick={() => heroWeaponPurchase(heroWeapons)} key={heroWeapons.id}>Buy</button>
         </div>
     )

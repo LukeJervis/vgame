@@ -15,17 +15,12 @@
   
   /* Modal Content/Box */
 .heroEquipmentShop__modal--open {
-    background-color: #ccd8ff;
+    background-color: #3551ac;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
   }
-
-.heroEquipmentShop__modalContents {
-    display: flex;
-    flex-direction: column;
-}
   
   /* The Close Button */
 .heroEquipmentShop__modal--close {
@@ -40,4 +35,4 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}

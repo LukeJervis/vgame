@@ -1,6 +1,11 @@
 import { observer } from 'mobx-react'
 import { useRootStore } from '../provider/RootStoreProvider'
 import { useEffect } from 'react'
+import ironCoinLogo from './images/IronCoinTransparent.png'
+import copperCoinLogo from './images/CopperCoinTransparent.png'
+import silverCoinLogo from './images/SilverCoinTransparent.png'
+import goldCoinLogo from './images/GoldCoinTransparent.png'
+import './heroMoney.css'
 
 const HeroMoney = () => {
 
@@ -13,9 +18,10 @@ const HeroMoney = () => {
 
     return (
         <div className='heroMoney__container'>
-            <div className='heroMoney__amount'>
-                iron {ironCoin} - copper {copperCoin} - silver {silverCoin} - Gold {goldCoin}
-            </div>
+                <img src={ironCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {ironCoin}
+                <img src={copperCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {copperCoin}
+                <img src={silverCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {silverCoin}
+                <img src={goldCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {goldCoin}
         </div>
     )
 }
