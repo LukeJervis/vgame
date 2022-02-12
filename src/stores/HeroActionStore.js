@@ -82,10 +82,12 @@ class HeroActionStore {
             console.log('ye ded!');
         } else {
             if (!this.underAttack) {
+
                 this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount
                 this.underAttack = true
                 this.heroMonsterAttackInterval()
                 this.heroHealthInterval()
+                this.heroPetInterval()
             } else {
                 this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount
                 if (this.monsterHealth <= 0) {
@@ -104,6 +106,21 @@ class HeroActionStore {
         if (this.allStores.heroStatsStore.health <= 0) {
             this.underAttack = false
             this.patrolLoss()
+        }
+    }
+
+    heroPetInterval = () => {
+        if (this.allStores.heroStatsStore.petStrength > 0) {
+            console.log('hit');
+            this.petInterval = setInterval(this.heroPetAttack, 1000 / this.allStores.heroStatsStore.petSpeed)
+        }
+    }
+
+    heroPetAttack = () => {
+        if (this.monsterHealth > 0) {
+            this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.petStrength
+        } else {
+            clearInterval(this.petInterval)
         }
     }
     
