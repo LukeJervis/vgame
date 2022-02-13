@@ -61,17 +61,19 @@ class HeroActionStore {
             this.monster = monsters[randomNumber(num1, num2)]
             this.monsterName = this.monster.name
             this.monsterHealth = this.monster.health
-            this.monsterStrength = this.monster.strength - this.allStores.heroStatsStore.constitution
+            this.monsterStrength = this.monster.strength - (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour)
             this.monsterSpeed = this.monster.speed / this.allStores.heroStatsStore.speed
             this.monsterLevel = this.monster.level
             this.monsterXp = +this.monster.xp
+            if (this.monsterStrength < 1) {
+                this.monsterStrength = 1
+            }
             this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
             this.selectedActionArea = <PatrolBattle location={location} num1={num1} num2={num2} />
         }
     }
     
     patrolBattleAttack = () => {
-        console.log('hit');
         this.allStores.heroStatsStore.heroAttackCalc()
         if (this.monsterHealth <= 0) {
             console.log('He dead yo!');
@@ -83,7 +85,6 @@ class HeroActionStore {
             console.log('ye ded!');
         } else {
             if (!this.underAttack) {
-                console.log('hit2');
                 this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount
                 this.underAttack = true
                 this.heroMonsterAttackInterval()

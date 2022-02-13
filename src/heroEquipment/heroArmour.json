@@ -1,0 +1,43 @@
+
+[
+    {
+        "id": "1001",
+        "name": "Cloth Shirt",
+        "cost": 20,
+        "constitution": 2,
+        "type": "chest"
+    }, 
+    
+    {
+        "id": "1002",
+        "name": "Cloth Pants",
+        "cost": 20,
+        "constitution": 2,
+        "type": "legs"
+    },
+
+    {
+        "id": "1003",
+        "name": "Cloth Gloves",
+        "cost": 10,
+        "constitution": 1,
+        "type": "hands"
+    }, 
+
+    {
+        "id": "1004",
+        "name": "Cloth Shoes",
+        "cost": 10,
+        "constitution": 1,
+        "type": "feet"
+    },
+
+    {
+        "id": "1005",
+        "name": "Cloth Hood",
+        "cost": 10,
+        "constitution": 1,
+        "type": "head"
+    }
+
+]

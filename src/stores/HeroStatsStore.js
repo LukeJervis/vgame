@@ -16,6 +16,13 @@ class HeroStatsStore {
     equipedHeroWeapon = {}
     equipedHeroWeaponDamage = 1
 
+    equipedHeroArmourHead = 0
+    equipedHeroArmourChest = 0
+    equipedHeroArmourLegs = 0
+    equipedHeroArmourHands = 0
+    equipedHeroArmourFeet = 0
+    equipedHeroArmour = 0
+
     heroAttackAmount = 1
 
     equipedPet = {}
@@ -32,6 +39,8 @@ class HeroStatsStore {
 
     heroAttackCalc = () => {
         this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage
+        this.equipedHeroArmour = 0
+        this.equipedHeroArmour = this.equipedHeroArmour + this.equipedHeroArmourHead + this.equipedHeroArmourChest + this.equipedHeroArmourLegs + this.equipedHeroArmourHands + this.equipedHeroArmourFeet
     }
 
     equipHeroWeapon = (HeroWeaponId) => {
@@ -58,8 +67,33 @@ class HeroStatsStore {
     }
 
     heroWeaponEquip = (weaponEquip) => {
-        this.equipedHeroWeapon = weaponEquip
-        this.equipedHeroWeaponDamage = weaponEquip.damage
+        if (weaponEquip.id > 0 && weaponEquip.id < 1001) {
+            this.equipedHeroWeapon = weaponEquip
+            this.equipedHeroWeaponDamage = weaponEquip.damage
+        } else if (weaponEquip.id > 1000 && weaponEquip.id < 2001) {
+            this.heroArmourEquip(weaponEquip)
+        }
+    }
+
+    heroArmourEquip = (armourEquip) => {
+        if (armourEquip.type === 'chest') {
+            this.equipedHeroArmourChest = 0
+            this.equipedHeroArmourChest = this.equipedHeroArmourChest + armourEquip.constitution
+        }else if (armourEquip.type === 'legs') {
+            this.equipedHeroArmourLegs = 0
+            this.equipedHeroArmourLegs = this.equipedHeroArmourLegs + armourEquip.constitution
+        }else if (armourEquip.type === 'head') {
+            this.equipedHeroArmourHead = 0
+            this.equipedHeroArmourHead = this.equipedHeroArmourHead + armourEquip.constitution
+        }else if (armourEquip.type === 'hands') {
+            this.equipedHeroArmourHands = 0
+            this.equipedHeroArmourHands = this.equipedHeroArmourHands + armourEquip.constitution
+        }else if (armourEquip.type === 'feet') {
+            this.equipedHeroArmourFeet = 0
+            this.equipedHeroArmourFeet = this.equipedHeroArmourFeet + armourEquip.constitution
+        }
+        this.heroAttackCalc()
+        console.log(this.equipedHeroArmour);
     }
 
     handleStatBuy = (statPurchase) => {
