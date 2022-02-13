@@ -71,6 +71,7 @@ class HeroActionStore {
     }
     
     patrolBattleAttack = () => {
+        console.log('hit');
         this.allStores.heroStatsStore.heroAttackCalc()
         if (this.monsterHealth <= 0) {
             console.log('He dead yo!');
@@ -82,7 +83,7 @@ class HeroActionStore {
             console.log('ye ded!');
         } else {
             if (!this.underAttack) {
-
+                console.log('hit2');
                 this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount
                 this.underAttack = true
                 this.heroMonsterAttackInterval()
@@ -110,7 +111,9 @@ class HeroActionStore {
     }
 
     heroPetInterval = () => {
+        if (this.allStores.heroStatsStore.equipedPet.name) {
         this.petInterval = setInterval(this.heroPetAttack, 1000 / this.allStores.heroStatsStore.equipedPet.speed)
+        }
     }
 
     heroPetAttack = () => {
