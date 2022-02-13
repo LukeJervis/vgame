@@ -27,6 +27,31 @@ class CountStore {
     }
 
     levelCalc = () => {
+        if (this.heroLevel > 10) {
+            this.levelMultiplier = 2
+        } else if (this.heroLevel > 20) {
+            this.levelMultiplier = 2.5
+        } else if (this.heroLevel > 30) {
+            this.levelMultiplier = 3
+        } else if (this.heroLevel > 40) {
+            this.levelMultiplier = 3.5
+        } else if (this.heroLevel > 50) {
+            this.levelMultiplier = 4
+        } else if (this.heroLevel > 60) {
+            this.levelMultiplier = 4.5
+        } else if (this.heroLevel > 70) {
+            this.levelMultiplier = 5
+        } else if (this.heroLevel > 80) {
+            this.levelMultiplier = 5.5
+        } else if (this.heroLevel > 90) {
+            this.levelMultiplier = 6
+        } else if (this.heroLevel > 100) {
+            this.levelMultiplier = 8
+        } else if (this.heroLevel > 200) {
+            this.levelMultiplier = 9
+        } else if (this.heroLevel > 300) {
+            this.levelMultiplier = 10
+        }
         if (this.experienceNeeded <= this.experience) {
             this.HerolevelIncrease()
         }

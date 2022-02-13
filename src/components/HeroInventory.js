@@ -5,7 +5,7 @@ import './heroInventory.css'
 const HeroInventory = () => {
 
     const { heroInventoryStore: { heroInventorySlotsArray, heroPetSlotsArray } } = useRootStore()
-    const { heroStatsStore: { heroWeaponEquip, equipPet } } = useRootStore()
+    const { heroStatsStore: { heroWeaponEquip, equipPet, unequipPet } } = useRootStore()
 
     const heroWeaponEquipHandler = (heroEquipment) => {
         heroWeaponEquip(heroEquipment)
@@ -30,7 +30,8 @@ const HeroInventory = () => {
             <div key={Math.random().toString(36)}>Strength: {heroPet.strength}</div>
             <div key={Math.random().toString(36)}>Speed: {heroPet.speed}</div>
             <div key={Math.random().toString(36)}>Luck: {heroPet.luck}</div>
-            <button onClick={() => heroPetEquipHandler(heroPet)} key={heroPet.id}>Equip</button>
+            <button onClick={() => heroPetEquipHandler(heroPet)} key={Math.random().toString(36)}>Equip</button>
+            <button onClick={() => unequipPet()} key={Math.random().toString(36)}>Unequip</button>
         </div>    
     )
 

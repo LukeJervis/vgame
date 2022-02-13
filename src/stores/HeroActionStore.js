@@ -110,18 +110,11 @@ class HeroActionStore {
     }
 
     heroPetInterval = () => {
-        if (this.allStores.heroStatsStore.petStrength > 0) {
-            console.log('hit');
-            this.petInterval = setInterval(this.heroPetAttack, 1000 / this.allStores.heroStatsStore.petSpeed)
-        }
+        this.petInterval = setInterval(this.heroPetAttack, 1000 / this.allStores.heroStatsStore.equipedPet.speed)
     }
 
     heroPetAttack = () => {
-        if (this.monsterHealth > 0) {
-            this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.petStrength
-        } else {
-            clearInterval(this.petInterval)
-        }
+        this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.equipedPet.strength
     }
     
     heroMonsterAttackInterval = () => {
@@ -133,8 +126,10 @@ class HeroActionStore {
     }
     
     patrolWin = () => {
+        console.log('hot');
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
+        clearInterval(this.petInterval)
         this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
@@ -144,6 +139,7 @@ class HeroActionStore {
     patrolLoss = () => {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
+        clearInterval(this.petInterval)
         this.allStores.countStore.money = this.allStores.countStore.heroMoney *= 0.9
         this.allStores.countStore.coinSort()
         this.allStores.heroStatsStore.equipedPet.health--

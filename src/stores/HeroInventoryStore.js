@@ -8,7 +8,7 @@ class HeroInventoryStore {
     heroInventoryUsedSlots = 0
     heroInventorySlotsArray = []
 
-    heroPetSlots = 1
+    heroPetSlots = 3
     heroPetSlotsUsed = 0
     heroPetSlotsArray = []
 

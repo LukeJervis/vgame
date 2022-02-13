@@ -2,51 +2,55 @@ import { useRootStore } from '../provider/RootStoreProvider'
 import { observer } from "mobx-react"
 
 const HeroPetXpStatExchange = () => {
-    const { heroInventoryStore: { heroPetSlotsArray } } = useRootStore()
     const { countStore: { experience, spendexperience } } = useRootStore ()
-    const { heroStatsStore: { handlePetStatBuy } } = useRootStore()
+    const { heroStatsStore: { handlePetStatBuy, equipedPet } } = useRootStore()
 
     const strengthBuy = 'strength'
     const speedBuy = 'speed'
     const luckBuy = 'luck'
     const healthBuy = 'health'
 
-    const petStatBuy = (petObject, petStat) => {
-        if (experience < petObject.statCost) {
+    const petStatBuy = (equipedPet, petStat) => {
+        console.log('petStat', equipedPet, petStat);
+        if (experience < equipedPet.statCost) {
             console.log('Not enough XP!');
         } else if (petStat === 'health'){
-            spendexperience(petObject.healthStatCost)
-            handlePetStatBuy(petObject, petStat)
+            spendexperience(equipedPet.healthStatCost)
+            handlePetStatBuy(equipedPet, petStat)
         } else {
-            spendexperience(petObject.statCost)
-            handlePetStatBuy(petObject, petStat)
+            spendexperience(equipedPet.statCost)
+            handlePetStatBuy(equipedPet, petStat)
         }
     }
 
-    const listHeroPets = heroPetSlotsArray.map(heroPets => 
-        <div key={Math.random().toString(36)} className='heroPetXpStatExchange__container'>
-            <div key={Math.random().toString(36)} className='heroPetXpStatExchange__health'>
-                Health: {heroPets.health}
-                <button key={Math.random().toString(36)} className='heroPetXpStatExchange__strength' onClick={() => petStatBuy(heroPets, healthBuy)}>Buy {Math.floor(heroPets.healthStatCost * heroPets.healthStatMulti)}XP</button>
-            </div>
-            <div key={Math.random().toString(36)} className='heroPetXpStatExchange__strength'>
-                Strength: {heroPets.strength}
-                <button key={Math.random().toString(36)} className='heroPetXpStatExchange__strength--button' onClick={() => petStatBuy(heroPets, strengthBuy)}>Buy {Math.floor(heroPets.statCost)}XP</button>
-            </div>
-            <div key={Math.random().toString(36)} className='heroPetXpStatExchange__speed'>
-                Speed: {heroPets.speed}
-                <button key={Math.random().toString(36)} className='heroPetXpStatExchange__Speed--button' onClick={() => petStatBuy(heroPets, speedBuy)}>Buy {Math.floor(heroPets.statCost)}XP</button>
-            </div>
-            <div key={Math.random().toString(36)} className='heroPetXpStatExchange__luck'>
-                Luck: {heroPets.luck}
-                <button key={Math.random().toString(36)} className='heroPetXpStatExchange__Luck--button' onClick={() => petStatBuy(heroPets, luckBuy)}>Buy {Math.floor(Math.floor(heroPets.statCost))}XP</button>
-            </div>
-        </div> 
-    )
+    const listHeroPets = () => {
+        if (equipedPet.name) {
+            return (
+                <div className='heroPetXpStatExchange__container'>
+                <div className='heroPetXpStatExchange__health'>
+                    Health {equipedPet.health}
+                <button className='heroPetXpStatExchange__strength' onClick={() => petStatBuy(equipedPet, healthBuy)}>Buy {Math.floor(equipedPet.healthStatCost * equipedPet.healthStatMulti)}XP</button>
+                </div>
+                <div className='heroPetXpStatExchange__strength'>
+                    Strength: {equipedPet.strength}
+                <button className='heroPetXpStatExchange__strength--button' onClick={() => petStatBuy(equipedPet, strengthBuy)}>Buy {Math.floor(equipedPet.statCost)}XP</button>
+                </div>
+                <div className='heroPetXpStatExchange__speed'>
+                    Speed: {equipedPet.speed}
+                    <button className='heroPetXpStatExchange__Speed--button' onClick={() => petStatBuy(equipedPet, speedBuy)}>Buy {Math.floor(equipedPet.statCost)}XP</button>
+                </div>
+                <div className='heroPetXpStatExchange__luck'>
+                    Luck: {equipedPet.luck}
+                    <button className='heroPetXpStatExchange__Luck--button' onClick={() => petStatBuy(equipedPet, luckBuy)}>Buy {Math.floor(Math.floor(equipedPet.statCost))}XP</button>
+                </div>
+            </div> 
+        )
+        }
+    }
 
     return (
         <div>
-            {listHeroPets}
+            {listHeroPets()}
         </div>
     )
 

@@ -18,10 +18,6 @@ class HeroStatsStore {
 
     heroAttackAmount = 1
 
-    petHealth
-    petStrength
-    petSpeed
-    petLuck
     equipedPet = {}
     petInterval
 
@@ -43,22 +39,22 @@ class HeroStatsStore {
     }
 
     equipPet = (heroPet) => {
+        console.log('equipPet', this.equipedPet);
         if (this.equipedPet === heroPet) {
             console.log("Pet Already Equiped");
         } else {
+            this.unequipPet()
             this.equipedPet = heroPet
             this.petStrength = heroPet.strength
             this.petSpeed = heroPet.speed
+            console.log('equipPet', this.equipedPet);
             this.heroPetAttackInterval()
         }
     }
 
     unequipPet = () => {
-        this.equipedPet.shift()
-        this.equipedPet = 0
-        this.petStrength = 0
-        this.petSpeed = 0
-        this.petAttackAmount = 0
+        clearInterval(this.petInterval)
+        this.equipedPet = {}
     }
 
     heroWeaponEquip = (weaponEquip) => {
