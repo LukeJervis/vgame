@@ -24,3 +24,7 @@ export const heroMoneyConverter = (amount) => {
 export const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min)
 }
+
+export const randomNumberToTwo = (min, max) => {
+    return (Math.random() * (max - min) + min).toFixed(2)
+}

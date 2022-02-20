@@ -8,9 +8,11 @@
         "speed": "2",
         "constitution": "1",
         "luck": "1",
-        "xp": "100",
+        "xp": "200",
         "moneyMin": "1",
-        "moneyMax": "10"
+        "moneyMax": "5",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -18,13 +20,15 @@
         "id": "3002",
         "level": "2",
         "health": "60",
-        "strength": "5",
-        "speed": "3",
+        "strength": "6",
+        "speed": "4",
         "constitution": "1",
         "luck": "2",
-        "xp": "110",
-        "moneyMin": "5",
-        "moneyMax": "15"
+        "xp": "250",
+        "moneyMin": "1",
+        "moneyMax": "10",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -32,13 +36,15 @@
         "id": "3003",
         "level": "3",
         "health": "80",
-        "strength": "6",
-        "speed": "3",
+        "strength": "7",
+        "speed": "4",
         "constitution": "2",
         "luck": "3",
-        "xp": "120",
-        "moneyMin": "10",
-        "moneyMax": "20"
+        "xp": "300",
+        "moneyMin": "1",
+        "moneyMax": "15",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -46,13 +52,15 @@
         "id": "3004",
         "level": "4",
         "health": "100",
-        "strength": "7",
-        "speed": "4",
+        "strength": "8",
+        "speed": "5",
         "constitution": "2",
         "luck": "4",
-        "xp": "130",
-        "moneyMin": "15",
-        "moneyMax": "25"
+        "xp": "350",
+        "moneyMin": "5",
+        "moneyMax": "20",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -60,13 +68,15 @@
         "id": "3005",
         "level": "5",
         "health": "120",
-        "strength": "8",
-        "speed": "4",
+        "strength": "9",
+        "speed": "5",
         "constitution": "3",
         "luck": "5",
-        "xp": "140",
-        "moneyMin": "20",
-        "moneyMax": "30"
+        "xp": "400",
+        "moneyMin": "5",
+        "moneyMax": "25",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -74,13 +84,15 @@
         "id": "3006",
         "level": "6",
         "health": "140",
-        "strength": "9",
-        "speed": "5",
+        "strength": "10",
+        "speed": "6",
         "constitution": "3",
         "luck": "6",
-        "xp": "150",
-        "moneyMin": "25",
-        "moneyMax": "35"
+        "xp": "450",
+        "moneyMin": "5",
+        "moneyMax": "30",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -88,13 +100,15 @@
         "id": "3007",
         "level": "7",
         "health": "160",
-        "strength": "11",
-        "speed": "5",
+        "strength": "12",
+        "speed": "6",
         "constitution": "4",
         "luck": "7",
-        "xp": "160",
-        "moneyMin": "30",
-        "moneyMax": "40"
+        "xp": "500",
+        "moneyMin": "5",
+        "moneyMax": "35",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -102,13 +116,15 @@
         "id": "3008",
         "level": "8",
         "health": "180",
-        "strength": "12",
-        "speed": "6",
+        "strength": "13",
+        "speed": "7",
         "constitution": "4",
         "luck": "8",
-        "xp": "170",
-        "moneyMin": "35",
-        "moneyMax": "45"
+        "xp": "550",
+        "moneyMin": "5",
+        "moneyMax": "40",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -116,13 +132,15 @@
         "id": "3009",
         "level": "9",
         "health": "200",
-        "strength": "13",
-        "speed": "7",
+        "strength": "14",
+        "speed": "8",
         "constitution": "5",
         "luck": "9",
-        "xp": "180",
-        "moneyMin": "40",
-        "moneyMax": "50"
+        "xp": "600",
+        "moneyMin": "5",
+        "moneyMax": "45",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
     {
@@ -130,13 +148,15 @@
         "id": "3010",
         "level": "10",
         "health": "220",
-        "strength": "14",
-        "speed": "8",
+        "strength": "15",
+        "speed": "9",
         "constitution": "5",
         "luck": "10",
-        "xp": "190",
-        "moneyMin": "45",
-        "moneyMax": "55"
+        "xp": "650",
+        "moneyMin": "5",
+        "moneyMax": "50",
+        "pool": "slimeLoot",
+        "statChance": 1000
     },
 
 
@@ -150,9 +170,11 @@
         "speed": "10",
         "constitution": "15",
         "luck": "11",
-        "xp": "200",
-        "moneyMin": "55",
-        "moneyMax": "65"
+        "xp": "700",
+        "moneyMin": "20",
+        "moneyMax": "60",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -160,13 +182,15 @@
         "id": "3012",
         "level": "12",
         "health": "260",
-        "strength": "10",
+        "strength": "12",
         "speed": "12",
         "constitution": "20",
         "luck": "12",
-        "xp": "210",
-        "moneyMin": "65",
-        "moneyMax": "75"
+        "xp": "750",
+        "moneyMin": "20",
+        "moneyMax": "65",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -174,13 +198,15 @@
         "id": "3013",
         "level": "13",
         "health": "280",
-        "strength": "10",
+        "strength": "14",
         "speed": "14",
         "constitution": "25",
         "luck": "13",
-        "xp": "220",
-        "moneyMin": "75",
-        "moneyMax": "85"
+        "xp": "800",
+        "moneyMin": "20",
+        "moneyMax": "70",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -188,13 +214,15 @@
         "id": "3014",
         "level": "14",
         "health": "300",
-        "strength": "10",
+        "strength": "16",
         "speed": "16",
         "constitution": "35",
         "luck": "14",
-        "xp": "230",
-        "moneyMin": "85",
-        "moneyMax": "95"
+        "xp": "850",
+        "moneyMin": "20",
+        "moneyMax": "75",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -202,13 +230,15 @@
         "id": "3015",
         "level": "15",
         "health": "320",
-        "strength": "10",
+        "strength": "18",
         "speed": "18",
         "constitution": "40",
         "luck": "15",
-        "xp": "240",
-        "moneyMin": "95",
-        "moneyMax": "105"
+        "xp": "900",
+        "moneyMin": "20",
+        "moneyMax": "80",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -216,13 +246,14 @@
         "id": "30016",
         "level": "15",
         "health": "600",
-        "strength": "40",
+        "strength": "50",
         "speed": "5",
         "constitution": "5",
         "luck": "15",
-        "xp": "260",
-        "moneyMin": "90",
-        "moneyMax": "110"
+        "xp": "900",
+        "moneyMin": "20",
+        "moneyMax": "85",
+        "statChance": 1000
     },
 
     {
@@ -231,12 +262,13 @@
         "level": "15",
         "health": "200",
         "strength": "5",
-        "speed": "45",
+        "speed": "50",
         "constitution": "2",
         "luck": "16",
-        "xp": "260",
-        "moneyMin": "90",
-        "moneyMax": "110"
+        "xp": "900",
+        "moneyMin": "20",
+        "moneyMax": "85",
+        "statChance": 1000
     },
 
     {
@@ -244,13 +276,15 @@
         "id": "3018",
         "level": "16",
         "health": "340",
-        "strength": "10",
+        "strength": "20",
         "speed": "20",
         "constitution": "45",
         "luck": "17",
-        "xp": "280",
-        "moneyMin": "100",
-        "moneyMax": "110"
+        "xp": "950",
+        "moneyMin": "20",
+        "moneyMax": "90",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -258,13 +292,14 @@
         "id": "3019",
         "level": "16",
         "health": "650",
-        "strength": "42",
+        "strength": "55",
         "speed": "5",
         "constitution": "5",
         "luck": "9",
-        "xp": "300",
-        "moneyMin": "100",
-        "moneyMax": "110"
+        "xp": "950",
+        "moneyMin": "20",
+        "moneyMax": "90",
+        "statChance": 1000
     },
 
     {
@@ -273,12 +308,13 @@
         "level": "16",
         "health": "220",
         "strength": "5",
-        "speed": "48",
+        "speed": "55",
         "constitution": "2",
         "luck": "10",
-        "xp": "280",
-        "moneyMin": "100",
-        "moneyMax": "110"
+        "xp": "950",
+        "moneyMin": "20",
+        "moneyMax": "90",
+        "statChance": 1000
     },
 
     {
@@ -286,13 +322,15 @@
         "id": "3021",
         "level": "17",
         "health": "360",
-        "strength": "10",
+        "strength": "22",
         "speed": "22",
         "constitution": "50",
         "luck": "17",
-        "xp": "300",
-        "moneyMin": "110",
-        "moneyMax": "120"
+        "xp": "1000",
+        "moneyMin": "20",
+        "moneyMax": "100",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -300,13 +338,14 @@
         "id": "3022",
         "level": "17",
         "health": "700",
-        "strength": "46",
+        "strength": "60",
         "speed": "5",
         "constitution": "5",
         "luck": "9",
-        "xp": "310",
-        "moneyMin": "110",
-        "moneyMax": "120"
+        "xp": "1000",
+        "moneyMin": "20",
+        "moneyMax": "100",
+        "statChance": 1000
     },
 
     {
@@ -315,12 +354,13 @@
         "level": "17",
         "health": "240",
         "strength": "5",
-        "speed": "50",
+        "speed": "60",
         "constitution": "2",
         "luck": "10",
-        "xp": "310",
-        "moneyMin": "110",
-        "moneyMax": "120"
+        "xp": "1000",
+        "moneyMin": "20",
+        "moneyMax": "100",
+        "statChance": 1000
     },
 
     {
@@ -328,13 +368,15 @@
         "id": "3022",
         "level": "18",
         "health": "380",
-        "strength": "10",
+        "strength": "24",
         "speed": "24",
         "constitution": "55",
         "luck": "17",
-        "xp": "320",
-        "moneyMin": "120",
-        "moneyMax": "130"
+        "xp": "1050",
+        "moneyMin": "20",
+        "moneyMax": "105",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -342,13 +384,14 @@
         "id": "3023",
         "level": "18",
         "health": "750",
-        "strength": "48",
+        "strength": "65",
         "speed": "5",
         "constitution": "5",
         "luck": "9",
-        "xp": "330",
-        "moneyMin": "120",
-        "moneyMax": "130"
+        "xp": "1100",
+        "moneyMin": "20",
+        "moneyMax": "105",
+        "statChance": 1000
     },
 
     {
@@ -357,12 +400,13 @@
         "level": "18",
         "health": "260",
         "strength": "5",
-        "speed": "52",
+        "speed": "65",
         "constitution": "2",
         "luck": "10",
-        "xp": "310",
-        "moneyMin": "120",
-        "moneyMax": "130"
+        "xp": "1100",
+        "moneyMin": "20",
+        "moneyMax": "105",
+        "statChance": 1000
     },
 
     {
@@ -370,13 +414,15 @@
         "id": "3025",
         "level": "19",
         "health": "400",
-        "strength": "10",
+        "strength": "26",
         "speed": "26",
         "constitution": "60",
         "luck": "17",
-        "xp": "340",
-        "moneyMin": "130",
-        "moneyMax": "140"
+        "xp": "1150",
+        "moneyMin": "20",
+        "moneyMax": "110",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -384,13 +430,14 @@
         "id": "3026",
         "level": "19",
         "health": "800",
-        "strength": "52",
+        "strength": "70",
         "speed": "5",
         "constitution": "5",
         "luck": "9",
-        "xp": "350",
-        "moneyMin": "130",
-        "moneyMax": "140"
+        "xp": "1150",
+        "moneyMin": "20",
+        "moneyMax": "110",
+        "statChance": 1000
     },
 
     {
@@ -399,12 +446,13 @@
         "level": "19",
         "health": "280",
         "strength": "5",
-        "speed": "56",
+        "speed": "70",
         "constitution": "2",
         "luck": "10",
-        "xp": "350",
-        "moneyMin": "130",
-        "moneyMax": "140"
+        "xp": "1150",
+        "moneyMin": "20",
+        "moneyMax": "110",
+        "statChance": 1000
     },
 
     {
@@ -412,13 +460,15 @@
         "id": "3028",
         "level": "20",
         "health": "420",
-        "strength": "10",
+        "strength": "26",
         "speed": "26",
-        "constitution": "65",
+        "constitution": "70",
         "luck": "17",
-        "xp": "360",
-        "moneyMin": "140",
-        "moneyMax": "150"
+        "xp": "1200",
+        "moneyMin": "20",
+        "moneyMax": "115",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 1000
     },
 
     {
@@ -426,13 +476,14 @@
         "id": "3029",
         "level": "20",
         "health": "850",
-        "strength": "56",
+        "strength": "75",
         "speed": "5",
         "constitution": "5",
         "luck": "9",
-        "xp": "370",
-        "moneyMin": "140",
-        "moneyMax": "150"
+        "xp": "1200",
+        "moneyMin": "20",
+        "moneyMax": "115",
+        "statChance": 1000
     },
 
     {
@@ -441,12 +492,13 @@
         "level": "20",
         "health": "300",
         "strength": "5",
-        "speed": "60",
+        "speed": "75",
         "constitution": "2",
         "luck": "10",
-        "xp": "370",
-        "moneyMin": "140",
-        "moneyMax": "150"
+        "xp": "1200",
+        "moneyMin": "20",
+        "moneyMax": "115",
+        "statChance": 1000
     },
 
     {
@@ -458,9 +510,11 @@
         "speed": "20",
         "constitution": "100",
         "luck": "10",
-        "xp": "1000",
-        "moneyMin": "350",
-        "moneyMax": "450"
+        "xp": "3000",
+        "moneyMin": "250",
+        "moneyMax": "450",
+        "pool": "silverSlimeLoot.json",
+        "statChance": 100
     },
 
     {
@@ -469,12 +523,13 @@
         "level": "20",
         "health": "2000",
         "strength": "120",
-        "speed": "5",
+        "speed": "10",
         "constitution": "20",
         "luck": "9",
-        "xp": "1000",
-        "moneyMin": "350",
-        "moneyMax": "450"
+        "xp": "3000",
+        "moneyMin": "250",
+        "moneyMax": "450",
+        "statChance": 100
     },
 
     {
@@ -483,12 +538,13 @@
         "level": "20",
         "health": "1000",
         "strength": "12",
-        "speed": "60",
+        "speed": "120",
         "constitution": "2",
         "luck": "10",
-        "xp": "1000",
-        "moneyMin": "350",
-        "moneyMax": "450"
+        "xp": "3000",
+        "moneyMin": "250",
+        "moneyMax": "450",
+        "statChance": 100
     }
 ]
 

@@ -5,6 +5,7 @@ import MasterModal from '../components/modalHell/MasterModal'
 import HeroPetXpStatExchangeModal from '../components/modalHell/HeroPetXpStatExchangeModal'
 import PetShop from '../components/PetShop'
 import BattleLocations from '../components/BattleLocations'
+import Apothecary from '../components/Apothecary'
 
 const NavBar = () => {
 
@@ -30,6 +31,11 @@ const NavBar = () => {
             <div className='navBar__button'>
                 <MasterModal buttonName='Patrol Areas' title='Patrol Areas'>
                     <BattleLocations />
+                </MasterModal>
+            </div>
+            <div className='navBar__button'>
+                <MasterModal buttonName='Apothecary' title='Apothecary'>
+                    <Apothecary />
                 </MasterModal>
             </div>
         </div>

@@ -3,6 +3,7 @@ import Clicker from "../components/Clicker";
 import monsters from '../heroEquipment/monsters.json'
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from '../components/helpers'
+import lootDrop from "../components/LootDrop";
 
 class HeroActionStore {
 
@@ -24,6 +25,8 @@ class HeroActionStore {
     monsterInterval
     monsterXp
     monsterMoneyDrop
+    monsterDrop
+
     underAttack = false
 
     heroHealthCheckInterval
@@ -45,10 +48,11 @@ class HeroActionStore {
             this.monsterSpeed = 0
             this.monsterLevel = 0
             this.monsterMoneyDrop = 0
+            this.monsterNormalDrop = 0
+            this.monsterRareDrop = 0
             this.monsterXp = 0
             this.monsterHealth = 1
             this.selectedActionArea = null
-            this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth
             clearInterval(this.monsterInterval)
             clearInterval(this.heroHealthCheckInterval)
             this.selectedActionArea = <Clicker />
@@ -130,7 +134,6 @@ class HeroActionStore {
     }
     
     patrolWin = () => {
-        console.log('hot');
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
         clearInterval(this.petInterval)
@@ -138,6 +141,7 @@ class HeroActionStore {
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
         this.allStores.countStore.levelCalc()
+        this.lootDrops()
     }
 
     patrolLoss = () => {
@@ -148,7 +152,14 @@ class HeroActionStore {
         this.allStores.countStore.coinSort()
         this.allStores.heroStatsStore.equipedPet.health--
     }
-    
+
+    lootDrops = () => {
+        this.monsterDrop = lootDrop(this.monster, this.allStores.heroStatsStore.luck)
+        for (let i = 0; i < this.monsterDrop.length; i++) {
+            this.allStores.heroInventoryStore.inventoryPlacement(this.monsterDrop[i])
+        }
+        this.monsterDrop = null
+    }
 }
 
 export default HeroActionStore

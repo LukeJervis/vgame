@@ -37,6 +37,10 @@ class HeroStatsStore {
         return this.health <= 0
     }
 
+    heroHeal = () => {
+        this.health = this.maxHealth
+    }
+
     heroAttackCalc = () => {
         this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage
         this.equipedHeroArmour = 0
@@ -67,7 +71,8 @@ class HeroStatsStore {
     }
 
     heroWeaponEquip = (weaponEquip) => {
-        if (weaponEquip.id > 0 && weaponEquip.id < 1001) {
+        console.log('weaponEquip', weaponEquip);
+        if (weaponEquip.type === "weapon") {
             this.equipedHeroWeapon = weaponEquip
             this.equipedHeroWeaponDamage = weaponEquip.damage
         } else if (weaponEquip.id > 1000 && weaponEquip.id < 2001) {
@@ -76,19 +81,19 @@ class HeroStatsStore {
     }
 
     heroArmourEquip = (armourEquip) => {
-        if (armourEquip.type === 'chest') {
+        if (armourEquip.location === 'chest') {
             this.equipedHeroArmourChest = 0
             this.equipedHeroArmourChest = this.equipedHeroArmourChest + armourEquip.constitution
-        }else if (armourEquip.type === 'legs') {
+        }else if (armourEquip.location === 'legs') {
             this.equipedHeroArmourLegs = 0
             this.equipedHeroArmourLegs = this.equipedHeroArmourLegs + armourEquip.constitution
-        }else if (armourEquip.type === 'head') {
+        }else if (armourEquip.location === 'head') {
             this.equipedHeroArmourHead = 0
             this.equipedHeroArmourHead = this.equipedHeroArmourHead + armourEquip.constitution
-        }else if (armourEquip.type === 'hands') {
+        }else if (armourEquip.location === 'hands') {
             this.equipedHeroArmourHands = 0
             this.equipedHeroArmourHands = this.equipedHeroArmourHands + armourEquip.constitution
-        }else if (armourEquip.type === 'feet') {
+        }else if (armourEquip.location === 'feet') {
             this.equipedHeroArmourFeet = 0
             this.equipedHeroArmourFeet = this.equipedHeroArmourFeet + armourEquip.constitution
         }

@@ -18,10 +18,10 @@ const HeroMoney = () => {
 
     return (
         <div className='heroMoney__container'>
-                <img src={ironCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {ironCoin}
-                <img src={copperCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {copperCoin}
-                <img src={silverCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {silverCoin}
-                <img src={goldCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin'/> {goldCoin}
+                <img src={ironCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Iron Coin' title='Iron Coin'/> {ironCoin}
+                <img src={copperCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Copper Coin' title='Copper Coin'/> {copperCoin}
+                <img src={silverCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Silver Coin' title='Silver Coin'/> {silverCoin}
+                <img src={goldCoinLogo} className='heroMoneyConverter__coins' height="30px" alt='Gold Coin' title='Gold Coin'/> {goldCoin}
         </div>
     )
 }

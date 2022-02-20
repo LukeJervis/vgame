@@ -4,9 +4,13 @@ class HeroInventoryStore {
 
     allStores;
 
-    heroInventorySlots = 10
+    heroInventorySlots = 100
     heroInventoryUsedSlots = 0
     heroInventorySlotsArray = []
+
+    heroWeaponInv = []
+    heroArmourInv = []
+    heroItemsInv = []
 
     heroPetSlots = 3
     heroPetSlotsUsed = 0
@@ -17,10 +21,24 @@ class HeroInventoryStore {
         makeAutoObservable(this);
     }
 
+    inventoryPlacement = (item) => {
+        if (this.heroInventoryUsedSlots > this.heroInventorySlots) {
+            console.log('Full Inventory');
+        } else if (item.type === 'weapon') {
+            this.heroWeaponInv.push(item)
+            this.heroInventoryUsedSlots = this.heroInventoryUsedSlots + 1
+        } else if (item.type === 'armour') {
+            this.heroArmourInv.push(item)
+            this.heroInventoryUsedSlots = this.heroInventoryUsedSlots + 1
+        } else if (item.type === 'item') {
+            this.heroItemsInv.push(item)
+            this.heroInventoryUsedSlots = this.heroInventoryUsedSlots + 1
+        }
+    }
+
     heroInventoryPurchase = (purchase) => {
-        this.heroInventorySlotsArray.push(purchase)
-        this.heroInventoryUsedSlots = this.heroInventoryUsedSlots + 1
         this.allStores.countStore.purchaseMoneyCount(purchase.cost)
+        this.inventoryPlacement(purchase)
     }
 
     handleBuy = (purchase) => {

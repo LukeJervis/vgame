@@ -1,0 +1,13 @@
+[
+    {
+        "id": "4001",
+        "type": "weapon",
+        "name": "Stick",
+        "stRangeLow": -0.2,
+        "stRangeHigh": 0.5,
+        "spRangeLow": -0.2,
+        "spRangeHigh": 0.5,
+        "lRangeLow": 0,
+        "lRangeHigh": 10
+    }
+]

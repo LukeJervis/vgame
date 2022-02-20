@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Iron Ore",
+        "type": "item",
+        "dropCeil": 50,
+        "cost": 5,
+        "stack": 1000,
+        "icon": "./images/IronOre.png"
+    },
+    {
+        "name": "Sturdy Branch",
+        "type": "weapon",
+        "dropCeil": 100,
+        "cost": 10,
+        "stack": 1,
+        "statLow": 0.4,
+        "statHigh": 1.4,
+        "damage": 1.6,
+        "icon": "./images/Weapon.png"
+    }
+]

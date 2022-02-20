@@ -5,7 +5,9 @@
         "name": "Cloth Shirt",
         "cost": 20,
         "constitution": 2,
-        "type": "chest"
+        "location": "chest",
+        "type": "armour",
+        "icon": "./images/ChestArmour.png"
     }, 
     
     {
@@ -13,7 +15,9 @@
         "name": "Cloth Pants",
         "cost": 20,
         "constitution": 2,
-        "type": "legs"
+        "location": "legs",
+        "type": "armour",
+        "icon": "./images/LegArmour.png"
     },
 
     {
@@ -21,7 +25,9 @@
         "name": "Cloth Gloves",
         "cost": 10,
         "constitution": 1,
-        "type": "hands"
+        "location": "hands",
+        "type": "armour",
+        "icon": "./images/HandArmour.png"
     }, 
 
     {
@@ -29,7 +35,9 @@
         "name": "Cloth Shoes",
         "cost": 10,
         "constitution": 1,
-        "type": "feet"
+        "location": "feet",
+        "type": "armour",
+        "icon": "./images/FeetArmour.png"
     },
 
     {
@@ -37,7 +45,9 @@
         "name": "Cloth Hood",
         "cost": 10,
         "constitution": 1,
-        "type": "head"
+        "location": "head",
+        "type": "armour",
+        "icon": "./images/HeadArmour.png"
     }
 
 ]

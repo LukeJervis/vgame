@@ -2,65 +2,83 @@
 [
     {
         "id": 1,
+        "type": "weapon",
         "name": "Stick",
         "cost": 10,
-        "damage": 1.2
+        "damage": 1.2,
+        "icon": "./images/Weapon.png"
     }, 
     
     {
         "id": 2,
+        "type": "weapon",
         "name": "Sturdy Branch",
         "cost": 50,
-        "damage": 1.6
+        "damage": 1.6,
+        "icon": "./images/Weapon.png"
     },
 
     {
         "id": 3,
+        "type": "weapon",
         "name": "Walking Stick",
         "cost": 100,
-        "damage": 2
+        "damage": 2,
+        "icon": "./images/Weapon.png"
     }, 
 
     {
         "id": 4,
+        "type": "weapon",
         "name": "Pickaxe Handle",
         "cost": 200,
-        "damage": 2.5
+        "damage": 2.5,
+        "icon": "./images/Weapon.png"
     }, 
 
     {
         "id": 5,
+        "type": "weapon",
         "name": "Common Flail",
         "cost": 1000,
-        "damage": 4
+        "damage": 4,
+        "icon": "./images/Weapon.png"
     },
 
     {
         "id": 6,
+        "type": "weapon",
         "name": "Common Short Sword",
         "cost": 4000,
-        "damage": 5
+        "damage": 5,
+        "icon": "./images/Weapon.png"
     },
 
     {
         "id": 7,
+        "type": "weapon",
         "name": "Farmers Scythe",
         "cost": 8000,
-        "damage": 6
+        "damage": 6,
+        "icon": "./images/Weapon.png"
     },
 
     {
         "id": 8,
+        "type": "weapon",
         "name": "Common Morning Star",
         "cost": 16000,
-        "damage": 8
+        "damage": 8,
+        "icon": "./images/Weapon.png"
     },
 
     {
         "id": 9,
+        "type": "weapon",
         "name": "Common Long Sword",
         "cost": 32000,
-        "damage": 10
+        "damage": 10,
+        "icon": "./images/Weapon.png"
     }
 
 ]

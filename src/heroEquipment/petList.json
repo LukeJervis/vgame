@@ -15,7 +15,8 @@
         "luckIncrease": 10,
         "statMulti": 2,
         "statCost": 100,
-        "healthStatCost": 1000
+        "healthStatCost": 1000,
+        "icon": "./images/Rat.png"
     },
     
     {
@@ -33,7 +34,8 @@
         "luckIncrease": 1,
         "statMulti": 2,
         "statCost": 100,
-        "healthStatCost": 1000
+        "healthStatCost": 1000,
+        "icon": "./images/Cat.png"
     },
 
     {
@@ -51,6 +53,7 @@
         "luckIncrease": 5,
         "statMulti": 1.9,
         "statCost": 100,
-        "healthStatCost": 1000
+        "healthStatCost": 1000,
+        "icon": "./images/Dog.png"
     }
 ]

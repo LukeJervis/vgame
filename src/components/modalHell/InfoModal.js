@@ -60,6 +60,7 @@ const InfoModal = () => {
     const handleBackButton = () => {
         setButtonBoolean(true)
         patrolBattleStart()
+        closeModal()
     }
 
     const buttonTimer = () => {
