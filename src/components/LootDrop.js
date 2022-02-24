@@ -35,7 +35,9 @@ const lootDrop = (monster, luck) => {
                     cost: monsterLoot[i].cost,
                     stack: monsterLoot[i].stack,
                     icon: monsterLoot[i].icon,
-                    type: monsterLoot[i].type
+                    type: monsterLoot[i].type,
+                    count: monsterLoot[i].count,
+                    id: Math.random().toString(36)
                 }
                 dropArray.push(droppedLoot)
             }
@@ -93,14 +95,15 @@ const lootDrop = (monster, luck) => {
                     damage: damageBonus ? +damageBonus + +monsterLoot[i].damage : monsterLoot[i].damage,
                     type: monsterLoot[i].type,
                     amount: monsterLoot[i].amount ? monsterLoot[i].amount : 1,
-                    icon: monsterLoot[i].icon
+                    icon: monsterLoot[i].icon,
+                    count: monsterLoot[i].count,
+                    id: Math.random().toString(36)
                 }
                 dropArray.push(droppedWeapon)
             }
         }
-
     }
-    console.log('droppedLoot', dropArray);
+
     return dropArray
 
 

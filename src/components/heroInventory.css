@@ -55,6 +55,15 @@
     text-decoration: underline;
 }
 
-.HeroInventory__button {
+.HeroInventory__buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin: 5px;
+}
+
+.HeroInventory__count {
+    display: flex;
+    font-weight: bolder;
+    justify-content: flex-end;
 }

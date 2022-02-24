@@ -5,6 +5,7 @@
         "dropCeil": 20,
         "cost": 1,
         "stack": 1000,
+        "count": 1,
         "icon": "./images/SlimeStone.png"
     },
     {
@@ -16,6 +17,7 @@
         "statLow": 0.1,
         "statHigh": 1,
         "damage": 1.2,
+        "count": 1,
         "icon": "./images/Weapon.png"
     }
 ]

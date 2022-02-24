@@ -48,7 +48,7 @@ class HeroStatsStore {
     }
 
     equipHeroWeapon = (HeroWeaponId) => {
-        this.equipedHeroWeapon = HeroWeaponId
+        this.equipedHeroWeapon = {HeroWeaponId}
     }
 
     equipPet = (heroPet) => {
@@ -151,6 +151,22 @@ class HeroStatsStore {
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.equipedPet.strength
         if (this.allStores.countStore.experience >= this.allStores.countStore.experienceNeeded) {   
             this.allStores.countStore.HerolevelIncrease()
+        }
+    }
+
+    statTrain = (stat, amount, cost) => {
+        if (stat === 'strength') {
+            this.strength = this.strength + amount
+            this.strength = Math.round(this.strength * 10) / 10
+            this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney - cost
+        } else if (stat === 'speed') {
+            this.speed = this.speed + amount
+            this.speed = Math.round(this.speed * 10) / 10
+            this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney - cost
+        } else if (stat === 'constitution') {
+            this.constitution = this.constitution + amount
+            this.constitution = Math.round(this.constitution * 10) / 10
+            this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney - cost
         }
     }
 

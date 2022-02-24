@@ -6,6 +6,7 @@ import HeroPetXpStatExchangeModal from '../components/modalHell/HeroPetXpStatExc
 import PetShop from '../components/PetShop'
 import BattleLocations from '../components/BattleLocations'
 import Apothecary from '../components/Apothecary'
+import TrainingYard from '../components/statSchools/TrainingYard'
 
 const NavBar = () => {
 
@@ -38,9 +39,13 @@ const NavBar = () => {
                     <Apothecary />
                 </MasterModal>
             </div>
+            <div className='navBar__button'>
+                <MasterModal buttonName='TrainingYard' title='Training Yard'>
+                    <TrainingYard />
+                </MasterModal>
+            </div>
         </div>
     )
-
 }
 
 export default NavBar
