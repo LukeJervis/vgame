@@ -1,5 +1,6 @@
 import { useRootStore } from "../../provider/RootStoreProvider"
 import { observer } from "mobx-react"
+import "./trainingYard.css"
 
 const TrainingYard = () => {
     const { countStore: { heroMoney } } = useRootStore()
@@ -18,9 +19,10 @@ const TrainingYard = () => {
     return (
         <div className="TrainingYard__container">
             <div className="TrainingYard__skills">
+                Train for a 0.1 increase.
                 <div className="TrainingYard__strength">
                     <div className="TrainingYard__strength--display">
-                        {strength}
+                        Strength: {strength}
                     </div>
                     <button onClick={() => train('strength', cost, 50)}>Strength</button>
                     <div className="TrainingYard__strength--cost">
@@ -29,7 +31,7 @@ const TrainingYard = () => {
                 </div>
                 <div className="TrainingYard__speed">
                     <div className="TrainingYard__speed--display">
-                        {speed}
+                        Speed: {speed}
                     </div>
                     <button onClick={() => train('speed', cost, 50)}>Speed</button>
                     <div className="TrainingYard__speed--cost">
@@ -38,7 +40,7 @@ const TrainingYard = () => {
                 </div>
                 <div className="TrainingYard__constitution">
                     <div className="TrainingYard__constitution--display">
-                        {constitution}
+                    Constitution: {constitution}
                     </div>
                     <button onClick={() => train('constitution', cost, 50)}>Constitution</button>
                     <div className="TrainingYard__constitution--cost">

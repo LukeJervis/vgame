@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Giant Slime (Field Boss)",
+        "id": 3003,
+        "strength": 8,
+        "speed": 8,
+        "constitution": 7,
+        "health": 160,
+        "xp": 100,
+        "moneyMin": 50,
+        "moneyMax": 75,
+        "pool": "silverSlimeLoot",
+        "statChance": 50
+    },
+    {
+        "name": "Steel Horned Boar (Field Boss)",
+        "id": 3003,
+        "strength": 15,
+        "speed": 4,
+        "constitution": 2,
+        "health": 260,
+        "xp": 100,
+        "moneyMin": 50,
+        "moneyMax": 75,
+        "pool": "silverSlimeLoot",
+        "statChance": 50
+    },
+    {
+        "name": "Evansish Rabbit (Field Boss)",
+        "id": 3003,
+        "strength": 5,
+        "speed": 17,
+        "constitution": 2,
+        "health": 110,
+        "xp": 100,
+        "moneyMin": 50,
+        "moneyMax": 75,
+        "pool": "silverSlimeLoot",
+        "statChance": 50
+    }
+]

@@ -14,8 +14,10 @@ const InfoModal = () => {
         monsterDeath,
         patrolBattleStart,
         location,
-        monsterLevelMin,
-        monsterLevelMax,
+        levelMin,
+        levelMax,
+        MIA,
+        FBIA,
         underAttack
         }} = useRootStore()
 
@@ -50,9 +52,14 @@ const InfoModal = () => {
             console.log('You is dead brah');
         } else {
             setButtonBoolean(true)
-            patrolBattleStart(location,
-                monsterLevelMin,
-                monsterLevelMax,)
+            patrolBattleStart(
+                location,
+                levelMin,
+                levelMax,
+                MIA,
+                FBIA
+
+            )
         }
         closeModal()
     }

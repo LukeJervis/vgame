@@ -40,7 +40,7 @@ const NavBar = () => {
                 </MasterModal>
             </div>
             <div className='navBar__button'>
-                <MasterModal buttonName='TrainingYard' title='Training Yard'>
+                <MasterModal buttonName='Training Yard' title='Training Yard'>
                     <TrainingYard />
                 </MasterModal>
             </div>

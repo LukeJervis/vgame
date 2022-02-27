@@ -11,12 +11,13 @@
     {
         "name": "Sturdy Branch",
         "type": "weapon",
-        "dropCeil": 100,
+        "dropCeil": 150,
         "cost": 10,
         "stack": 1,
         "statLow": 0.4,
         "statHigh": 1.4,
         "damage": 1.6,
+        "count": 1,
         "icon": "./images/Weapon.png"
     }
 ]

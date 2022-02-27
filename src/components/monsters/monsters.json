@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Slime",
+        "id": 3001,
+        "strength": 5,
+        "speed": 4,
+        "constitution": 1,
+        "health": 60,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "slimeLoot",
+        "statChance": 1000
+    },
+    {
+        "name": "Silver Slime",
+        "id": 3002,
+        "strength": 3.8,
+        "speed": 3.8,
+        "constitution": 10.4,
+        "health": 60,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "silverSlimeLoot",
+        "statChance": 1200
+    },
+    {
+        "name": "Horned Boar",
+        "id": 3003,
+        "strength": 11.6,
+        "speed": 1,
+        "constitution": 3.4,
+        "health": 160,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "silverSlimeLoot",
+        "statChance": 1200
+    },
+    {
+        "name": "Flash Rabbit",
+        "id": 3003,
+        "strength": 3,
+        "speed": 13,
+        "constitution": 2,
+        "health": 60,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "silverSlimeLoot",
+        "statChance": 1200
+    }
+]

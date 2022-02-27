@@ -1,9 +1,13 @@
 import { makeAutoObservable } from "mobx";
 import Clicker from "../components/Clicker";
-import monsters from '../heroEquipment/monsters.json'
+// import monsters from '../heroEquipment/monsters.json'
+import fieldBoss from '../components/monsters/fieldBoss.json'
+import levelChart from '../components/monsters/levelChart.json'
+import monsters from '../components/monsters/monsters.json'
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from '../components/helpers'
 import lootDrop from "../components/LootDrop";
+import _ from 'lodash'
 
 class HeroActionStore {
 
@@ -12,8 +16,10 @@ class HeroActionStore {
     selectedActionArea = <Clicker />
 
     location
-    monsterLevelMin
-    monsterLevelMax
+    levelMin
+    levelMax
+    MIA
+    FBIA
 
     monster
     monsterName = ''
@@ -26,6 +32,7 @@ class HeroActionStore {
     monsterXp
     monsterMoneyDrop
     monsterDrop
+    monsterLevelMulti
 
     underAttack = false
 
@@ -40,9 +47,13 @@ class HeroActionStore {
         return this.monsterHealth <= 0
     }
 
-    patrolBattleStart = (location, num1, num2) => {
+    patrolBattleStart = (location, levelMin, levelMax, MIA, FBIA) => {
         if (!location) {
             this.monster = null
+            this.levelMin = null
+            this.levelMax = null
+            this.MIA = []
+            this.FBIA = []
             this.monsterName = 0
             this.monsterStrength = 0
             this.monsterSpeed = 0
@@ -51,6 +62,7 @@ class HeroActionStore {
             this.monsterNormalDrop = 0
             this.monsterRareDrop = 0
             this.monsterXp = 0
+            this.monsterLevelMulti = 0
             this.monsterHealth = 1
             this.selectedActionArea = null
             clearInterval(this.monsterInterval)
@@ -59,21 +71,47 @@ class HeroActionStore {
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
         } else {
-            this.location = location
-            this.monsterLevelMin = num1
-            this.monsterLevelMax = num2
-            this.monster = monsters[randomNumber(num1, num2)]
-            this.monsterName = this.monster.name
-            this.monsterHealth = this.monster.health
-            this.monsterStrength = this.monster.strength - (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour)
-            this.monsterSpeed = this.monster.speed / this.allStores.heroStatsStore.speed
-            this.monsterLevel = this.monster.level
-            this.monsterXp = +this.monster.xp
-            if (this.monsterStrength < 1) {
-                this.monsterStrength = 1
+            //Boss roll
+            if (FBIA.length > 0 && randomNumber(0, 100) <= 1) {
+                this.levelMin = levelMin
+                this.levelMax = levelMax
+                this.MIA = MIA
+                this.FBIA = FBIA
+                this.monster = fieldBoss[_.sample(FBIA)]
+                this.monsterLevelMulti = levelChart[(levelMax) - 1]
+                this.monsterName = this.monster.name
+                this.monsterHealth = this.monster.health * this.monsterLevelMulti.multi
+                this.monsterStrength = this.monster.strength * this.monsterLevelMulti.multi - (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour)
+                this.monsterSpeed = this.monster.speed * this.monsterLevelMulti.multi
+                this.monsterXp = this.monster.xp * this.monsterLevelMulti.multi
+                this.monsterLevel = this.monsterLevelMulti.level
+                this.location = location
+                this.monsterMoneyDrop = Math.round(randomNumber(this.monster.moneyMin, this.monster.moneyMax) * this.monsterLevelMulti.multi)
+                if (this.monsterStrength < 1) {
+                        this.monsterStrength = 1
+                    }
+                this.selectedActionArea = <PatrolBattle location={location} />
+            } else {
+                this.levelMin = levelMin
+                this.levelMax = levelMax
+                this.MIA = MIA
+                this.FBIA = FBIA
+                this.monster = monsters[_.sample(MIA)]
+                this.monsterLevelMulti = levelChart[randomNumber(levelMin, levelMax)] 
+                this.monsterName = this.monster.name
+                console.log(this.monsterLevelMulti, levelMin, levelMax);
+                this.monsterHealth = this.monster.health * this.monsterLevelMulti.multi
+                this.monsterStrength = (this.monster.strength * this.monsterLevelMulti.multi) - (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour)
+                this.monsterSpeed = this.monster.speed * this.monsterLevelMulti.multi
+                this.monsterXp = this.monster.xp * this.monsterLevelMulti.multi
+                this.monsterLevel = this.monsterLevelMulti.level
+                this.location = location
+                this.monsterMoneyDrop = Math.round(randomNumber(this.monster.moneyMin, this.monster.moneyMax) * this.monsterLevelMulti.multi)
+                if (this.monsterStrength < 1) {
+                        this.monsterStrength = 1
+                    }
+                this.selectedActionArea = <PatrolBattle location={location} />
             }
-            this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
-            this.selectedActionArea = <PatrolBattle location={location} num1={num1} num2={num2} />
         }
     }
     
@@ -130,14 +168,14 @@ class HeroActionStore {
     }
     
     monsterAttack = () => {
-        this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.health - this.monsterStrength
+        this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.health - Math.round(this.monsterStrength)
     }
     
     patrolWin = () => {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
         clearInterval(this.petInterval)
-        this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
+        // this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
         this.allStores.countStore.levelCalc()

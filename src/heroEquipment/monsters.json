@@ -173,7 +173,7 @@
         "xp": "700",
         "moneyMin": "20",
         "moneyMax": "60",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -189,7 +189,7 @@
         "xp": "750",
         "moneyMin": "20",
         "moneyMax": "65",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -205,7 +205,7 @@
         "xp": "800",
         "moneyMin": "20",
         "moneyMax": "70",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -221,7 +221,7 @@
         "xp": "850",
         "moneyMin": "20",
         "moneyMax": "75",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -237,7 +237,7 @@
         "xp": "900",
         "moneyMin": "20",
         "moneyMax": "80",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -283,7 +283,7 @@
         "xp": "950",
         "moneyMin": "20",
         "moneyMax": "90",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -329,7 +329,7 @@
         "xp": "1000",
         "moneyMin": "20",
         "moneyMax": "100",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -375,7 +375,7 @@
         "xp": "1050",
         "moneyMin": "20",
         "moneyMax": "105",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -421,7 +421,7 @@
         "xp": "1150",
         "moneyMin": "20",
         "moneyMax": "110",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -467,7 +467,7 @@
         "xp": "1200",
         "moneyMin": "20",
         "moneyMax": "115",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 1000
     },
 
@@ -513,7 +513,7 @@
         "xp": "3000",
         "moneyMin": "250",
         "moneyMax": "450",
-        "pool": "silverSlimeLoot.json",
+        "pool": "silverSlimeLoot",
         "statChance": 100
     },
 
