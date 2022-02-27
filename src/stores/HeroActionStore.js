@@ -67,6 +67,7 @@ class HeroActionStore {
             this.selectedActionArea = null
             clearInterval(this.monsterInterval)
             clearInterval(this.heroHealthCheckInterval)
+            clearInterval(this.petInterval)
             this.selectedActionArea = <Clicker />
         } else if (this.allStores.heroStatsStore.health <= 0) {
             console.log('Erm... your dead?')
@@ -99,7 +100,6 @@ class HeroActionStore {
                 this.monster = monsters[_.sample(MIA)]
                 this.monsterLevelMulti = levelChart[randomNumber(levelMin, levelMax)] 
                 this.monsterName = this.monster.name
-                console.log(this.monsterLevelMulti, levelMin, levelMax);
                 this.monsterHealth = this.monster.health * this.monsterLevelMulti.multi
                 this.monsterStrength = (this.monster.strength * this.monsterLevelMulti.multi) - (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour)
                 this.monsterSpeed = this.monster.speed * this.monsterLevelMulti.multi
@@ -175,7 +175,6 @@ class HeroActionStore {
         clearInterval(this.monsterInterval)
         clearInterval(this.heroHealthCheckInterval)
         clearInterval(this.petInterval)
-        // this.monsterMoneyDrop = randomNumber(+this.monster.moneyMin, +this.monster.moneyMax)
         this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop
         this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp
         this.allStores.countStore.levelCalc()

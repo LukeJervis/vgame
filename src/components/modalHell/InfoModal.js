@@ -107,7 +107,6 @@ const InfoModal = () => {
                             {`You were killed by a ${monsterName} level: ${monsterLevel}!`}
                         </div>
                         <div className='infoModal__patrolWin__moneyLoss'>
-                            It will cost you 10% of your money to revive!
                         </div>
                         <button className='PatrolBattle__backButton' disabled={buttonBoolean} onClick={() => handleBackButton()}>Back</button>
                     </div>
