@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Raw Hide",
+        "type": "item",
+        "dropCeil": 50,
+        "cost": 5,
+        "count": 1,
+        "stack": 1000,
+        "icon": "./images/IronOre.png"
+    },
+    {
+        "name": "Raw Hide",
+        "type": "item",
+        "dropCeil": 50,
+        "cost": 5,
+        "count": 1,
+        "stack": 1000,
+        "icon": "./images/IronOre.png"
+    }
+]

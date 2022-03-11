@@ -7,6 +7,8 @@ import PetShop from '../components/PetShop'
 import BattleLocations from '../components/BattleLocations'
 import Apothecary from '../components/Apothecary'
 import TrainingYard from '../components/statSchools/TrainingYard'
+import Skills from '../components/Skills'
+import './navBar.css'
 
 const NavBar = () => {
 
@@ -42,6 +44,11 @@ const NavBar = () => {
             <div className='navBar__button'>
                 <MasterModal buttonName='Training Yard' title='Training Yard'>
                     <TrainingYard />
+                </MasterModal>
+            </div>
+            <div className='navBar__button'>
+                <MasterModal buttonName='Skills' title='Skills'>
+                    <Skills />
                 </MasterModal>
             </div>
         </div>

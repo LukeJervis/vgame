@@ -4,6 +4,7 @@ import ActionArea from './layout/ActionArea'
 import NavBar from './layout/NavBar'
 import HeroStatus from './layout/HeroStatus'
 import InfoModal from './components/modalHell/InfoModal';
+import Tanning from './components/craftingSkills/Tanning';
 
 function App() {
 

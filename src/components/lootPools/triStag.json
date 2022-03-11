@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Raw Hide",
+        "type": "item",
+        "dropCeil": 50,
+        "cost": 5,
+        "count": 2,
+        "stack": 1000,
+        "icon": "./images/IronOre.png"
+    },
+    {
+        "name": "Raw Hide",
+        "type": "item",
+        "dropCeil": 50,
+        "cost": 5,
+        "count": 1,
+        "stack": 1000,
+        "icon": "./images/IronOre.png"
+    },
+    {
+        "name": "Antler Spear",
+        "type": "weapon",
+        "dropCeil": 100,
+        "cost": 400,
+        "stack": 1,
+        "statLow": 1.5,
+        "statHigh": 2.5,
+        "damage": 4,
+        "count": 1,
+        "icon": "./images/Weapon.png"
+    }
+]

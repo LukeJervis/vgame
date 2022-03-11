@@ -5,158 +5,158 @@
     },
     {
         "level": 2,
-        "multi": 1.3
+        "multi": 1.5
     },
     {
         "level": 3,
-        "multi": 1.6
+        "multi": 2
     },
     {
         "level": 4,
-        "multi": 1.9
-    },
-    {
-        "level": 5,
-        "multi": 2.2
-    },
-    {
-        "level": 6,
         "multi": 2.5
     },
     {
+        "level": 5,
+        "multi": 3
+    },
+    {
+        "level": 6,
+        "multi": 3.5
+    },
+    {
         "level": 7,
-        "multi": 2.8
-    },
-    {
-        "level": 8,
-        "multi": 3.1
-    },
-    {
-        "level": 9,
-        "multi": 3.4
-    },
-    {
-        "level": 10,
-        "multi": 3.7
-    },
-    {
-        "level": 11,
         "multi": 4
     },
     {
-        "level": 12,
-        "multi": 4.3
+        "level": 8,
+        "multi": 4.5
     },
     {
-        "level": 13,
-        "multi": 4.6
+        "level": 9,
+        "multi": 5
     },
     {
-        "level": 14,
-        "multi": 4.9
-    },
-    {
-        "level": 15,
-        "multi": 5.2
-    },
-    {
-        "level": 16,
+        "level": 10,
         "multi": 5.5
     },
     {
-        "level": 17,
-        "multi": 5.8
+        "level": 11,
+        "multi": 6
     },
     {
-        "level": 18,
-        "multi": 6.1
+        "level": 12,
+        "multi": 6.5
     },
     {
-        "level": 19,
-        "multi": 6.4
-    },
-    {
-        "level": 20,
-        "multi": 6.7
-    },
-    {
-        "level": 21,
+        "level": 13,
         "multi": 7
     },
     {
-        "level": 22,
-        "multi": 7.3
+        "level": 14,
+        "multi": 7.5
     },
     {
-        "level": 23,
-        "multi": 7.6
+        "level": 15,
+        "multi": 8
     },
     {
-        "level": 24,
-        "multi": 7.9
-    },
-    {
-        "level": 25,
-        "multi": 8.2
-    },
-    {
-        "level": 26,
+        "level": 16,
         "multi": 8.5
     },
     {
-        "level": 27,
-        "multi": 8.8
+        "level": 17,
+        "multi": 9
     },
     {
-        "level": 28,
-        "multi": 9.1
+        "level": 18,
+        "multi": 9.5
     },
     {
-        "level": 29,
-        "multi": 9.4
-    },
-    {
-        "level": 30,
-        "multi": 9.7
-    },
-    {
-        "level": 31,
+        "level": 19,
         "multi": 10
     },
     {
-        "level": 32,
-        "multi": 10.3
+        "level": 20,
+        "multi": 10.5
     },
     {
-        "level": 33,
-        "multi": 10.6
+        "level": 21,
+        "multi": 11
     },
     {
-        "level": 34,
-        "multi": 10.9
-    },
-    {
-        "level": 35,
-        "multi": 11.2
-    },
-    {
-        "level": 36,
+        "level": 22,
         "multi": 11.5
     },
     {
+        "level": 23,
+        "multi": 12
+    },
+    {
+        "level": 24,
+        "multi": 12.5
+    },
+    {
+        "level": 25,
+        "multi": 13
+    },
+    {
+        "level": 26,
+        "multi": 13.5
+    },
+    {
+        "level": 27,
+        "multi": 14
+    },
+    {
+        "level": 28,
+        "multi": 14.5
+    },
+    {
+        "level": 29,
+        "multi": 15
+    },
+    {
+        "level": 30,
+        "multi": 15.5
+    },
+    {
+        "level": 31,
+        "multi": 16
+    },
+    {
+        "level": 32,
+        "multi": 16.5
+    },
+    {
+        "level": 33,
+        "multi": 17
+    },
+    {
+        "level": 34,
+        "multi": 17.5
+    },
+    {
+        "level": 35,
+        "multi": 18
+    },
+    {
+        "level": 36,
+        "multi": 18.5
+    },
+    {
         "level": 37,
-        "multi": 11.8
+        "multi": 19
     },
     {
         "level": 38,
-        "multi": 12.1
+        "multi": 19.5
     },
     {
         "level": 39,
-        "multi": 12.4
+        "multi": 20
     },
     {
         "level": 40,
-        "multi": 12.7
+        "multi": 20.5
     }
 ]

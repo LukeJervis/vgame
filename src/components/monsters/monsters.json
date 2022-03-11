@@ -10,7 +10,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "pool": "slimeLoot",
-        "statChance": 1000
+        "statChance": 500
     },
     {
         "name": "Silver Slime",
@@ -23,7 +23,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "pool": "silverSlimeLoot",
-        "statChance": 1200
+        "statChance": 1000
     },
     {
         "name": "Horned Boar",
@@ -36,7 +36,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "pool": "silverSlimeLoot",
-        "statChance": 1200
+        "statChance": 1000
     },
     {
         "name": "Flash Rabbit",
@@ -49,6 +49,45 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "pool": "silverSlimeLoot",
-        "statChance": 1200
+        "statChance": 1000
+    },
+    {
+        "name": "Dire Bear",
+        "id": 3003,
+        "strength": 10,
+        "speed": 1,
+        "constitution": 6,
+        "health": 160,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "silverSlimeLoot",
+        "statChance": 1000
+    },
+    {
+        "name": "Tri Stag",
+        "id": 3003,
+        "strength": 8,
+        "speed": 8,
+        "constitution": 2,
+        "health": 60,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "silverSlimeLoot",
+        "statChance": 1000
+    },
+    {
+        "name": "Vine Dionaea",
+        "id": 3003,
+        "strength": 5,
+        "speed": 5,
+        "constitution": 5,
+        "health": 210,
+        "xp": 100,
+        "moneyMin": 2,
+        "moneyMax": 10,
+        "pool": "silverSlimeLoot",
+        "statChance": 1000
     }
 ]
