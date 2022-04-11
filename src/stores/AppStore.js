@@ -6,6 +6,7 @@ class AppStore {
     heroStatsPage = null;
     heroActionStore = null;
     heroInventoryStore = null;
+    skillStore = null;
 
     constructor(rootStore) {
         this.rootStore = rootStore;
@@ -13,8 +14,9 @@ class AppStore {
         this.heroStatsPage = rootStore.heroStatsPage;
         this.heroInventoryStore = rootStore.heroInventoryStore;
         this.heroActionStore = rootStore.heroActionStore;
+        this.skillStore = rootStore.skillStore;
         makeAutoObservable(this);
     }
 }
 
-export default AppStore
+export default AppStore;

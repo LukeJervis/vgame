@@ -1,4 +1,3 @@
-
 [
     {
         "name": "Flash Powder",
@@ -10,12 +9,17 @@
         "icon": "./images/IronOre.png"
     },
     {
-        "name": "Raw Hide",
-        "type": "item",
-        "dropCeil": 50,
+        "name": "Hide",
+        "condition": "Raw",
+        "hideDiff": 50,
+        "skill": "tannable",
+        "xp": 1,
         "cost": 5,
+        "type": "item",
+        "dropCiel": 50,
         "count": 1,
         "stack": 1000,
-        "icon": "./images/IronOre.png"
+        "icon": "./images/ChestArmour.png",
+        "tannedIcon": "./images/TannedHide.png"
     }
 ]

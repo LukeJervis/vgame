@@ -42,7 +42,7 @@ class HeroInventoryStore {
                     position,
                     position + 1
                 );
-                removedObject[0].count++;
+                removedObject[0].count = removedObject[0].count + item.count;
                 this.heroItemsInv.push(removedObject[0]);
             } else {
                 this.heroItemsInv.push(item);
@@ -67,6 +67,7 @@ class HeroInventoryStore {
     };
 
     handleSell = (item, amount) => {
+        console.log("item", item, "amount", amount);
         if (
             this.heroItemsInv.some((el) => el.name === item.name) &&
             item.type === "item"

@@ -2,7 +2,7 @@ import { useRootStore } from "../provider/RootStoreProvider";
 
 const Skills = () => {
     const {
-        heroActionStore: { skillScreen }
+        skillStore: { skillScreen }
     } = useRootStore();
 
     return (

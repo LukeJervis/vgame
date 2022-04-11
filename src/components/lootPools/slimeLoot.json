@@ -19,5 +19,20 @@
         "damage": 1.2,
         "count": 1,
         "icon": "./images/Weapon.png"
+    },
+    {
+        "id": 3200,
+        "name": "Hide",
+        "condition": "Raw",
+        "hideDiff": 50,
+        "skill": "tannable",
+        "xp": 1,
+        "cost": 5,
+        "type": "item",
+        "dropCeil": 1,
+        "count": 10,
+        "stack": 1000,
+        "icon": "./images/ChestArmour.png",
+        "tannedIcon": "./images/TannedHide.png"
     }
 ]
