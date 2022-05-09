@@ -87,10 +87,8 @@ class CountStore {
     herolevelIncrease = (skill) => {
         if (skill === "tanning") {
             this.tanningLevel++;
-            this.allStores.heroStatsStore.maxHealth =
-                this.allStores.heroStatsStore.maxHealth + 2;
-            this.allStores.heroStatsStore.health =
-                this.allStores.heroStatsStore.maxHealth;
+            this.allStores.heroStatsStore.maxHealth = this.allStores.heroStatsStore.maxHealth + 2;
+            this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth;
             this.tanningExperienceNeeded =
                 this.tanningLevel *
                 (this.tanningLevel * (this.tanningLevel * this.tanningLevel)) *
@@ -98,39 +96,22 @@ class CountStore {
             this.tanningExperience = 0;
         } else {
             this.heroLevel++;
-            this.allStores.heroStatsStore.maxHealth =
-                this.allStores.heroStatsStore.maxHealth + 10;
-            this.allStores.heroStatsStore.health =
-                this.allStores.heroStatsStore.maxHealth;
+            this.allStores.heroStatsStore.maxHealth = this.allStores.heroStatsStore.maxHealth + 10;
+            this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth;
             this.experienceNeeded =
-                this.heroLevel *
-                (this.heroLevel * (this.heroLevel * this.heroLevel)) *
-                this.levelMultiplier;
+                this.heroLevel * (this.heroLevel * (this.heroLevel * this.heroLevel)) * this.levelMultiplier;
             this.experience = 0;
             if (this.heroLevel.toString().slice(-1)) {
-                this.heroMoney =
-                    this.heroMoney + this.heroLevel * this.heroLevel;
+                this.heroMoney = this.heroMoney + this.heroLevel * this.heroLevel;
             }
         }
     };
 
     coinSort = () => {
-        this.ironCoin =
-            this.heroMoney.toString().slice(-2) <= 0
-                ? 0
-                : this.heroMoney.toString().slice(-2);
-        this.copperCoin =
-            this.heroMoney.toString().slice(-4, -2) <= 0
-                ? 0
-                : this.heroMoney.toString().slice(-4, -2);
-        this.silverCoin =
-            this.heroMoney.toString().slice(-6, -4) <= 0
-                ? 0
-                : this.heroMoney.toString().slice(-6, -4);
-        this.goldCoin =
-            this.heroMoney.toString().slice(-8, -6) <= 0
-                ? 0
-                : this.heroMoney.toString().slice(-9, -6);
+        this.ironCoin = this.heroMoney.toString().slice(-2) <= 0 ? 0 : this.heroMoney.toString().slice(-2);
+        this.copperCoin = this.heroMoney.toString().slice(-4, -2) <= 0 ? 0 : this.heroMoney.toString().slice(-4, -2);
+        this.silverCoin = this.heroMoney.toString().slice(-6, -4) <= 0 ? 0 : this.heroMoney.toString().slice(-6, -4);
+        this.goldCoin = this.heroMoney.toString().slice(-8, -6) <= 0 ? 0 : this.heroMoney.toString().slice(-9, -6);
         this.heroMoney = Math.floor(this.heroMoney);
         if (this.heroMoney <= 0) {
             this.heroMoney = 0;
@@ -183,18 +164,15 @@ class CountStore {
 
     tanningHerolevelIncrease = () => {
         this.tanningLevel++;
-        this.allStores.heroStatsStore.maxHealth =
-            this.allStores.heroStatsStore.maxHealth + 1;
-        this.allStores.heroStatsStore.health =
-            this.allStores.heroStatsStore.maxHealth;
+        this.allStores.heroStatsStore.maxHealth = this.allStores.heroStatsStore.maxHealth + 1;
+        this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth;
         this.tanningExperienceNeeded =
             this.tanningLevel *
             (this.tanningLevel * (this.tanningLevel * this.tanningLevel)) *
             this.tanningLevelMultiplier;
         this.tanningExperience = 0;
         if (this.tanningLevel.toString().slice(-1)) {
-            this.HeroMoney =
-                this.HeroMoney + this.tanningLevel * this.tanningLevel;
+            this.HeroMoney = this.HeroMoney + this.tanningLevel * this.tanningLevel;
         }
     };
 }
