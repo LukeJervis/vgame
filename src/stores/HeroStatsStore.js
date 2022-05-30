@@ -128,16 +128,16 @@ class HeroStatsStore {
     handlePetStatBuy = (petObject, petStat) => {
         if (petStat === "strength") {
             petObject.strength += petObject.strengthIncrease;
-            petObject.statCost += petObject.statMulti;
+            petObject.statCost *= petObject.statMulti;
         } else if (petStat === "speed") {
             petObject.speed += petObject.speedIncrease;
-            petObject.statCost += petObject.statMulti;
+            petObject.statCost *= petObject.statMulti;
         } else if (petStat === "constitution") {
             petObject.constitution += petObject.constitutionIncrease;
-            petObject.statCost += petObject.statMulti;
+            petObject.statCost *= petObject.statMulti;
         } else if (petStat === "luck") {
             petObject.luck += petObject.luckIncrease;
-            petObject.statCost += petObject.statMulti;
+            petObject.statCost *= petObject.statMulti;
         } else if (petStat === "health") {
             petObject.health += petObject.healthIncrease;
             petObject.healthStatCost *= petObject.healthStatMulti;

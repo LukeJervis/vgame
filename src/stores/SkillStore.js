@@ -8,7 +8,7 @@ class SkillStore {
     //Skills
     prefixNum = 1;
     prefix;
-    skillItems;
+    // skillItems;
 
     //Tanning
     tanningActive = false;
@@ -22,35 +22,10 @@ class SkillStore {
         makeAutoObservable(this);
     }
 
-    itemInv = () => {
-        this.skillItems = this.allStores.heroInventoryStore.heroItemsInv.map((heroItemsInv) => (
-            <div key={Math.random().toString(36)} className="HeroInventory__equipment">
-                <div key={Math.random().toString(36)} className="HeroInventory__equipmentName">
-                    {heroItemsInv.name}
-                </div>
-                <img
-                    className="HeroInventory__image"
-                    src={heroItemsInv.icon}
-                    alt="icon"
-                    title={`Name: ${heroItemsInv.name} \nCount: ${heroItemsInv.count} Cost: ${heroItemsInv.cost}`}
-                />
-                <div className="HeroInventory__buttonContainer">
-                    <div className="HeroInventory__count" key={Math.random().toString(36)}>
-                        {heroItemsInv.count}
-                        <button key={Math.random().toString(36)} onClick={() => this.tanning(heroItemsInv)}>
-                            Tan
-                        </button>
-                    </div>
-                </div>
-            </div>
-        ));
-    };
-
-    skillScreen = () => {
-        this.itemInv();
+    skillScreen = (skillName) => {
         if (this.allStores.heroActionStore.selectedActionArea !== <SkillScreen />) {
             this.allStores.heroActionStore.selectedActionArea = (
-                <SkillScreen skill="Tanning" level={this.allStores.countStore.tanningLevel} />
+                <SkillScreen skillName={skillName} level={this.allStores.countStore.tanningLevel} />
             );
         }
     };
@@ -66,7 +41,6 @@ class SkillStore {
             this.tanTime = hide.hideDiff / this.allStores.countStore.tanningLevel;
             this.tanInterval();
             hide.count--;
-            this.itemInv();
             this.skillScreen();
         }
         console.log("hide", hide);
@@ -137,10 +111,8 @@ class SkillStore {
         };
         this.tanningActive = false;
         this.tanningProgressState = 0;
-        this.allStores.heroInventoryStore.heroItemsInv.push(tannedHide);
-        this.itemInv();
+        this.allStores.heroInventoryStore.inventoryPlacement(tannedHide);
         this.allStores.countStore.skillExperienceIncrease("tanning", this.rawHide.xp);
-        this.skillScreen();
     };
 }
 
