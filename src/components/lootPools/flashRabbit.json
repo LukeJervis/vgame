@@ -16,7 +16,7 @@
         "xp": 1,
         "cost": 5,
         "type": "item",
-        "dropCiel": 50,
+        "dropCeil": 50,
         "count": 1,
         "stack": 1000,
         "icon": "./images/ChestArmour.png",

@@ -41,6 +41,7 @@ class SkillStore {
             this.tanTime = hide.hideDiff / this.allStores.countStore.tanningLevel;
             this.tanInterval();
             hide.count--;
+            this.allStores.heroInventoryStore.inventoryCheck();
             this.skillScreen();
         }
         console.log("hide", hide);
@@ -51,11 +52,10 @@ class SkillStore {
     };
 
     tanningProgress = (action) => {
-        // this.skillScreen();
         console.log("hit1", action, this.tanningActive);
         if (this.tanningActive === false) {
             console.log("Nothing to tan");
-        } else if (this.tanningProgressState >= this.tanTime && this.tanningActive === true) {
+        } else if (this.tanningProgressState >= this.tanTime - 1 && this.tanningActive === true) {
             this.tanningComplete();
             clearInterval(this.setTanInterval);
         } else if (action === "click") {

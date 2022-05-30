@@ -35,7 +35,7 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "silverSlimeLoot",
+        "pool": "hornedBoarLoot",
         "statChance": 1000
     },
     {
@@ -48,7 +48,7 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "silverSlimeLoot",
+        "pool": "flashRabbitLoot",
         "statChance": 1000
     },
     {
@@ -61,7 +61,7 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "silverSlimeLoot",
+        "pool": "hornedBoarLoot",
         "statChance": 1000
     },
     {

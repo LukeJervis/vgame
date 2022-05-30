@@ -1,5 +1,6 @@
 [
     {
+        "id": 3200,
         "name": "Hide",
         "condition": "Raw",
         "hideDiff": 50,

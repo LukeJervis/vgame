@@ -1,5 +1,6 @@
 [
     {
+        "id": 3200,
         "name": "Hide",
         "condition": "Raw",
         "hideDiff": 50,
@@ -7,13 +8,14 @@
         "xp": 1,
         "cost": 5,
         "type": "item",
-        "dropCiel": 50,
+        "dropCeil": 50,
         "count": 1,
         "stack": 1000,
         "icon": "./images/ChestArmour.png",
         "tannedIcon": "./images/TannedHide.png"
     },
     {
+        "id": 3201,
         "name": "Hide",
         "condition": "Raw",
         "hideDiff": 50,
@@ -21,8 +23,8 @@
         "xp": 1,
         "cost": 5,
         "type": "item",
-        "dropCiel": 50,
-        "count": 1,
+        "dropCeil": 50,
+        "count": 2,
         "stack": 1000,
         "icon": "./images/ChestArmour.png",
         "tannedIcon": "./images/TannedHide.png"
