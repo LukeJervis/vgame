@@ -9,7 +9,7 @@ class CountStore {
     levelMultiplier = 1.5;
     experienceNeeded = 10;
 
-    heroMoney = 200000;
+    heroMoney = 0;
     ironCoin = "0";
     copperCoin = "0";
     silverCoin = "0";

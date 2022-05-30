@@ -3,3 +3,10 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.cheatButton {
+    font-size: 10px;
+    width: fit-content;
+    text-align: left;
+    padding: 0;
+}

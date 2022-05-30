@@ -5,10 +5,10 @@ class HeroStatsStore {
 
     maxHealth = 100;
     health = 100;
-    strength = 500;
+    strength = 1;
     speed = 1;
-    constitution = 10;
-    luck = 100000;
+    constitution = 1;
+    luck = 1;
 
     statCost = 100;
     statCool = false;
@@ -36,6 +36,15 @@ class HeroStatsStore {
     get heroDeath() {
         return this.health <= 0;
     }
+
+    devCheats = () => {
+        this.strength += 100;
+        this.speed += 100;
+        this.constitution += 100;
+        this.luck += 1000;
+        this.allStores.countStore.heroMoney += 100000;
+        this.heroAttackCalc();
+    };
 
     heroHeal = () => {
         this.health = this.maxHealth;

@@ -6,6 +6,10 @@ import { observer } from "mobx-react";
 import "./header.css";
 
 const Header = () => {
+    const {
+        heroStatsStore: { devCheats },
+    } = useRootStore();
+
     return (
         <div className="header__container">
             <div className="header__title">Game Name</div>
@@ -28,6 +32,9 @@ const Header = () => {
                     </tr>
                 </tbody>
             </table>
+            <button className="cheatButton" onClick={() => devCheats()}>
+                Cheats
+            </button>
         </div>
     );
 };
