@@ -15,7 +15,9 @@ const SkillScreen = ({ level, skillName }) => {
         heroInventoryStore: { heroItemsInv },
     } = useRootStore();
 
-    const skillItems = heroItemsInv.map((heroItemsInv) => (
+    const tannables = heroItemsInv.filter((heroItem) => heroItem.skill === "tannable");
+
+    const skillItems = tannables.map((heroItemsInv) => (
         <div key={Math.random().toString(36)} className="HeroInventory__equipment">
             <div key={Math.random().toString(36)} className="HeroInventory__equipmentName">
                 {heroItemsInv.name}
