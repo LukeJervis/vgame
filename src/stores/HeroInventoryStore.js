@@ -44,6 +44,15 @@ class HeroInventoryStore {
         }
     };
 
+    inventoryCheck = () => {
+        for (let i = 0; i < this.heroItemsInv.length; i++) {
+            if (this.heroItemsInv[i].count <= 0) {
+                const position = this.heroItemsInv.indexOf(this.heroItemsInv[i]);
+                this.heroItemsInv.splice(position, 1);
+            }
+        }
+    };
+
     heroInventoryPurchase = (purchase) => {
         this.allStores.countStore.purchaseMoneyCount(purchase.cost);
         this.inventoryPlacement(purchase);

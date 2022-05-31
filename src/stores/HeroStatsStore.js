@@ -41,7 +41,7 @@ class HeroStatsStore {
         this.strength += 100;
         this.speed += 100;
         this.constitution += 100;
-        this.luck += 1000;
+        this.luck += 10;
         this.allStores.countStore.heroMoney += 100000;
         this.heroAttackCalc();
     };

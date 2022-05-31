@@ -10,7 +10,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "pool": "slimeLoot",
-        "statChance": 500
+        "statChance": 100
     },
     {
         "name": "Silver Slime",
@@ -23,7 +23,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "pool": "silverSlimeLoot",
-        "statChance": 1000
+        "statChance": 200
     },
     {
         "name": "Horned Boar",

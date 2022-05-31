@@ -35,7 +35,6 @@ class CountStore {
     };
 
     skillExperienceIncrease = (skill, xp) => {
-        console.log("lkj", skill, xp);
         if (skill === "tanning") {
             this.tanningExperience = this.tanningExperience + xp;
         }
