@@ -1,45 +1,45 @@
 .App {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  /* grid-template-rows: 1fr 3fr .5fr; */
-  /* grid-template-columns: 1fr; */
-  text-align: center;
-  /* gap: 0px; */
-  height: 100vh;
-  background-color: rgb(83, 64, 255);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    /* grid-template-rows: 1fr 3fr .5fr; */
+    /* grid-template-columns: 1fr; */
+    text-align: center;
+    /* gap: 0px; */
+    height: 100vh;
+    background-color: rgb(83, 64, 255);
 }
 
 .App__body {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
 }
 
 .App__navBar {
-  display: flex;
-  justify-content: center;
-  border: rgb(255, 255, 255) solid;
-  background-color: rgb(132, 132, 255);
-  width: 200px;
-  margin: 20px 0 0 20px;
-  height: 700px;
+    display: flex;
+    justify-content: center;
+    border: rgb(255, 255, 255) solid;
+    background-color: rgb(132, 132, 255);
+    width: 200px;
+    margin: 20px 0 0 20px;
+    height: 80%;
 }
 
 .App__actionArea {
     align-items: center;
     width: 1000px;
     margin: 20px 0 0 20px;
-    height: 700px;
+    height: 80%;
 }
 
 .App__heroStatus {
-  display: flex;
-  justify-content: center;
-  border: rgb(255, 255, 255) solid;
-  background-color: rgb(132, 132, 255);
-  width: 200px;
-  margin: 20px 20px 0 20px;
-  height: 700px;
+    display: flex;
+    justify-content: center;
+    border: rgb(255, 255, 255) solid;
+    background-color: rgb(132, 132, 255);
+    width: 200px;
+    margin: 20px 20px 0 20px;
+    height: 80%;
 }

@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height: fit-content;
+}
+@media only screen and (max-width: 600px) {
+    .header__container {
+        font-size: 80%;
+    }
 }
 
 .cheatButton {

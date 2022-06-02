@@ -1,5 +1,11 @@
-
 .navBar__button {
     padding: 3px;
-    width: 120px;
+    width: 15vw;
+}
+
+@media only screen and (max-width: 600px) {
+    .navBar__button {
+        width: 20vw;
+        padding: 8px 0 8px;
+    }
 }

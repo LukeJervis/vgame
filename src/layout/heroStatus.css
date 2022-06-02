@@ -1,5 +1,5 @@
 .heroStatus__container {
-    width: 100%;
+    width: 15vw;
 }
 
 .heroStatus__health {
@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
-    height: 50px;
+    height: 35vw;
 }
 
 .heroStatus__weapon {
@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
-    height: 50px;
+    height: 35vw;
 }
 
 .heroStatus__pet {
@@ -23,5 +23,5 @@
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
-    height: 50px;
+    height: 35vw;
 }

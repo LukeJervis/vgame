@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <div className="header__container">
-            <div className="header__title">Game Name</div>
+            <div className="header__title"></div>
             <table className="header__table">
                 <tbody>
                     <tr>
