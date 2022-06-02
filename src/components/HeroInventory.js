@@ -74,13 +74,15 @@ const HeroInventory = () => {
     const itemInv = heroItemsInv.map((heroEquipment) => (
         <div key={Math.random().toString(36)} className="HeroInventory__equipment">
             <div key={Math.random().toString(36)} className="HeroInventory__equipmentName">
-                {heroEquipment.name}
+                {heroEquipment.name + " " + heroEquipment.suffix}
             </div>
             <img
                 className="HeroInventory__image"
                 src={heroEquipment.icon}
                 alt="icon"
-                title={`Name: ${heroEquipment.name} \nCount: ${heroEquipment.count} Cost: ${heroEquipment.cost}`}
+                title={`Name: ${heroEquipment.name + " " + heroEquipment.suffix} \nCount: ${
+                    heroEquipment.count
+                } Cost: ${heroEquipment.cost}`}
             />
             <div className="HeroInventory__buttonContainer">
                 <button className="HeroInventory__button" onClick={() => sellItemsHandler(heroEquipment, "one")}>

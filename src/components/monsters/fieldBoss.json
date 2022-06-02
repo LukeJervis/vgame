@@ -13,6 +13,7 @@
         "pool": [
             {
                 "name": "Slime Stone",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 20,
                 "cost": 1,
@@ -22,6 +23,7 @@
             },
             {
                 "name": "Slime Stone",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 20,
                 "cost": 1,
@@ -31,6 +33,7 @@
             },
             {
                 "name": "Slime Stone",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 20,
                 "cost": 1,
@@ -40,6 +43,7 @@
             },
             {
                 "name": "Slime Stone",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 20,
                 "cost": 1,
@@ -76,8 +80,9 @@
             {
                 "id": 3200,
                 "name": "Thick Hide",
-                "condition": "Raw",
-                "hideDiff": 100,
+                "condition": ["Raw", "Leather"],
+                "suffix": "Raw",
+                "skillDiff": 100,
                 "skill": "tannable",
                 "xp": 5,
                 "cost": 15,
@@ -86,13 +91,14 @@
                 "count": 2,
                 "stack": 1000,
                 "icon": "./images/ChestArmour.png",
-                "tannedIcon": "./images/TannedHide.png"
+                "skilledIcon": "./images/TannedHide.png"
             },
             {
                 "id": 3200,
                 "name": "Thick Hide",
-                "condition": "Raw",
-                "hideDiff": 100,
+                "condition": ["Raw", "Leather"],
+                "suffix": "Raw",
+                "skillDiff": 100,
                 "skill": "tannable",
                 "xp": 5,
                 "cost": 15,
@@ -101,25 +107,37 @@
                 "count": 1,
                 "stack": 1000,
                 "icon": "./images/ChestArmour.png",
-                "tannedIcon": "./images/TannedHide.png"
+                "skilledIcon": "./images/TannedHide.png"
             },
             {
-                "name": "Iron Ore",
+                "name": "Iron",
+                "condition": ["Ore", "Bar"],
+                "suffix": "Ore",
+                "skillDiff": 50,
+                "skill": "smeltable",
+                "xp": 1,
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 4,
+                "stack": 1000,
+                "icon": "./images/IronOre.png",
+                "skilledIcon": "./images/IronOre.png"
+            },
+            {
+                "name": "Iron",
+                "condition": ["Ore", "Bar"],
+                "suffix": "Ore",
+                "skillDiff": 50,
+                "skill": "smeltable",
+                "xp": 1,
                 "type": "item",
                 "dropCeil": 50,
                 "cost": 5,
                 "count": 2,
                 "stack": 1000,
-                "icon": "./images/IronOre.png"
-            },
-            {
-                "name": "Iron Ore",
-                "type": "item",
-                "dropCeil": 50,
-                "cost": 5,
-                "count": 2,
-                "stack": 1000,
-                "icon": "./images/IronOre.png"
+                "icon": "./images/IronOre.png",
+                "skilledIcon": "./images/IronOre.png"
             }
         ]
     },
@@ -137,6 +155,7 @@
         "pool": [
             {
                 "name": "Flash Powder",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 100,
                 "cost": 5,
@@ -146,6 +165,7 @@
             },
             {
                 "name": "Flash Powder",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 50,
                 "cost": 5,
@@ -155,6 +175,7 @@
             },
             {
                 "name": "Flash Powder",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 50,
                 "cost": 5,
@@ -164,6 +185,7 @@
             },
             {
                 "name": "Flash Powder",
+                "suffix": "",
                 "type": "item",
                 "dropCeil": 50,
                 "cost": 5,
@@ -173,8 +195,9 @@
             },
             {
                 "name": "Hide",
-                "condition": "Raw",
-                "hideDiff": 50,
+                "condition": ["Raw", "Leather"],
+                "suffix": "Raw",
+                "skillDiff": 50,
                 "skill": "tannable",
                 "xp": 1,
                 "cost": 5,
@@ -183,7 +206,7 @@
                 "count": 1,
                 "stack": 1000,
                 "icon": "./images/ChestArmour.png",
-                "tannedIcon": "./images/TannedHide.png"
+                "skilledIcon": "./images/TannedHide.png"
             }
         ]
     },
@@ -202,8 +225,9 @@
             {
                 "id": 3200,
                 "name": "Thick Hide",
-                "condition": "Raw",
-                "hideDiff": 100,
+                "condition": ["Raw", "Leather"],
+                "suffix": "Raw",
+                "skillDiff": 100,
                 "skill": "tannable",
                 "xp": 5,
                 "cost": 15,
@@ -212,13 +236,14 @@
                 "count": 1,
                 "stack": 1000,
                 "icon": "./images/ChestArmour.png",
-                "tannedIcon": "./images/TannedHide.png"
+                "skilledIcon": "./images/TannedHide.png"
             },
             {
                 "id": 3200,
                 "name": "Thick Hide",
-                "condition": "Raw",
-                "hideDiff": 100,
+                "condition": ["Raw", "Leather"],
+                "suffix": "Raw",
+                "skillDiff": 100,
                 "skill": "tannable",
                 "xp": 5,
                 "cost": 15,
@@ -227,7 +252,7 @@
                 "count": 1,
                 "stack": 1000,
                 "icon": "./images/ChestArmour.png",
-                "tannedIcon": "./images/TannedHide.png"
+                "skilledIcon": "./images/TannedHide.png"
             }
         ]
     }

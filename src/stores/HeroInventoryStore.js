@@ -32,11 +32,11 @@ class HeroInventoryStore {
             this.heroArmourInv.push(item);
             this.heroInventoryUsedSlots++;
         } else if (item.type === "item") {
-            if (item.stack > 1 && item.count < item.stack && this.heroItemsInv.some((el) => el.name === item.name)) {
-                const position = this.heroItemsInv.findIndex((el) => el.name === item.name);
-                const removedObject = this.heroItemsInv.splice(position, position + 1);
-                removedObject[0].count = removedObject[0].count + item.count;
-                this.heroItemsInv.push(removedObject[0]);
+            if (!!this.heroItemsInv.find((el) => el.name === item.name)) {
+                const foundItem = this.heroItemsInv.find((el) => el.name === item.name);
+                if (foundItem.count < item.stack) {
+                    foundItem.count += item.count;
+                }
             } else {
                 this.heroItemsInv.push(item);
                 this.heroInventoryUsedSlots += 1;
@@ -48,7 +48,6 @@ class HeroInventoryStore {
         for (let i = 0; i < this.heroItemsInv.length; i++) {
             if (this.heroItemsInv[i].count <= 0) {
                 const position = this.heroItemsInv.indexOf(this.heroItemsInv[i]);
-                console.log("position", position);
                 this.heroItemsInv.splice(position, 1);
             }
         }

@@ -8,65 +8,80 @@ class SkillStore {
     //Skills
     prefixNum = 1;
     prefix;
+    suffix;
     // skillItems;
 
-    //Tanning
-    tanningActive = false;
-    setTanInterval;
-    tanTime;
-    tanningProgressState = 0;
-    rawHide = {};
+    //Skilling
+    skillActive = false;
+    skillType;
+    setSkillInterval;
+    skillTime;
+    skillProgressState = 0;
+    skillItem = {};
+    skillName;
+    skillTypeName;
 
     constructor(store) {
         this.allStores = store;
         makeAutoObservable(this);
     }
 
-    skillScreen = (skillName) => {
-        if (this.allStores.heroActionStore.selectedActionArea !== <SkillScreen />) {
-            this.allStores.heroActionStore.selectedActionArea = (
-                <SkillScreen skillName={skillName} level={this.allStores.countStore.tanningLevel} />
-            );
+    skillScreen = (name, skill) => {
+        if (this.allStores.heroActionStore.selectedActionArea !== <SkillScreen /> && name && skill) {
+            if (name === this.skillName || !this.skillActive) {
+                this.skillName = name;
+                this.skillTypeName = skill;
+                console.log("skillName", name, skill);
+                this.allStores.heroActionStore.selectedActionArea = (
+                    <SkillScreen skillName={this.skillTypeName} skillLevel={this.skillName.level} />
+                );
+            } else {
+                console.log("Other skill in progress");
+            }
         }
     };
 
-    tanning = (hide) => {
+    skilling = (skillItem) => {
         if (this.tanningActive === true) {
             console.log("Tanning already in progress!");
-        } else if (hide.skill !== "tannable") {
-            console.log("Can't tan this!");
         } else {
-            this.tanningActive = true;
-            this.rawHide = hide;
-            this.tanTime = hide.hideDiff / this.allStores.countStore.tanningLevel;
-            this.tanInterval();
-            hide.count--;
+            if (skillItem.skill === "tannable") {
+                this.skillType = this.allStores.countStore.tanning;
+            } else if (skillItem.skill === "smeltable") {
+                this.skillType = this.allStores.countStore.smelting;
+            }
+            this.skillActive = true;
+            this.skillItem = skillItem;
+            console.log("skillTime", this.skillItem.skillDiff);
+            this.skillTime = this.skillItem.skillDiff / this.skillType.level;
+            this.skillInterval();
+            skillItem.count--;
             this.allStores.heroInventoryStore.inventoryCheck();
-            this.skillScreen();
+            // this.skillScreen(this.skillName);
         }
-        console.log("hide", hide);
+        console.log("hide", skillItem);
     };
 
-    tanInterval = () => {
-        this.setTanInterval = setInterval(this.tanningProgress, 1000);
+    skillInterval = () => {
+        this.setSkillInterval = setInterval(this.skillProgress, 1000);
     };
 
-    tanningProgress = (action) => {
-        if (this.tanningActive === false) {
+    skillProgress = (action) => {
+        if (this.skillActive === false) {
             console.log("Nothing to tan");
-        } else if (this.tanningProgressState >= this.tanTime - 1 && this.tanningActive === true) {
-            this.tanningComplete();
-            clearInterval(this.setTanInterval);
+        } else if (this.skillProgressState >= this.skillTime - 1 && this.skillActive === true) {
+            this.skillComplete();
+            clearInterval(this.setSkillInterval);
         } else if (action === "click") {
-            this.tanningProgressState += this.allStores.countStore.tanningLevel;
+            this.skillProgressState++;
         } else {
-            this.tanningProgressState++;
+            this.skillProgressState++;
         }
     };
 
-    tanningComplete = () => {
-        const tanChance = this.rawHide.hideDiff - this.allStores.countStore.tanningLevel;
-        const numberGen = randomNumber(0, tanChance);
+    skillComplete = () => {
+        const statChance = this.skillItem.skillDiff - this.skillType.Level;
+        const numberGen = randomNumber(0, statChance);
         if (numberGen <= 40) {
             this.prefixNum++;
         }
@@ -90,29 +105,30 @@ class SkillStore {
         } else if (this.prefixNum === 4) {
             this.prefix = "Superb ";
         } else if (this.prefixNum === 3) {
-            this.prefix = "Good ";
+            this.prefix = "Fine ";
         } else if (this.prefixNum === 2) {
             this.prefix = "Normal ";
         } else {
-            this.prefix = "Damamged ";
+            this.prefix = "Scrap ";
         }
-        let tannedHide = {
+        let finnishedProduct = {
             prefix: this.prefix,
-            name: this.prefix + this.rawHide.name,
-            cost: this.rawHide.cost * +this.prefixNum,
-            stack: this.rawHide.stack,
-            type: this.rawHide.type,
-            amount: this.rawHide.amount ? this.rawHide.amount : 1,
-            icon: this.rawHide.tannedIcon,
+            suffix: this.skillItem.condition[1],
+            name: this.prefix + this.skillItem.name,
+            cost: this.skillItem.cost * +this.prefixNum,
+            stack: this.skillItem.stack,
+            type: this.skillItem.type,
+            amount: this.skillItem.amount ? this.skillItem.amount : 1,
+            icon: this.skillItem.skilledIcon,
             count: 1,
             skill: "none",
-            id: Math.random().toString(36),
         };
         this.prefixNum = 0;
-        this.tanningActive = false;
-        this.tanningProgressState = 0;
-        this.allStores.heroInventoryStore.inventoryPlacement(tannedHide);
-        this.allStores.countStore.skillExperienceIncrease("tanning", this.rawHide.xp);
+        this.skillName = "";
+        this.skillActive = false;
+        this.skillProgressState = 0;
+        this.allStores.heroInventoryStore.inventoryPlacement(finnishedProduct);
+        this.allStores.countStore.skillExperienceIncrease(this.skillType, this.skillType.xp);
     };
 }
 
