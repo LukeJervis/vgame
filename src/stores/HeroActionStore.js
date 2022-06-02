@@ -98,7 +98,8 @@ class HeroActionStore {
                 this.monsterStrength =
                     this.monster.strength * this.monsterLevelMulti.multi -
                     (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour);
-                this.monsterSpeed = this.monster.speed * this.monsterLevelMulti.multi;
+                this.monsterSpeed =
+                    (this.monster.speed * this.monsterLevelMulti.multi) / this.allStores.heroStatsStore.speed;
                 this.monsterXp = this.monster.xp * this.monsterLevelMulti.multi;
                 this.monsterLevel = this.monsterLevelMulti.level;
                 this.location = location;
