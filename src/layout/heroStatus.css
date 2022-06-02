@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
-    height: 35vw;
+    height: 15%;
 }
 
 .heroStatus__weapon {
@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
-    height: 35vw;
+    height: 15%;
 }
 
 .heroStatus__pet {
@@ -23,5 +23,5 @@
     align-items: center;
     justify-content: center;
     border-bottom: white solid;
-    height: 35vw;
+    height: 15%;
 }
