@@ -1,11 +1,7 @@
-import slimeLoot from "./lootPools/slimeLoot.json";
-import silverSlimeLoot from "./lootPools/silverSlimeLoot.json";
-import flashRabbit from "./lootPools/flashRabbit.json";
-import hornedBoar from "./lootPools/hornedBoar.json";
 import { randomNumber, randomNumberToTwo } from "./helpers";
 
 const lootDrop = (monster, luck) => {
-    let monsterLoot = null;
+    let monsterLoot = monster.pool;
     let spin = 9999999999;
 
     let damageBonus = 0;
@@ -16,17 +12,6 @@ const lootDrop = (monster, luck) => {
     let prefixNum = 1;
     let prefix = "";
     let dropArray = [];
-
-    // finds the correct pool
-    if (monster.pool === "slimeLoot") {
-        monsterLoot = slimeLoot;
-    } else if (monster.pool === "silverSlimeLoot") {
-        monsterLoot = silverSlimeLoot;
-    } else if (monster.pool === "flashRabbitLoot") {
-        monsterLoot = flashRabbit;
-    } else if (monster.pool === "hornedBoarLoot") {
-        monsterLoot = hornedBoar;
-    }
 
     //maps over loot pool
     for (let i = 0; i < monsterLoot.length; i++) {

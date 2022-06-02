@@ -52,7 +52,6 @@ class SkillStore {
     };
 
     tanningProgress = (action) => {
-        console.log("hit1", action, this.tanningActive);
         if (this.tanningActive === false) {
             console.log("Nothing to tan");
         } else if (this.tanningProgressState >= this.tanTime - 1 && this.tanningActive === true) {
@@ -60,27 +59,27 @@ class SkillStore {
             clearInterval(this.setTanInterval);
         } else if (action === "click") {
             this.tanningProgressState += this.allStores.countStore.tanningLevel;
-            console.log("hit2");
         } else {
             this.tanningProgressState++;
         }
     };
 
     tanningComplete = () => {
-        const tanChance = this.rawHide.tanDifficulty - this.allStores.countStore.tanningLevel;
-        if (randomNumber(0, tanChance) <= 10) {
+        const tanChance = this.rawHide.hideDiff - this.allStores.countStore.tanningLevel;
+        const numberGen = randomNumber(0, tanChance);
+        if (numberGen <= 40) {
             this.prefixNum++;
         }
-        if (randomNumber(0, tanChance) <= 9) {
+        if (numberGen <= 30) {
             this.prefixNum++;
         }
-        if (randomNumber(0, tanChance) <= 8) {
+        if (numberGen <= 20) {
             this.prefixNum++;
         }
-        if (randomNumber(0, tanChance) <= 7) {
+        if (numberGen <= 10) {
             this.prefixNum++;
         }
-        if (randomNumber(0, tanChance) <= 6) {
+        if (numberGen <= 5) {
             this.prefixNum++;
         }
         //Gets the correct prefix
@@ -109,6 +108,7 @@ class SkillStore {
             skill: "none",
             id: Math.random().toString(36),
         };
+        this.prefixNum = 0;
         this.tanningActive = false;
         this.tanningProgressState = 0;
         this.allStores.heroInventoryStore.inventoryPlacement(tannedHide);

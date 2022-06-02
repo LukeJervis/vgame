@@ -71,16 +71,16 @@ class HeroInventoryStore {
 
     handleSell = (item, amount) => {
         console.log("item", item, "amount", amount);
-        if (this.heroItemsInv.some((el) => el.id === item.id) && item.type === "item") {
+        if (this.heroItemsInv.some((el) => el.name === item.name) && item.type === "item") {
             if (amount === "one" && item.count === 1) {
-                const position = this.heroItemsInv.findIndex((el) => el.id === item.id);
+                const position = this.heroItemsInv.findIndex((el) => el.name === item.name);
                 this.heroItemsInv.splice(position, 1);
                 this.allStores.countStore.heroMoney += item.cost;
             } else if (amount === "one" && item.count > 1) {
                 item.count--;
                 this.allStores.countStore.heroMoney += item.cost;
             } else if (amount === "all") {
-                const position = this.heroItemsInv.findIndex((el) => el.id === item.id);
+                const position = this.heroItemsInv.findIndex((el) => el.name === item.name);
                 this.heroItemsInv.splice(position, 1);
                 this.allStores.countStore.heroMoney += item.cost * item.count;
             }

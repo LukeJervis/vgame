@@ -9,11 +9,60 @@
         "xp": 1000,
         "moneyMin": 50,
         "moneyMax": 75,
-        "pool": "silverSlimeLoot",
-        "statChance": 50
+        "statChance": 50,
+        "pool": [
+            {
+                "name": "Slime Stone",
+                "type": "item",
+                "dropCeil": 20,
+                "cost": 1,
+                "stack": 1000,
+                "count": 4,
+                "icon": "./images/SlimeStone.png"
+            },
+            {
+                "name": "Slime Stone",
+                "type": "item",
+                "dropCeil": 20,
+                "cost": 1,
+                "stack": 1000,
+                "count": 3,
+                "icon": "./images/SlimeStone.png"
+            },
+            {
+                "name": "Slime Stone",
+                "type": "item",
+                "dropCeil": 20,
+                "cost": 1,
+                "stack": 1000,
+                "count": 2,
+                "icon": "./images/SlimeStone.png"
+            },
+            {
+                "name": "Slime Stone",
+                "type": "item",
+                "dropCeil": 20,
+                "cost": 1,
+                "stack": 1000,
+                "count": 1,
+                "icon": "./images/SlimeStone.png"
+            },
+            {
+                "name": "Slimey Stick",
+                "type": "weapon",
+                "dropCeil": 100,
+                "cost": 10,
+                "stack": 1,
+                "statLow": 0.1,
+                "statHigh": 1,
+                "damage": 1.6,
+                "count": 1,
+                "icon": "./images/Weapon.png"
+            }
+        ]
     },
     {
-        "name": "Steel Horned Boar (Field Boss)",
+        "name": "Iron Horned Boar (Field Boss)",
         "id": 3003,
         "strength": 15,
         "speed": 4,
@@ -22,8 +71,57 @@
         "xp": 1000,
         "moneyMin": 50,
         "moneyMax": 75,
-        "pool": "silverSlimeLoot",
-        "statChance": 50
+        "statChance": 50,
+        "pool": [
+            {
+                "id": 3200,
+                "name": "Thick Hide",
+                "condition": "Raw",
+                "hideDiff": 100,
+                "skill": "tannable",
+                "xp": 5,
+                "cost": 15,
+                "type": "item",
+                "dropCeil": 100,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "id": 3200,
+                "name": "Thick Hide",
+                "condition": "Raw",
+                "hideDiff": 100,
+                "skill": "tannable",
+                "xp": 5,
+                "cost": 15,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "name": "Iron Ore",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Iron Ore",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            }
+        ]
     },
     {
         "name": "Evansish Rabbit (Field Boss)",
@@ -35,8 +133,59 @@
         "xp": 1000,
         "moneyMin": 50,
         "moneyMax": 75,
-        "pool": "silverSlimeLoot",
-        "statChance": 50
+        "statChance": 50,
+        "pool": [
+            {
+                "name": "Flash Powder",
+                "type": "item",
+                "dropCeil": 100,
+                "cost": 5,
+                "count": 5,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Flash Powder",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 4,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Flash Powder",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 3,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Flash Powder",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            }
+        ]
     },
     {
         "name": "Rocky Bear (Field Boss)",
@@ -48,7 +197,38 @@
         "xp": 1000,
         "moneyMin": 50,
         "moneyMax": 75,
-        "pool": "silverSlimeLoot",
-        "statChance": 50
+        "statChance": 50,
+        "pool": [
+            {
+                "id": 3200,
+                "name": "Thick Hide",
+                "condition": "Raw",
+                "hideDiff": 100,
+                "skill": "tannable",
+                "xp": 5,
+                "cost": 15,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "id": 3200,
+                "name": "Thick Hide",
+                "condition": "Raw",
+                "hideDiff": 100,
+                "skill": "tannable",
+                "xp": 5,
+                "cost": 15,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            }
+        ]
     }
 ]

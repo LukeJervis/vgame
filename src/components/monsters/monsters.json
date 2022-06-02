@@ -9,8 +9,30 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "slimeLoot",
-        "statChance": 500
+        "statChance": 500,
+        "pool": [
+            {
+                "name": "Slime Stone",
+                "type": "item",
+                "dropCeil": 20,
+                "cost": 1,
+                "stack": 1000,
+                "count": 1,
+                "icon": "./images/SlimeStone.png"
+            },
+            {
+                "name": "Stick",
+                "type": "weapon",
+                "dropCeil": 100,
+                "cost": 5,
+                "stack": 1,
+                "statLow": 0.1,
+                "statHigh": 1,
+                "damage": 1.2,
+                "count": 1,
+                "icon": "./images/Weapon.png"
+            }
+        ]
     },
     {
         "name": "Silver Slime",
@@ -22,8 +44,30 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "silverSlimeLoot",
-        "statChance": 1000
+        "statChance": 1000,
+        "pool": [
+            {
+                "name": "Iron Ore",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Sturdy Branch",
+                "type": "weapon",
+                "dropCeil": 150,
+                "cost": 10,
+                "stack": 1,
+                "statLow": 0.4,
+                "statHigh": 1.4,
+                "damage": 1.6,
+                "count": 1,
+                "icon": "./images/Weapon.png"
+            }
+        ]
     },
     {
         "name": "Horned Boar",
@@ -35,8 +79,39 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "hornedBoarLoot",
-        "statChance": 1000
+        "statChance": 1000,
+        "pool": [
+            {
+                "id": 3200,
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "id": 3201,
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            }
+        ]
     },
     {
         "name": "Flash Rabbit",
@@ -48,8 +123,32 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "flashRabbitLoot",
-        "statChance": 1000
+        "statChance": 1000,
+        "pool": [
+            {
+                "name": "Flash Powder",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 5,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            }
+        ]
     },
     {
         "name": "Dire Bear",
@@ -61,8 +160,37 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "hornedBoarLoot",
-        "statChance": 1000
+        "statChance": 1000,
+        "pool": [
+            {
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            }
+        ]
     },
     {
         "name": "Tri Stag",
@@ -74,8 +202,49 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "silverSlimeLoot",
-        "statChance": 1000
+        "statChance": 1000,
+        "pool": [
+            {
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "name": "Hide",
+                "condition": "Raw",
+                "hideDiff": 50,
+                "skill": "tannable",
+                "xp": 1,
+                "cost": 5,
+                "type": "item",
+                "dropCeil": 50,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/ChestArmour.png",
+                "tannedIcon": "./images/TannedHide.png"
+            },
+            {
+                "name": "Antler Spear",
+                "type": "weapon",
+                "dropCeil": 100,
+                "cost": 400,
+                "stack": 1,
+                "statLow": 1.5,
+                "statHigh": 2.5,
+                "damage": 4,
+                "count": 1,
+                "icon": "./images/Weapon.png"
+            }
+        ]
     },
     {
         "name": "Vine Dionaea",
@@ -87,7 +256,44 @@
         "xp": 100,
         "moneyMin": 2,
         "moneyMax": 10,
-        "pool": "silverSlimeLoot",
-        "statChance": 1000
+        "statChance": 1000,
+        "pool": [
+            {
+                "name": "Plant Fibers",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 1,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Plant Fibers",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 1,
+                "count": 2,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Plant Fibers",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 1,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            },
+            {
+                "name": "Plant Fibers",
+                "type": "item",
+                "dropCeil": 50,
+                "cost": 1,
+                "count": 1,
+                "stack": 1000,
+                "icon": "./images/IronOre.png"
+            }
+        ]
     }
 ]
