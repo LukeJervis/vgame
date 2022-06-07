@@ -16,11 +16,11 @@ class HeroStatsStore {
     equipedHeroWeapon = {};
     equipedHeroWeaponDamage = 1;
 
-    equipedHeroArmourHead = 0;
-    equipedHeroArmourChest = 0;
-    equipedHeroArmourLegs = 0;
-    equipedHeroArmourHands = 0;
-    equipedHeroArmourFeet = 0;
+    equipedHeroArmourHead = {};
+    equipedHeroArmourChest = {};
+    equipedHeroArmourLegs = {};
+    equipedHeroArmourHands = {};
+    equipedHeroArmourFeet = {};
     equipedHeroArmour = 0;
 
     heroAttackAmount = 1;
@@ -53,13 +53,12 @@ class HeroStatsStore {
     heroAttackCalc = () => {
         this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage;
         this.equipedHeroArmour = 0;
-        this.equipedHeroArmour =
-            this.equipedHeroArmour +
-            this.equipedHeroArmourHead +
-            this.equipedHeroArmourChest +
-            this.equipedHeroArmourLegs +
-            this.equipedHeroArmourHands +
-            this.equipedHeroArmourFeet;
+        this.equipedHeroArmour +=
+            this.equipedHeroArmourHead.constitution +
+            this.equipedHeroArmourChest.constitution +
+            this.equipedHeroArmourLegs.constitution +
+            this.equipedHeroArmourHands.constitution +
+            this.equipedHeroArmourFeet.constitution;
     };
 
     equipHeroWeapon = (HeroWeaponId) => {
@@ -97,20 +96,35 @@ class HeroStatsStore {
 
     heroArmourEquip = (armourEquip) => {
         if (armourEquip.location === "chest") {
-            this.equipedHeroArmourChest = 0;
-            this.equipedHeroArmourChest += armourEquip.constitution;
+            this.equipedHeroArmourChest = armourEquip;
+            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
+                (el) => el.id === armourEquip.id
+            );
+            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
         } else if (armourEquip.location === "legs") {
-            this.equipedHeroArmourLegs = 0;
-            this.equipedHeroArmourLegs += armourEquip.constitution;
+            this.equipedHeroArmourLegs = armourEquip;
+            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
+                (el) => el.id === armourEquip.id
+            );
+            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
         } else if (armourEquip.location === "head") {
-            this.equipedHeroArmourHead = 0;
-            this.equipedHeroArmourHead += armourEquip.constitution;
+            this.equipedHeroArmourHead = armourEquip;
+            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
+                (el) => el.id === armourEquip.id
+            );
+            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
         } else if (armourEquip.location === "hands") {
-            this.equipedHeroArmourHands = 0;
-            this.equipedHeroArmourHands += armourEquip.constitution;
+            this.equipedHeroArmourHands = armourEquip;
+            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
+                (el) => el.id === armourEquip.id
+            );
+            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
         } else if (armourEquip.location === "feet") {
-            this.equipedHeroArmourFeet = 0;
-            this.equipedHeroArmourFeet += armourEquip.constitution;
+            this.equipedHeroArmourFeet = armourEquip;
+            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
+                (el) => el.id === armourEquip.id
+            );
+            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
         }
         this.heroAttackCalc();
         console.log(this.equipedHeroArmour);

@@ -7,7 +7,16 @@ const HeroInventory = () => {
         heroInventoryStore: { heroWeaponInv, heroArmourInv, heroItemsInv, heroPetSlotsArray, handleSell },
     } = useRootStore();
     const {
-        heroStatsStore: { heroWeaponEquip, equipPet, unequipPet },
+        heroStatsStore: {
+            heroWeaponEquip,
+            equipPet,
+            unequipPet,
+            equipedHeroArmourHead,
+            equipedHeroArmourChest,
+            equipedHeroArmourLegs,
+            equipedHeroArmourHands,
+            equipedHeroArmourFeet,
+        },
     } = useRootStore();
 
     const heroWeaponEquipHandler = (heroEquipment) => {
@@ -20,6 +29,32 @@ const HeroInventory = () => {
 
     const sellItemsHandler = (item, amount) => {
         handleSell(item, amount);
+    };
+
+    const equipedItems = () => {
+        return (
+            <div className="HeroInventory__equipedItems">
+                <div className="HeroInventory__equipedItems__line1">
+                    <img className="HeroInventory__equipedItems__head" src={equipedHeroArmourHead.icon} alt="head" />
+                </div>
+                <div className="HeroInventory__equipedItems__line2">
+                    <img className="HeroInventory__equipedItems__hands" src={equipedHeroArmourHands.icon} alt="hands" />
+                    <img className="HeroInventory__equipedItems__chest" src={equipedHeroArmourChest.icon} alt="chest" />
+                </div>
+                <div className="HeroInventory__equipedItems__line3">
+                    <img className="HeroInventory__equipedItems__legs" src={equipedHeroArmourLegs.icon} alt="legs" />
+                    <img className="HeroInventory__equipedItems__weapon" alt="weapon"></img>
+                </div>
+                <div className="HeroInventory__equipedItems__line4">
+                    <img className="HeroInventory__equipedItems__pet" alt="pet" />
+                    <img
+                        className="HeroInventory__equipedItems__feet"
+                        src={equipedHeroArmourFeet.icon}
+                        alt="feet"
+                    ></img>
+                </div>
+            </div>
+        );
     };
 
     const weaponInv = heroWeaponInv.map((heroEquipment) => (
@@ -124,21 +159,9 @@ const HeroInventory = () => {
         </div>
     ));
 
-    // return (
-    //     <div>
-    //         <div className="HeroInventory__weaponsTitle">Inventory</div>
-    //         <div className="HeroInventory__equipmentSlots">
-    //             {weaponInv}
-    //             {armourInv}
-    //             {itemInv}
-    //         </div>
-    //         <div className="HeroInventory__petsTitle">Pets</div>
-    //         <div>{heroPetCount}</div>
-    //     </div>
-    // );
-
     return (
         <div className="HeroInventory__list">
+            <div className="HeroInventory__equipedList">{equipedItems()}</div>
             <div className="HeroInventory__title">Weapons</div>
             <div className="HeroInventory__item">{weaponInv}</div>
             <div className="HeroInventory__title">Armours</div>

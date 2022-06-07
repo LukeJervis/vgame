@@ -73,3 +73,91 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.HeroInventory__equipedList {
+    display: flex;
+    justify-content: center;
+}
+
+.HeroInventory__equipedItems {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    border: 4px solid black;
+    background-color: rgb(137, 137, 137);
+    margin: 10px;
+}
+
+.HeroInventory__equipedItems__line1 {
+    display: flex;
+}
+
+.HeroInventory__equipedItems__head {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.HeroInventory__equipedItems__line2 {
+    display: flex;
+}
+
+.HeroInventory__equipedItems__hands {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    margin: 45px 5px 5px -85px;
+    padding: 5px;
+    position: absolute;
+}
+
+.HeroInventory__equipedItems__chest {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.HeroInventory__equipedItems__line3 {
+    display: flex;
+}
+
+.HeroInventory__equipedItems__legs {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.HeroInventory__equipedItems__weapon {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px -92px 5px 15px;
+}
+
+.HeroInventory__equipedItems__line4 {
+    display: flex;
+}
+
+.HeroInventory__equipedItems__pet {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px 30px 5px -110px;
+}
+
+.HeroInventory__equipedItems__feet {
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px;
+}
