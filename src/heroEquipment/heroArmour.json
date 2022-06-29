@@ -1,4 +1,3 @@
-
 [
     {
         "id": "1001",
@@ -8,8 +7,8 @@
         "location": "chest",
         "type": "armour",
         "icon": "./images/ChestArmour.png"
-    }, 
-    
+    },
+
     {
         "id": "1002",
         "name": "Cloth Pants",
@@ -28,7 +27,7 @@
         "location": "hands",
         "type": "armour",
         "icon": "./images/HandArmour.png"
-    }, 
+    },
 
     {
         "id": "1004",
@@ -49,5 +48,4 @@
         "type": "armour",
         "icon": "./images/HeadArmour.png"
     }
-
 ]
