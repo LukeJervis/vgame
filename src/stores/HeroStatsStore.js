@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import _ from "lodash";
 
 class HeroStatsStore {
     allStores;
@@ -53,30 +54,32 @@ class HeroStatsStore {
     heroAttackCalc = () => {
         this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage;
         this.equipedHeroArmour = 0;
-        this.equipedHeroArmour +=
-            this.equipedHeroArmourHead.constitution +
-            this.equipedHeroArmourChest.constitution +
-            this.equipedHeroArmourLegs.constitution +
-            this.equipedHeroArmourHands.constitution +
-            this.equipedHeroArmourFeet.constitution;
-    };
-
-    equipHeroWeapon = (HeroWeaponId) => {
-        this.equipedHeroWeapon = { HeroWeaponId };
+        if (!_.isEmpty(this.equipedHeroArmourHead)) {
+            this.equipedHeroArmour += this.equipedHeroArmourHead.constitution;
+        }
+        if (!_.isEmpty(this.equipedHeroArmourChest)) {
+            this.equipedHeroArmour += this.equipedHeroArmourChest.constitution;
+        }
+        if (!_.isEmpty(this.equipedHeroArmourLegs)) {
+            this.equipedHeroArmour += this.equipedHeroArmourLegs.constitution;
+        }
+        if (!_.isEmpty(this.equipedHeroArmourHands)) {
+            this.equipedHeroArmour += this.equipedHeroArmourHands.constitution;
+        }
+        if (!_.isEmpty(this.equipedHeroArmourFeet)) {
+            this.equipedHeroArmour += this.equipedHeroArmourFeet.constitution;
+        }
     };
 
     equipPet = (heroPet) => {
         console.log("equipPet", this.equipedPet);
-        if (this.equipedPet === heroPet) {
-            console.log("Pet Already Equiped");
-        } else {
-            this.unequipPet();
-            this.equipedPet = heroPet;
-            this.petStrength = heroPet.strength;
-            this.petSpeed = heroPet.speed;
-            console.log("equipPet", this.equipedPet);
-            this.heroPetAttackInterval();
-        }
+        this.unequipPet();
+        this.equipedPet = heroPet;
+        this.petStrength = heroPet.strength;
+        this.petSpeed = heroPet.speed;
+        this.heroPetAttackInterval();
+        const position = this.allStores.heroInventoryStore.heroPetSlotsArray.findIndex((el) => el.id === heroPet.id);
+        this.allStores.heroInventoryStore.heroPetSlotsArray.splice(position, 1);
     };
 
     unequipPet = () => {
@@ -85,49 +88,69 @@ class HeroStatsStore {
     };
 
     heroWeaponEquip = (weaponEquip) => {
-        console.log("weaponEquip", weaponEquip);
-        if (weaponEquip.type === "weapon") {
-            this.equipedHeroWeapon = weaponEquip;
-            this.equipedHeroWeaponDamage = weaponEquip.damage;
-        } else if (weaponEquip.id > 1000 && weaponEquip.id < 2001) {
-            this.heroArmourEquip(weaponEquip);
-        }
+        this.equipedHeroWeapon = weaponEquip;
+        this.equipedHeroWeaponDamage = weaponEquip.damage;
+        const position = this.allStores.heroInventoryStore.heroWeaponInv.findIndex((el) => el.id === weaponEquip.id);
+        this.allStores.heroInventoryStore.heroWeaponInv.splice(position, 1);
+        this.heroAttackCalc();
     };
 
-    heroArmourEquip = (armourEquip) => {
-        if (armourEquip.location === "chest") {
-            this.equipedHeroArmourChest = armourEquip;
-            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
-                (el) => el.id === armourEquip.id
-            );
-            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
-        } else if (armourEquip.location === "legs") {
-            this.equipedHeroArmourLegs = armourEquip;
-            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
-                (el) => el.id === armourEquip.id
-            );
-            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
-        } else if (armourEquip.location === "head") {
-            this.equipedHeroArmourHead = armourEquip;
-            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
-                (el) => el.id === armourEquip.id
-            );
-            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
-        } else if (armourEquip.location === "hands") {
-            this.equipedHeroArmourHands = armourEquip;
-            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
-                (el) => el.id === armourEquip.id
-            );
-            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
-        } else if (armourEquip.location === "feet") {
-            this.equipedHeroArmourFeet = armourEquip;
-            const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex(
-                (el) => el.id === armourEquip.id
-            );
-            this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
+    heroWeaponUnequip = () => {
+        this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroWeapon);
+        this.equipedHeroWeapon = {};
+        this.heroAttackCalc();
+    };
+
+    heroArmourEquip = (armour) => {
+        if (armour.location === "chest") {
+            if (this.equipedHeroArmourChest !== {}) {
+                this.heroArmourUnequip(this.equipedHeroArmourChest);
+            }
+            this.equipedHeroArmourChest = armour;
+        } else if (armour.location === "legs") {
+            if (this.equipedHeroArmourLegs !== {}) {
+                this.heroArmourUnequip(this.equipedHeroArmourLegs);
+            }
+            this.equipedHeroArmourLegs = armour;
+        } else if (armour.location === "head") {
+            if (this.equipedHeroArmourHead !== {}) {
+                this.heroArmourUnequip(this.equipedHeroArmourHead);
+            }
+            this.equipedHeroArmourHead = armour;
+        } else if (armour.location === "hands") {
+            if (this.equipedHeroArmourHands !== {}) {
+                this.heroArmourUnequip(this.equipedHeroArmourHands);
+            }
+            this.equipedHeroArmourHands = armour;
+        } else if (armour.location === "feet") {
+            if (this.equipedHeroArmourFeet !== {}) {
+                this.heroArmourUnequip(this.equipedHeroArmourFeet);
+            }
+            this.equipedHeroArmourFeet = armour;
+        }
+        const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex((el) => el.id === armour.id);
+        this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
+        this.heroAttackCalc();
+    };
+
+    heroArmourUnequip = (armour) => {
+        if (armour.location === "chest") {
+            this.equipedHeroArmourChest = {};
+            this.allStores.heroInventoryStore.inventoryPlacement(armour);
+        } else if (armour.location === "legs") {
+            this.equipedHeroArmourLegs = {};
+            this.allStores.heroInventoryStore.inventoryPlacement(armour);
+        } else if (armour.location === "head") {
+            this.equipedHeroArmourHead = {};
+            this.allStores.heroInventoryStore.inventoryPlacement(armour);
+        } else if (armour.location === "hands") {
+            this.equipedHeroArmourHands = {};
+            this.allStores.heroInventoryStore.inventoryPlacement(armour);
+        } else if (armour.location === "feet") {
+            this.equipedHeroArmourFeet = {};
+            this.allStores.heroInventoryStore.inventoryPlacement(armour);
         }
         this.heroAttackCalc();
-        console.log(this.equipedHeroArmour);
     };
 
     handleStatBuy = (statPurchase) => {
@@ -146,6 +169,7 @@ class HeroStatsStore {
         } else {
             console.log("handleStatBuy Error");
         }
+        this.heroAttackCalc();
     };
 
     handlePetStatBuy = (petObject, petStat) => {
@@ -206,6 +230,7 @@ class HeroStatsStore {
         } else {
             console.log("Still cooling down");
         }
+        this.heroAttackCalc();
     };
 }
 

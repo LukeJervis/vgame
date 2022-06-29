@@ -1,14 +1,26 @@
 import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import { useRootStore } from "../provider/RootStoreProvider";
 import "./heroInventory.css";
 
 const HeroInventory = () => {
     const {
-        heroInventoryStore: { heroWeaponInv, heroArmourInv, heroItemsInv, heroPetSlotsArray, handleSell },
+        heroInventoryStore: {
+            heroWeaponInv,
+            heroArmourInv,
+            heroItemsInv,
+            heroPetSlotsArray,
+            handleSell,
+            heroInventorySlots,
+            heroInventoryUsedSlots,
+        },
     } = useRootStore();
     const {
         heroStatsStore: {
+            equipedHeroWeapon,
             heroWeaponEquip,
+            heroArmourEquip,
+            equipedPet,
             equipPet,
             unequipPet,
             equipedHeroArmourHead,
@@ -16,11 +28,20 @@ const HeroInventory = () => {
             equipedHeroArmourLegs,
             equipedHeroArmourHands,
             equipedHeroArmourFeet,
+            equipedHeroArmour,
+            constitution,
+            heroAttackAmount,
         },
     } = useRootStore();
 
+    let [selectedEquipment, setSelectedEquipment] = useState("");
+
     const heroWeaponEquipHandler = (heroEquipment) => {
         heroWeaponEquip(heroEquipment);
+    };
+
+    const heroArmourEquipHandler = (heroEquipment) => {
+        heroArmourEquip(heroEquipment);
     };
 
     const heroPetEquipHandler = (heroPet) => {
@@ -31,24 +52,102 @@ const HeroInventory = () => {
         handleSell(item, amount);
     };
 
+    const equipedClick = (equiped) => {
+        const targetDiv = document.getElementById("HeroInventoryEquiped");
+        if (
+            document.getElementById("HeroInventoryEquiped") !== null &&
+            targetDiv.style.display !== "none" &&
+            selectedEquipment === equiped
+        ) {
+            targetDiv.style.display = "none";
+            setSelectedEquipment("");
+        } else if (document.getElementById("HeroInventoryEquiped") !== null && equiped !== undefined) {
+            setSelectedEquipment(equiped);
+            targetDiv.style.display = "flex";
+        }
+    };
+
+    const equipedInfoOpen = (
+        <div className="HeroInventory__display">
+            <div className="HeroInventory__display__name">{selectedEquipment.name}</div>
+            <div className="HeroInventory__display__items">
+                <img className="HeroInventory__display__image" src={selectedEquipment.icon} alt="" />
+                <div className="HeroInventory__display__itemContainer">
+                    {selectedEquipment.damage > 0 && (
+                        <div className="HeroInventory__display__item">Damage Multi: {selectedEquipment.damage}</div>
+                    )}
+                    {selectedEquipment.lifeSteal > 0 && (
+                        <div className="HeroInventory__display__item">Life Steal: {selectedEquipment.lifeSteal}</div>
+                    )}
+                    {selectedEquipment.luckBonus > 0 && (
+                        <div className="HeroInventory__display__item">Luck Bonus: {selectedEquipment.luckBonus}</div>
+                    )}
+                    {selectedEquipment.moneyIncrease > 0 && (
+                        <div className="HeroInventory__display__item">
+                            Money Drop Increase: {selectedEquipment.moneyIncrease}
+                        </div>
+                    )}
+                    {selectedEquipment.speedBonus > 0 && (
+                        <div className="HeroInventory__display__item">Speed Bonus: {selectedEquipment.speedBonus}</div>
+                    )}
+                    {selectedEquipment.constitution > 0 && (
+                        <div className="HeroInventory__display__item">Defence: {selectedEquipment.constitution}</div>
+                    )}
+                    <div className="HeroInventory__display__item">Cost: {selectedEquipment.cost}</div>
+                </div>
+            </div>
+        </div>
+    );
+
     const equipedItems = () => {
         return (
             <div className="HeroInventory__equipedItems">
                 <div className="HeroInventory__equipedItems__line1">
-                    <img className="HeroInventory__equipedItems__head" src={equipedHeroArmourHead.icon} alt="head" />
+                    <img
+                        className="HeroInventory__equipedItems__head"
+                        onClick={() => equipedClick(equipedHeroArmourHead)}
+                        src={equipedHeroArmourHead.icon}
+                        alt="head"
+                    />
                 </div>
                 <div className="HeroInventory__equipedItems__line2">
-                    <img className="HeroInventory__equipedItems__hands" src={equipedHeroArmourHands.icon} alt="hands" />
-                    <img className="HeroInventory__equipedItems__chest" src={equipedHeroArmourChest.icon} alt="chest" />
+                    <img
+                        className="HeroInventory__equipedItems__hands"
+                        onClick={() => equipedClick(equipedHeroArmourHands)}
+                        src={equipedHeroArmourHands.icon}
+                        alt="hands"
+                    />
+                    <img
+                        className="HeroInventory__equipedItems__chest"
+                        onClick={() => equipedClick(equipedHeroArmourChest)}
+                        src={equipedHeroArmourChest.icon}
+                        alt="chest"
+                    />
                 </div>
                 <div className="HeroInventory__equipedItems__line3">
-                    <img className="HeroInventory__equipedItems__legs" src={equipedHeroArmourLegs.icon} alt="legs" />
-                    <img className="HeroInventory__equipedItems__weapon" alt="weapon"></img>
+                    <img
+                        className="HeroInventory__equipedItems__legs"
+                        onClick={() => equipedClick(equipedHeroArmourLegs)}
+                        src={equipedHeroArmourLegs.icon}
+                        alt="legs"
+                    />
+                    <img
+                        className="HeroInventory__equipedItems__weapon"
+                        onClick={() => equipedClick(equipedHeroWeapon)}
+                        src={equipedHeroWeapon.icon}
+                        alt="weapon"
+                    />
                 </div>
                 <div className="HeroInventory__equipedItems__line4">
-                    <img className="HeroInventory__equipedItems__pet" alt="pet" />
+                    <img
+                        className="HeroInventory__equipedItems__pet"
+                        onClick={() => equipedClick(equipedPet)}
+                        src={equipedPet.icon}
+                        alt="pet"
+                    />
                     <img
                         className="HeroInventory__equipedItems__feet"
+                        onClick={() => equipedClick(equipedHeroArmourFeet)}
                         src={equipedHeroArmourFeet.icon}
                         alt="feet"
                     ></img>
@@ -64,9 +163,9 @@ const HeroInventory = () => {
             </div>
             <img
                 className="HeroInventory__image"
+                onClick={() => equipedClick(heroEquipment)}
                 src={heroEquipment.icon}
                 alt="icon"
-                title={`Damage Multiplier: ${heroEquipment.damage}\nDamage Bonus: ${heroEquipment.damageBonus}\nSpeed Bonus: ${heroEquipment.speedBonus}\nLuck Bonus: ${heroEquipment.luckBonus}\nLife Steal: ${heroEquipment.lifeSteal}\nMoney Drop Increase: ${heroEquipment.moneyIncrease}\nCost: ${heroEquipment.cost} iron`}
             />
             <div className="HeroInventory__buttonContainer">
                 <button className="HeroInventory__button" onClick={() => sellItemsHandler(heroEquipment, "one")}>
@@ -90,14 +189,14 @@ const HeroInventory = () => {
             </div>
             <img
                 className="HeroInventory__image"
+                onClick={() => equipedClick(heroEquipment)}
                 src={heroEquipment.icon}
                 alt="icon"
-                title={`Defence: ${heroEquipment.constitution}\nArmour: ${heroEquipment.location}\nCost: ${heroEquipment.cost} iron`}
             />
             <div className="HeroInventory__buttonContainer">
                 <button
                     className="HeroInventory__button"
-                    onClick={() => heroWeaponEquipHandler(heroEquipment)}
+                    onClick={() => heroArmourEquipHandler(heroEquipment)}
                     key={heroEquipment.id}
                 >
                     E
@@ -113,11 +212,9 @@ const HeroInventory = () => {
             </div>
             <img
                 className="HeroInventory__image"
+                onClick={() => equipedClick(heroEquipment)}
                 src={heroEquipment.icon}
                 alt="icon"
-                title={`Name: ${heroEquipment.name + " " + heroEquipment.suffix} \nCount: ${
-                    heroEquipment.count
-                } Cost: ${heroEquipment.cost}`}
             />
             <div className="HeroInventory__buttonContainer">
                 <button className="HeroInventory__button" onClick={() => sellItemsHandler(heroEquipment, "one")}>
@@ -138,12 +235,7 @@ const HeroInventory = () => {
             <div key={Math.random().toString(36)} className="HeroInventory__petName">
                 {heroPet.name}
             </div>
-            <img
-                className="HeroInventory__image"
-                src={heroPet.icon}
-                alt="icon"
-                title={`Health: ${heroPet.health}\nStrength: ${heroPet.strength}\nSpeed: ${heroPet.speed}\nLuck: ${heroPet.luck}`}
-            />
+            <img className="HeroInventory__image" onClick={() => equipedClick(heroPet)} src={heroPet.icon} alt="icon" />
             <div className="HeroInventory__buttonContainer">
                 <button
                     className="HeroInventory__button"
@@ -159,9 +251,32 @@ const HeroInventory = () => {
         </div>
     ));
 
+    const petDamageCalc = () => {
+        if (equipedPet.strength > 0) {
+            return equipedPet.strength * equipedPet.speed;
+        } else {
+            return "No Pet Equiped";
+        }
+    };
+
+    const displayStatDetails = (
+        <div>
+            <div className="displayStatDetails__inventory">
+                Inventory Slots: {heroInventoryUsedSlots}/{heroInventorySlots}
+            </div>
+            <div className="displayStatDetails__defence">Defence: {equipedHeroArmour + constitution}</div>
+            <div className="displayStatDetails__damage">Damage: {heroAttackAmount}</div>
+            <div className="displayStatDetails__pet">Pet DPS: {petDamageCalc()}</div>
+        </div>
+    );
+
     return (
         <div className="HeroInventory__list">
             <div className="HeroInventory__equipedList">{equipedItems()}</div>
+            <div className="HeroInventory__displayStats">{displayStatDetails}</div>
+            <div className="HeroInventory__equiped" id={"HeroInventoryEquiped"} style={{ display: "none" }}>
+                {equipedInfoOpen}
+            </div>
             <div className="HeroInventory__title">Weapons</div>
             <div className="HeroInventory__item">{weaponInv}</div>
             <div className="HeroInventory__title">Armours</div>

@@ -27,23 +27,23 @@ const lootDrop = (monster, luck) => {
             spin = randomNumber(0, monsterLoot[i].dropCeil);
             //spins for stats
             if (spin <= luck) {
-                if (randomNumber(0, monster.statChance) <= 10) {
+                if (randomNumber(0, monster.statChance) <= 20) {
                     damageBonus = randomNumberToTwo(monsterLoot[i].statLow, monsterLoot[i].statHigh);
                     prefixNum++;
                 }
-                if (randomNumber(0, monster.statChance) <= 10) {
+                if (randomNumber(0, monster.statChance) <= 20) {
                     speedBonus = randomNumberToTwo(monsterLoot[i].statLow, monsterLoot[i].statHigh);
                     prefixNum++;
                 }
-                if (randomNumber(0, monster.statChance) <= 10) {
+                if (randomNumber(0, monster.statChance) <= 20) {
                     luckBonus = randomNumberToTwo(monsterLoot[i].statLow, monsterLoot[i].statHigh);
                     prefixNum++;
                 }
-                if (randomNumber(0, monster.statChance) <= 50) {
+                if (randomNumber(0, monster.statChance) <= 10) {
                     moneyIncrease = randomNumberToTwo(monsterLoot[i].statLow, monsterLoot[i].statHigh);
                     prefixNum++;
                 }
-                if (randomNumber(0, monster.statChance) <= 50) {
+                if (randomNumber(0, monster.statChance) <= 10) {
                     lifeSteal = randomNumberToTwo(monsterLoot[i].statLow, monsterLoot[i].statHigh);
                     prefixNum++;
                 }

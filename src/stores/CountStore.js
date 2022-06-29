@@ -16,14 +16,14 @@ class CountStore {
     goldCoin = "0";
 
     tanning = {
-        level: 5,
+        level: 1,
         experience: 0,
         levelMultiplier: 1.5,
         experienceNeeded: 10,
     };
 
     smelting = {
-        level: 5,
+        level: 1,
         experience: 0,
         levelMultiplier: 1.5,
         experienceNeeded: 10,
