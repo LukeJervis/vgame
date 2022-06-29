@@ -1,4 +1,3 @@
-
 [
     {
         "id": 2001,
@@ -16,9 +15,10 @@
         "statMulti": 2,
         "statCost": 100,
         "healthStatCost": 1000,
-        "icon": "./images/Rat.png"
+        "icon": "./images/Rat.png",
+        "type": "pet"
     },
-    
+
     {
         "id": 2002,
         "name": "Cat",
@@ -35,7 +35,8 @@
         "statMulti": 2,
         "statCost": 100,
         "healthStatCost": 1000,
-        "icon": "./images/Cat.png"
+        "icon": "./images/Cat.png",
+        "type": "pet"
     },
 
     {
@@ -54,6 +55,7 @@
         "statMulti": 1.9,
         "statCost": 100,
         "healthStatCost": 1000,
-        "icon": "./images/Dog.png"
+        "icon": "./images/Dog.png",
+        "type": "pet"
     }
 ]

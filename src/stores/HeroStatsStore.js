@@ -72,7 +72,6 @@ class HeroStatsStore {
     };
 
     equipPet = (heroPet) => {
-        console.log("equipPet", this.equipedPet);
         this.unequipPet();
         this.equipedPet = heroPet;
         this.petStrength = heroPet.strength;
@@ -82,12 +81,16 @@ class HeroStatsStore {
         this.allStores.heroInventoryStore.heroPetSlotsArray.splice(position, 1);
     };
 
-    unequipPet = () => {
+    unequipPet = (pet) => {
         clearInterval(this.petInterval);
+        this.allStores.heroInventoryStore.heroPetSlotsArray.push(pet);
         this.equipedPet = {};
     };
 
     heroWeaponEquip = (weaponEquip) => {
+        if (!_.isEmpty(this.equipedHeroWeapon)) {
+            this.heroWeaponUnequip();
+        }
         this.equipedHeroWeapon = weaponEquip;
         this.equipedHeroWeaponDamage = weaponEquip.damage;
         const position = this.allStores.heroInventoryStore.heroWeaponInv.findIndex((el) => el.id === weaponEquip.id);
@@ -103,27 +106,27 @@ class HeroStatsStore {
 
     heroArmourEquip = (armour) => {
         if (armour.location === "chest") {
-            if (this.equipedHeroArmourChest !== {}) {
+            if (!_.isEmpty(this.equipedHeroArmourChest)) {
                 this.heroArmourUnequip(this.equipedHeroArmourChest);
             }
             this.equipedHeroArmourChest = armour;
         } else if (armour.location === "legs") {
-            if (this.equipedHeroArmourLegs !== {}) {
+            if (!_.isEmpty(this.equipedHeroArmourLegs)) {
                 this.heroArmourUnequip(this.equipedHeroArmourLegs);
             }
             this.equipedHeroArmourLegs = armour;
         } else if (armour.location === "head") {
-            if (this.equipedHeroArmourHead !== {}) {
+            if (!_.isEmpty(this.equipedHeroArmourHead)) {
                 this.heroArmourUnequip(this.equipedHeroArmourHead);
             }
             this.equipedHeroArmourHead = armour;
         } else if (armour.location === "hands") {
-            if (this.equipedHeroArmourHands !== {}) {
+            if (!_.isEmpty(this.equipedHeroArmourHands)) {
                 this.heroArmourUnequip(this.equipedHeroArmourHands);
             }
             this.equipedHeroArmourHands = armour;
         } else if (armour.location === "feet") {
-            if (this.equipedHeroArmourFeet !== {}) {
+            if (!_.isEmpty(this.equipedHeroArmourFeet)) {
                 this.heroArmourUnequip(this.equipedHeroArmourFeet);
             }
             this.equipedHeroArmourFeet = armour;
@@ -135,20 +138,20 @@ class HeroStatsStore {
 
     heroArmourUnequip = (armour) => {
         if (armour.location === "chest") {
+            this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroArmourChest);
             this.equipedHeroArmourChest = {};
-            this.allStores.heroInventoryStore.inventoryPlacement(armour);
         } else if (armour.location === "legs") {
+            this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroArmourLegs);
             this.equipedHeroArmourLegs = {};
-            this.allStores.heroInventoryStore.inventoryPlacement(armour);
         } else if (armour.location === "head") {
+            this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroArmourHead);
             this.equipedHeroArmourHead = {};
-            this.allStores.heroInventoryStore.inventoryPlacement(armour);
         } else if (armour.location === "hands") {
+            this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroArmourHands);
             this.equipedHeroArmourHands = {};
-            this.allStores.heroInventoryStore.inventoryPlacement(armour);
         } else if (armour.location === "feet") {
+            this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroArmourFeet);
             this.equipedHeroArmourFeet = {};
-            this.allStores.heroInventoryStore.inventoryPlacement(armour);
         }
         this.heroAttackCalc();
     };

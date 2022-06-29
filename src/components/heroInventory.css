@@ -19,6 +19,7 @@
     border: solid black;
     background-color: rgb(170, 170, 170);
     padding: 10px;
+    margin: 5px;
 }
 
 .HeroInventory__display__items {
@@ -30,7 +31,6 @@
 
 .HeroInventory__display__item {
     padding: 5px;
-    /* border: solid gray; */
 }
 
 .HeroInventory__display__image {
@@ -42,6 +42,8 @@
 }
 
 .HeroInventory__displayStats {
+    display: flex;
+    justify-content: center;
     padding-bottom: 5px;
 }
 
@@ -110,7 +112,20 @@
 }
 
 .HeroInventory__equiped {
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+.HeroInventory__selected {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.HeroInventory__InfoOpen {
+    font-weight: bolder;
+    text-decoration: underline;
 }
 
 .HeroInventory__equipedList {
@@ -199,4 +214,15 @@
     border: 2px solid white;
     padding: 5px;
     margin: 5px;
+}
+
+.displayStatDetails__container {
+    width: 20rem;
+    border: solid black;
+    background-color: rgb(221, 221, 221);
+}
+
+.displayStatDetails__item {
+    padding: 2px;
+    border: solid rgb(94, 93, 93) 1px;
 }

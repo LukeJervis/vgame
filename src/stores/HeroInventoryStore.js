@@ -69,7 +69,6 @@ class HeroInventoryStore {
     };
 
     handleSell = (item, amount) => {
-        console.log("item", item, "amount", amount);
         if (this.heroItemsInv.some((el) => el.name === item.name) && item.type === "item") {
             if (amount === "one" && item.count === 1) {
                 const position = this.heroItemsInv.findIndex((el) => el.name === item.name);
