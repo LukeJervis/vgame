@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Pyramidale",
+        "id": 6001,
+        "strength": 0,
+        "speed": 0,
+        "constitution": 1,
+        "health": 1000,
+        "xp": 1,
+        "moneyMin": 0,
+        "moneyMax": 0,
+        "statChance": 500,
+        "level": 1,
+        "skill": "woodCutting",
+        "pool": [
+            {
+                "name": "Pyramidale Log",
+                "suffix": "",
+                "type": "item",
+                "dropCeil": 0,
+                "cost": 1,
+                "stack": 1000,
+                "count": 1,
+                "icon": "./images/SlimeStone.png"
+            }
+        ]
+    },
+    {
+        "name": "Tomentosa",
+        "id": 6002,
+        "strength": 0,
+        "speed": 0,
+        "constitution": 10,
+        "health": 1000,
+        "xp": 2,
+        "moneyMin": 0,
+        "moneyMax": 0,
+        "statChance": 500,
+        "level": 2,
+        "skill": "woodCutting",
+        "pool": [
+            {
+                "name": "Tomentosa Log",
+                "suffix": "",
+                "type": "item",
+                "dropCeil": 0,
+                "cost": 2,
+                "stack": 1000,
+                "count": 1,
+                "icon": "./images/SlimeStone.png"
+            }
+        ]
+    }
+]

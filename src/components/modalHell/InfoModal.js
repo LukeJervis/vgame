@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import { useRootStore } from "../../provider/RootStoreProvider";
 import { useEffect, useState } from "react";
 import { heroMoneyConverter } from "../helpers";
+import { isString } from "lodash";
 
 const InfoModal = () => {
     const {
@@ -21,6 +22,7 @@ const InfoModal = () => {
             underAttack,
             lootDisplay,
             lootDropReset,
+            skillBattleStart,
         },
     } = useRootStore();
 
@@ -55,6 +57,10 @@ const InfoModal = () => {
             console.log("Still in battle");
         } else if (health <= 0) {
             console.log("You is dead brah");
+        } else if (!isString(location)) {
+            //check if location is skill
+            setButtonBoolean(true);
+            skillBattleStart(location);
         } else {
             setButtonBoolean(true);
             patrolBattleStart(location, levelMin, levelMax, MIA, FBIA);

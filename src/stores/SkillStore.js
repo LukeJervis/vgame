@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { randomNumber } from "../components/helpers";
 import SkillScreen from "../components/craftingSkills/SkillScreen";
+import SkillObjectChoice from "../components/craftingSkills/SkillObjectChoice";
 
 class SkillStore {
     allStores;
@@ -26,40 +27,59 @@ class SkillStore {
         makeAutoObservable(this);
     }
 
-    skillScreen = (name, skill) => {
+    passiveSkillScreen = (name, skill) => {
         if (this.allStores.heroActionStore.selectedActionArea !== <SkillScreen /> && name && skill) {
             if (name === this.skillName || !this.skillActive) {
                 this.skillName = name;
                 this.skillTypeName = skill;
-                console.log("skillName", name, skill);
-                this.allStores.heroActionStore.selectedActionArea = (
-                    <SkillScreen skillName={this.skillTypeName} skillLevel={this.skillName.level} />
-                );
+                this.allStores.heroActionStore.selectedActionArea = <SkillScreen />;
             } else {
                 console.log("Other skill in progress");
             }
         }
     };
 
+    activeSkillScreen = (name, skill) => {
+        if (name === this.skillName || !this.skillActive) {
+            this.skillName = name;
+            this.skillTypeName = skill;
+            this.allStores.heroActionStore.selectedActionArea = <SkillObjectChoice />;
+        } else {
+            console.log("Other skill in progress");
+        }
+    };
+
     skilling = (skillItem) => {
-        if (this.tanningActive === true) {
+        if (this.skillActive === true) {
             console.log("Tanning already in progress!");
         } else {
             if (skillItem.skill === "tannable") {
                 this.skillType = this.allStores.countStore.tanning;
             } else if (skillItem.skill === "smeltable") {
                 this.skillType = this.allStores.countStore.smelting;
+            } else if (skillItem.skill === "woodCutting") {
+                this.skillType = this.allStores.countStore.woodCutting;
             }
             this.skillActive = true;
             this.skillItem = skillItem;
-            console.log("skillTime", this.skillItem.skillDiff);
             this.skillTime = this.skillItem.skillDiff / this.skillType.level;
             this.skillInterval();
             skillItem.count--;
             this.allStores.heroInventoryStore.inventoryCheck();
-            // this.skillScreen(this.skillName);
         }
-        console.log("hide", skillItem);
+    };
+
+    activeSkilling = (skillObject) => {
+        if (this.skillActive === true) {
+            console.log("Tanning already in progress!");
+        } else {
+            if (skillObject.skill === "woodCutting") {
+                this.skillType = this.allStores.countStore.tanning;
+            }
+            this.skillActive = true;
+            this.skillItem = skillObject;
+            this.allStores.heroActionStore.skillBattleStart(skillObject);
+        }
     };
 
     skillInterval = () => {

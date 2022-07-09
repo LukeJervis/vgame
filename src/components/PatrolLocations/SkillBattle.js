@@ -3,14 +3,14 @@ import { useRootStore } from "../../provider/RootStoreProvider";
 import slimeImage from "../images/SlimeTransparent.png";
 import "./patrolBattle.css";
 
-const PatrolBattle = (props) => {
+const SkillBattle = (props) => {
     const {
-        heroActionStore: { patrolBattleAttack, monsterHealth, monsterLevel, monsterName },
+        heroActionStore: { skillAttack, monsterHealth, monsterLevel, monsterName },
     } = useRootStore();
 
     return (
         <div className="patrolBattle__container">
-            <div className="PatrolBattle--attack" onClick={() => patrolBattleAttack()}>
+            <div className="PatrolBattle--attack" onClick={() => skillAttack()}>
                 <div className="patrolBattle__infoCollection">
                     <div className="patrolBattle__areaName">{props.location}</div>
                     <div className="PatrolBattle__monsterName">{monsterName}</div>
@@ -26,4 +26,4 @@ const PatrolBattle = (props) => {
     );
 };
 
-export default observer(PatrolBattle);
+export default observer(SkillBattle);

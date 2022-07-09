@@ -4,10 +4,10 @@ import Clicker from "../components/Clicker";
 import fieldBoss from "../components/monsters/fieldBoss.json";
 import levelChart from "../components/monsters/levelChart.json";
 import monsters from "../components/monsters/monsters.json";
+import SkillBattle from "../components/PatrolLocations/SkillBattle";
 import PatrolBattle from "../components/PatrolLocations/PatrolBattle";
 import { randomNumber } from "../components/helpers";
 import lootDrop from "../components/LootDrop";
-import SkillScreen from "../components/craftingSkills/SkillScreen";
 import _ from "lodash";
 
 class HeroActionStore {
@@ -30,7 +30,7 @@ class HeroActionStore {
     monsterLevel;
     monsterInterval;
     monsterXp;
-    monsterMoneyDrop;
+    monsterMoneyDrop = 0;
     monsterDrop;
     monsterLevelMulti;
 
@@ -50,6 +50,8 @@ class HeroActionStore {
     tanTime;
     tanningProgressState = 0;
     rawHide = {};
+
+    skillName;
 
     constructor(store) {
         this.allStores = store;
@@ -138,6 +140,22 @@ class HeroActionStore {
         }
     };
 
+    skillBattleStart = (object) => {
+        if (this.allStores.heroStatsStore.health <= 0) {
+            console.log("Erm... your dead?");
+        } else {
+            console.log("lkj2", this.allStores.countStore.woodCutting);
+            this.skillName = object.skill;
+            this.monster = object;
+            this.monsterLevel = object.level;
+            this.monsterName = this.monster.name;
+            this.monsterHealth = this.monster.health;
+            this.monsterXp = this.monster.xp;
+            this.location = object;
+            this.selectedActionArea = <SkillBattle location={this.monsterName} />;
+        }
+    };
+
     patrolBattleAttack = () => {
         this.allStores.heroStatsStore.heroAttackCalc();
         if (this.monsterHealth <= 0) {
@@ -150,13 +168,38 @@ class HeroActionStore {
             console.log("ye ded!");
         } else {
             if (!this.underAttack) {
-                this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount;
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
                 this.underAttack = true;
                 this.heroMonsterAttackInterval();
                 this.heroHealthInterval();
                 this.heroPetInterval();
             } else {
-                this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.heroAttackAmount;
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
+                if (this.monsterHealth <= 0) {
+                    this.underAttack = false;
+                    this.patrolWin();
+                }
+            }
+        }
+    };
+
+    skillAttack = () => {
+        console.log("lkj3", this.allStores.countStore.woodCutting);
+        this.allStores.heroStatsStore.heroAttackCalc();
+        if (this.monsterHealth <= 0) {
+            console.log("He dead yo!");
+        } else if (this.allStores.heroStatsStore.heroAttackAmount >= this.monsterHealth) {
+            this.monsterHealth = 0;
+            this.underAttack = false;
+            this.patrolWin();
+        } else if (this.allStores.heroStatsStore.health <= 0) {
+            console.log("ye ded!");
+        } else {
+            if (!this.underAttack) {
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
+                this.underAttack = true;
+            } else {
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
                 if (this.monsterHealth <= 0) {
                     this.underAttack = false;
                     this.patrolWin();
@@ -195,13 +238,20 @@ class HeroActionStore {
     };
 
     patrolWin = () => {
-        clearInterval(this.monsterInterval);
-        clearInterval(this.heroHealthCheckInterval);
-        clearInterval(this.petInterval);
-        this.allStores.countStore.heroMoney = this.allStores.countStore.heroMoney + this.monsterMoneyDrop;
-        this.allStores.countStore.experience = this.allStores.countStore.experience + this.monsterXp;
-        this.allStores.countStore.levelCalc();
-        this.lootDrops();
+        console.log("lkj4", this.allStores.countStore.woodCutting);
+        if (this.skillName === "woodCutting") {
+            this.allStores.countStore.skillExperienceIncrease(this.allStores.countStore.woodCutting, this.monster.xp);
+            this.allStores.skillStore.skillActive = false;
+            this.lootDrops();
+        } else {
+            clearInterval(this.monsterInterval);
+            clearInterval(this.heroHealthCheckInterval);
+            clearInterval(this.petInterval);
+            this.allStores.countStore.heroMoney += this.monsterMoneyDrop;
+            this.allStores.countStore.experience += this.monsterXp;
+            this.allStores.countStore.levelCalc();
+            this.lootDrops();
+        }
     };
 
     patrolLoss = () => {

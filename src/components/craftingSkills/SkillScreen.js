@@ -1,7 +1,7 @@
 import { useRootStore } from "../../provider/RootStoreProvider";
 import { observer } from "mobx-react";
 
-const SkillScreen = (props) => {
+const SkillScreen = () => {
     const {
         skillStore: { skillProgress, skillTime, skillProgressState, skilling, skillTypeName, skillName },
     } = useRootStore();
