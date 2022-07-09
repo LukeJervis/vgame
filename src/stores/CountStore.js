@@ -20,6 +20,7 @@ class CountStore {
         experience: 0,
         levelMultiplier: 1.5,
         experienceNeeded: 10,
+        name: "Tanning",
     };
 
     smelting = {
@@ -27,6 +28,7 @@ class CountStore {
         experience: 0,
         levelMultiplier: 1.5,
         experienceNeeded: 10,
+        name: "Smelting",
     };
 
     woodCutting = {
@@ -34,6 +36,7 @@ class CountStore {
         experience: 0,
         levelMultiplier: 1.5,
         experienceNeeded: 10,
+        name: "Wood Cutting",
     };
 
     varLevel;

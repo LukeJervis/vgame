@@ -1,0 +1,18 @@
+.skills__listContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
+    border: solid black;
+    width: 15rem;
+    margin: 2px;
+}
+
+.skills__skill {
+    padding: 2px;
+}
+
+.skills__stats {
+    display: flex;
+    justify-content: space-around;
+}

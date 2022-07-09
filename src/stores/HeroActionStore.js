@@ -26,6 +26,7 @@ class HeroActionStore {
     monsterHealth = 1;
     monsterStrength;
     monsterSpeed;
+    monsterConstitution;
     monsterLuck;
     monsterLevel;
     monsterInterval;
@@ -121,6 +122,7 @@ class HeroActionStore {
                 this.monsterLevelMulti = levelChart[randomNumber(levelMin, levelMax)];
                 this.monsterName = this.monster.name;
                 this.monsterHealth = this.monster.health * this.monsterLevelMulti.multi;
+                this.monsterConstitution = this.monster.constitution;
                 this.monsterStrength =
                     this.monster.strength * this.monsterLevelMulti.multi -
                     (this.allStores.heroStatsStore.constitution + this.allStores.heroStatsStore.equipedHeroArmour);
@@ -144,12 +146,12 @@ class HeroActionStore {
         if (this.allStores.heroStatsStore.health <= 0) {
             console.log("Erm... your dead?");
         } else {
-            console.log("lkj2", this.allStores.countStore.woodCutting);
             this.skillName = object.skill;
             this.monster = object;
             this.monsterLevel = object.level;
             this.monsterName = this.monster.name;
             this.monsterHealth = this.monster.health;
+            this.monsterConstitution = this.monster.constitution;
             this.monsterXp = this.monster.xp;
             this.location = object;
             this.selectedActionArea = <SkillBattle location={this.monsterName} />;
@@ -160,7 +162,7 @@ class HeroActionStore {
         this.allStores.heroStatsStore.heroAttackCalc();
         if (this.monsterHealth <= 0) {
             console.log("He dead yo!");
-        } else if (this.allStores.heroStatsStore.heroAttackAmount >= this.monsterHealth) {
+        } else if (this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution >= this.monsterHealth) {
             this.monsterHealth = 0;
             this.underAttack = false;
             this.patrolWin();
@@ -168,13 +170,13 @@ class HeroActionStore {
             console.log("ye ded!");
         } else {
             if (!this.underAttack) {
-                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution;
                 this.underAttack = true;
                 this.heroMonsterAttackInterval();
                 this.heroHealthInterval();
                 this.heroPetInterval();
             } else {
-                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution;
                 if (this.monsterHealth <= 0) {
                     this.underAttack = false;
                     this.patrolWin();
@@ -184,11 +186,10 @@ class HeroActionStore {
     };
 
     skillAttack = () => {
-        console.log("lkj3", this.allStores.countStore.woodCutting);
         this.allStores.heroStatsStore.heroAttackCalc();
         if (this.monsterHealth <= 0) {
             console.log("He dead yo!");
-        } else if (this.allStores.heroStatsStore.heroAttackAmount >= this.monsterHealth) {
+        } else if (this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution >= this.monsterHealth) {
             this.monsterHealth = 0;
             this.underAttack = false;
             this.patrolWin();
@@ -196,10 +197,10 @@ class HeroActionStore {
             console.log("ye ded!");
         } else {
             if (!this.underAttack) {
-                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution;
                 this.underAttack = true;
             } else {
-                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount;
+                this.monsterHealth -= this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution;
                 if (this.monsterHealth <= 0) {
                     this.underAttack = false;
                     this.patrolWin();
@@ -226,7 +227,7 @@ class HeroActionStore {
     };
 
     heroPetAttack = () => {
-        this.monsterHealth = this.monsterHealth - this.allStores.heroStatsStore.equipedPet.strength;
+        this.monsterHealth -= this.allStores.heroStatsStore.equipedPet.strength;
     };
 
     heroMonsterAttackInterval = () => {
@@ -234,7 +235,7 @@ class HeroActionStore {
     };
 
     monsterAttack = () => {
-        this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.health - Math.round(this.monsterStrength);
+        this.allStores.heroStatsStore.health -= Math.round(this.monsterStrength);
     };
 
     patrolWin = () => {
