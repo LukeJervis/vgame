@@ -60,7 +60,6 @@ class CountStore {
     };
 
     levelCalc = (skillType) => {
-        console.log("lkj1", this.woodCutting);
         if (skillType) {
             this.varLevel = skillType.level;
             this.varLevelMulti = skillType.levelMultiplier;
@@ -108,7 +107,7 @@ class CountStore {
             this.allStores.heroStatsStore.maxHealth += 2;
             this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth;
             skillType.experienceNeeded =
-                skillType.Level * (skillType.level * (skillType.level * skillType.level)) * skillType.levelMultiplier;
+                skillType.level * (skillType.level * (skillType.level * skillType.level)) * skillType.levelMultiplier;
             skillType.experience = 0;
         } else {
             this.heroLevel++;

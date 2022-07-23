@@ -72,7 +72,9 @@ class HeroStatsStore {
     };
 
     equipPet = (heroPet) => {
-        this.unequipPet();
+        if (!_.isEmpty(this.equipedPet)) {
+            this.unequipPet();
+        }
         this.equipedPet = heroPet;
         this.petStrength = heroPet.strength;
         this.petSpeed = heroPet.speed;
@@ -238,5 +240,3 @@ class HeroStatsStore {
 }
 
 export default HeroStatsStore;
-
-// this.statCost = this.statCost * 2

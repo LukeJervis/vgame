@@ -1,4 +1,5 @@
 import { useRootStore } from "../provider/RootStoreProvider";
+import { observer } from "mobx-react";
 import "./skills.css";
 
 const Skills = () => {
@@ -17,7 +18,7 @@ const Skills = () => {
         activeSkillScreen(name, skill);
     };
 
-    const skillsArray = [tanning, smelting, woodCutting];
+    let skillsArray = [tanning, smelting, woodCutting];
 
     const skillInfo = skillsArray.map((skill) => (
         <div key={Math.random().toString(36)} className="skills__listContainer">
@@ -59,4 +60,4 @@ const Skills = () => {
     );
 };
 
-export default Skills;
+export default observer(Skills);

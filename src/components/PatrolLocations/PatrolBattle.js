@@ -4,6 +4,7 @@ import slimeImage from "../images/SlimeTransparent.png";
 import "./patrolBattle.css";
 
 const PatrolBattle = (props) => {
+    console.log("lkj", props);
     const {
         heroActionStore: { patrolBattleAttack, monsterHealth, monsterLevel, monsterName },
     } = useRootStore();
@@ -17,7 +18,7 @@ const PatrolBattle = (props) => {
                     <div className="PatrolBattle__monsterLevel">Level: {monsterLevel}</div>
                     <div className="PatrolBattle__monsterHealth">Health: {monsterHealth}</div>
                     <div>
-                        <img src={slimeImage} height="200px" alt="slime" />
+                        <img src={props.monsterImage} height="200px" alt="Monster" />
                     </div>
                 </div>
                 <div className="patrolBattle__attackArea">Click box to attack</div>

@@ -10,6 +10,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 500,
+        "image": "./images/SlimeGreen.png",
         "pool": [
             {
                 "name": "Slime Stone",
@@ -46,6 +47,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 1000,
+        "image": "./images/SlimeSilver.png",
         "pool": [
             {
                 "name": "Iron",
@@ -87,6 +89,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 1000,
+        "image": "./images/HornedBoar.png",
         "pool": [
             {
                 "id": 3200,
@@ -133,6 +136,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 1000,
+        "image": "./images/SlimeTransparent.png",
         "pool": [
             {
                 "name": "Flash Powder",
@@ -172,6 +176,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 1000,
+        "image": "./images/SlimeTransparent.png",
         "pool": [
             {
                 "name": "Hide",
@@ -216,6 +221,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 1000,
+        "image": "./images/TriStag.png",
         "pool": [
             {
                 "name": "Hide",
@@ -272,6 +278,7 @@
         "moneyMin": 2,
         "moneyMax": 10,
         "statChance": 1000,
+        "image": "./images/SlimeTransparent.png",
         "pool": [
             {
                 "name": "Plant Fibers",

@@ -45,6 +45,7 @@ const HeroInventory = () => {
         } else if (selectedEquipment.type === "armour") {
             heroArmourEquip(selectedEquipment);
         } else if (selectedEquipment.type === "pet") {
+            console.log("lkj2", selectedEquipment);
             equipPet(selectedEquipment);
         }
         document.getElementById("HeroInventoryEquiped").style.display = "none";

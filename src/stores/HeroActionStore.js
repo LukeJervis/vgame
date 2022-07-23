@@ -112,7 +112,7 @@ class HeroActionStore {
                 if (this.monsterStrength < 1) {
                     this.monsterStrength = 1;
                 }
-                this.selectedActionArea = <PatrolBattle location={location} />;
+                this.selectedActionArea = <PatrolBattle location={location} monsterImage={this.monster.image} />;
             } else {
                 this.levelMin = levelMin;
                 this.levelMax = levelMax;
@@ -137,7 +137,7 @@ class HeroActionStore {
                 if (this.monsterStrength < 1) {
                     this.monsterStrength = 1;
                 }
-                this.selectedActionArea = <PatrolBattle location={location} />;
+                this.selectedActionArea = <PatrolBattle location={location} monsterImage={this.monster.image} />;
             }
         }
     };
@@ -239,7 +239,6 @@ class HeroActionStore {
     };
 
     patrolWin = () => {
-        console.log("lkj4", this.allStores.countStore.woodCutting);
         if (this.skillName === "woodCutting") {
             this.allStores.countStore.skillExperienceIncrease(this.allStores.countStore.woodCutting, this.monster.xp);
             this.allStores.skillStore.skillActive = false;

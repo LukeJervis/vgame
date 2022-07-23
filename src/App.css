@@ -7,7 +7,7 @@
     text-align: center;
     /* gap: 0px; */
     height: 100vh;
-    background-color: rgb(83, 64, 255);
+    background-color: rgb(167, 167, 167);
 }
 
 .App__body {
@@ -20,7 +20,7 @@
 .App__navBar {
     display: flex;
     justify-content: center;
-    border: rgb(255, 255, 255) solid;
+    border: rgb(0, 0, 0) solid;
     background-color: rgb(132, 132, 255);
     width: 200px;
     margin: 20px 0 0 20px;
@@ -37,7 +37,7 @@
 .App__heroStatus {
     display: flex;
     justify-content: center;
-    border: rgb(255, 255, 255) solid;
+    border: rgb(0, 0, 0) solid;
     background-color: rgb(132, 132, 255);
     width: 200px;
     margin: 20px 20px 0 20px;
