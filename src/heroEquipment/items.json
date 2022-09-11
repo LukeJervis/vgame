@@ -1,0 +1,102 @@
+[
+    {
+        "name": "Pyramidale",
+        "affix": "Log",
+        "suffix": "",
+        "type": "item",
+        "cost": 1,
+        "stack": 1000,
+        "icon": "./images/SlimeStone.png",
+        "crafting": {
+            "level": 1,
+            "diff": 1,
+            "xp": 1,
+            "strengthLow": 0,
+            "StrengthHigh": 0.1,
+            "SpeedLow": 49,
+            "SpeedHigh": 99,
+            "constitutionLow": 0.2,
+            "constitutionHigh": 0.5,
+            "luckLow": 0.1,
+            "luckHigh": 0.2,
+            "magicLow": 0.1,
+            "magicHigh": 0.2
+        }
+    },
+    {
+        "name": "Tomentosa",
+        "affix": "Log",
+        "suffix": "",
+        "type": "item",
+        "cost": 2,
+        "stack": 1000,
+        "icon": "./images/SlimeStone.png",
+        "crafting": {
+            "level": 2,
+            "diff": 3,
+            "xp": 2,
+            "strengthLow": 0.2,
+            "StrengthHigh": 0.4,
+            "SpeedLow": 48,
+            "SpeedHigh": 98,
+            "constitutionLow": 0.5,
+            "constitutionHigh": 1,
+            "luckLow": 0.1,
+            "luckHigh": 0.3,
+            "magicLow": 0.1,
+            "magicHigh": 0.3
+        }
+    },
+    {
+        "name": "Slime",
+        "affix": "Stone",
+        "suffix": "",
+        "type": "item",
+        "cost": 1,
+        "stack": 1000,
+        "icon": "./images/SlimeStone.png",
+        "crafting": {
+            "level": 1,
+            "diff": 1,
+            "xp": 1,
+            "strengthLow": 0.5,
+            "StrengthHigh": 1,
+            "SpeedLow": 0.5,
+            "SpeedHigh": 1,
+            "constitutionLow": 1,
+            "constitutionHigh": 2,
+            "luckLow": 0.5,
+            "luckHigh": 1,
+            "magicLow": 2,
+            "magicHigh": 5
+        }
+    },
+    {
+        "name": "Iron",
+        "affix": "Ore",
+        "suffix": "",
+        "type": "item",
+        "skill": "smeltable",
+        "skillDiff": 50,
+        "condition": ["Ore", "Bar"],
+        "cost": 1,
+        "stack": 1000,
+        "icon": "./images/IronOre.png",
+        "xp": 1,
+        "crafting": {
+            "level": 5,
+            "diff": 5,
+            "xp": 5,
+            "strengthLow": 1,
+            "StrengthHigh": 2,
+            "SpeedLow": 0.5,
+            "SpeedHigh": 1,
+            "constitutionLow": 1,
+            "constitutionHigh": 2,
+            "luckLow": 0.5,
+            "luckHigh": 1,
+            "magicLow": 1,
+            "magicHigh": 2
+        }
+    }
+]

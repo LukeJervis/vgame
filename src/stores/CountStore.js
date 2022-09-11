@@ -15,29 +15,38 @@ class CountStore {
     silverCoin = "0";
     goldCoin = "0";
 
-    tanning = {
-        level: 1,
-        experience: 0,
-        levelMultiplier: 1.5,
-        experienceNeeded: 10,
-        name: "Tanning",
-    };
-
-    smelting = {
-        level: 1,
-        experience: 0,
-        levelMultiplier: 1.5,
-        experienceNeeded: 10,
-        name: "Smelting",
-    };
-
-    woodCutting = {
-        level: 1,
-        experience: 0,
-        levelMultiplier: 1.5,
-        experienceNeeded: 10,
-        name: "Wood Cutting",
-    };
+    //Just make it an array already!!!!!
+    skills = [
+        {
+            level: 1,
+            experience: 0,
+            levelMultiplier: 1.5,
+            experienceNeeded: 10,
+            name: "Tanning",
+        },
+        {
+            level: 1,
+            experience: 0,
+            levelMultiplier: 1.5,
+            experienceNeeded: 10,
+            name: "Smelting",
+        },
+        {
+            level: 1,
+            experience: 0,
+            levelMultiplier: 1.5,
+            experienceNeeded: 10,
+            name: "Wood Cutting",
+        },
+        {
+            level: 1,
+            experience: 0,
+            levelMultiplier: 1.5,
+            experienceNeeded: 10,
+            slots: 1,
+            name: "Weapon Crafting",
+        },
+    ];
 
     varLevel;
     varLevelMulti;
@@ -54,17 +63,17 @@ class CountStore {
         this.levelCalc();
     };
 
-    skillExperienceIncrease = (skillType, xp) => {
-        skillType.experience += xp;
-        this.levelCalc(skillType);
+    skillExperienceIncrease = (skill, xp) => {
+        skill.experience += xp;
+        this.levelCalc(skill);
     };
 
-    levelCalc = (skillType) => {
-        if (skillType) {
-            this.varLevel = skillType.level;
-            this.varLevelMulti = skillType.levelMultiplier;
-            this.varExperienceNeeded = skillType.experienceNeeded;
-            this.varExperience = skillType.experience;
+    levelCalc = (skill) => {
+        if (skill) {
+            this.varLevel = skill.level;
+            this.varLevelMulti = skill.levelMultiplier;
+            this.varExperienceNeeded = skill.experienceNeeded;
+            this.varExperience = skill.experience;
         } else {
             this.varLevel = this.heroLevel;
             this.varLevelMulti = this.levelMultiplier;
@@ -97,18 +106,17 @@ class CountStore {
             this.varLevelMulti = 10;
         }
         if (this.varExperienceNeeded <= this.varExperience) {
-            this.herolevelIncrease(skillType);
+            this.herolevelIncrease(skill);
         }
     };
 
-    herolevelIncrease = (skillType) => {
-        if (skillType) {
-            skillType.level++;
+    herolevelIncrease = (skill) => {
+        if (skill) {
+            skill.level++;
             this.allStores.heroStatsStore.maxHealth += 2;
             this.allStores.heroStatsStore.health = this.allStores.heroStatsStore.maxHealth;
-            skillType.experienceNeeded =
-                skillType.level * (skillType.level * (skillType.level * skillType.level)) * skillType.levelMultiplier;
-            skillType.experience = 0;
+            skill.experienceNeeded = skill.level * (skill.level * (skill.level * skill.level)) * skill.levelMultiplier;
+            skill.experience = 0;
         } else {
             this.heroLevel++;
             this.allStores.heroStatsStore.maxHealth += 10;

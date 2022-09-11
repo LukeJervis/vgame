@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { randomNumber } from "../components/helpers";
 import SkillScreen from "../components/craftingSkills/SkillScreen";
 import SkillObjectChoice from "../components/craftingSkills/SkillObjectChoice";
+import CraftScreen from "../components/craftingSkills/CraftScreen";
 
 class SkillStore {
     allStores;
@@ -20,18 +21,20 @@ class SkillStore {
     skillProgressState = 0;
     skillItem = {};
     skillName;
-    skillTypeName;
+    selectedSkill;
+
+    skillSlots = [];
 
     constructor(store) {
         this.allStores = store;
         makeAutoObservable(this);
     }
 
-    passiveSkillScreen = (name, skill) => {
-        if (this.allStores.heroActionStore.selectedActionArea !== <SkillScreen /> && name && skill) {
+    passiveSkillScreen = (name) => {
+        if (this.allStores.heroActionStore.selectedActionArea !== <SkillScreen />) {
             if (name === this.skillName || !this.skillActive) {
                 this.skillName = name;
-                this.skillTypeName = skill;
+                this.selectedSkill = this.allStores.countStore.skills.find((skill) => skill.name === this.skillName);
                 this.allStores.heroActionStore.selectedActionArea = <SkillScreen />;
             } else {
                 console.log("Other skill in progress");
@@ -39,10 +42,22 @@ class SkillStore {
         }
     };
 
-    activeSkillScreen = (name, skill) => {
+    craftingScreen = (name) => {
+        if (this.allStores.heroActionStore.selectedActionArea !== <CraftScreen />) {
+            if (name === this.skillName || !this.skillActive) {
+                this.skillName = name;
+                this.selectedSkill = this.allStores.countStore.skills.find((skill) => skill.name === this.skillName);
+                this.allStores.heroActionStore.selectedActionArea = <CraftScreen />;
+            } else {
+                console.log("Other skill in progress");
+            }
+        }
+    };
+
+    activeSkillScreen = (name) => {
         if (name === this.skillName || !this.skillActive) {
             this.skillName = name;
-            this.skillTypeName = skill;
+            this.selectedSkill = this.allStores.countStore.skills.find((skill) => skill.name === this.skillName);
             this.allStores.heroActionStore.selectedActionArea = <SkillObjectChoice />;
         } else {
             console.log("Other skill in progress");
@@ -53,16 +68,9 @@ class SkillStore {
         if (this.skillActive === true) {
             console.log("Tanning already in progress!");
         } else {
-            if (skillItem.skill === "tannable") {
-                this.skillType = this.allStores.countStore.tanning;
-            } else if (skillItem.skill === "smeltable") {
-                this.skillType = this.allStores.countStore.smelting;
-            } else if (skillItem.skill === "woodCutting") {
-                this.skillType = this.allStores.countStore.woodCutting;
-            }
             this.skillActive = true;
             this.skillItem = skillItem;
-            this.skillTime = this.skillItem.skillDiff / this.skillType.level;
+            this.skillTime = this.skillItem.skillDiff / this.selectedSkill.level;
             this.skillInterval();
             skillItem.count--;
             this.allStores.heroInventoryStore.inventoryCheck();
@@ -71,11 +79,8 @@ class SkillStore {
 
     activeSkilling = (skillObject) => {
         if (this.skillActive === true) {
-            console.log("Tanning already in progress!");
+            console.log("Something already in progress!");
         } else {
-            if (skillObject.skill === "woodCutting") {
-                this.skillType = this.allStores.countStore.tanning;
-            }
             this.skillActive = true;
             this.skillItem = skillObject;
             this.allStores.heroActionStore.skillBattleStart(skillObject);
@@ -83,15 +88,15 @@ class SkillStore {
     };
 
     skillInterval = () => {
-        this.setSkillInterval = setInterval(this.skillProgress, 1000);
+        this.setSkillInterval = setInterval(this.skillProgress, 100);
     };
 
     skillProgress = (action) => {
         if (this.skillActive === false) {
             console.log("Nothing to tan");
         } else if (this.skillProgressState >= this.skillTime - 1 && this.skillActive === true) {
-            this.skillComplete();
             clearInterval(this.setSkillInterval);
+            this.skillComplete();
         } else if (action === "click") {
             this.skillProgressState++;
         } else {
@@ -100,7 +105,7 @@ class SkillStore {
     };
 
     skillComplete = () => {
-        const statChance = this.skillItem.skillDiff - this.skillType.Level;
+        const statChance = this.skillItem.skillDiff - this.selectedSkill.Level;
         const numberGen = randomNumber(0, statChance);
         if (numberGen <= 40) {
             this.prefixNum++;
@@ -144,11 +149,10 @@ class SkillStore {
             skill: "none",
         };
         this.prefixNum = 0;
-        this.skillName = "";
         this.skillActive = false;
         this.skillProgressState = 0;
         this.allStores.heroInventoryStore.inventoryPlacement(finnishedProduct);
-        this.allStores.countStore.skillExperienceIncrease(this.skillType, this.skillType.xp);
+        this.allStores.countStore.skillExperienceIncrease(this.selectedSkill, this.skillItem.xp);
     };
 }
 

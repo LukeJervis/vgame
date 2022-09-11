@@ -4,23 +4,25 @@ import "./skills.css";
 
 const Skills = () => {
     const {
-        skillStore: { passiveSkillScreen, activeSkillScreen },
+        skillStore: { passiveSkillScreen, activeSkillScreen, craftingScreen },
     } = useRootStore();
     const {
-        countStore: { tanning, smelting, woodCutting },
+        countStore: { skills },
     } = useRootStore();
 
-    const passiveSkill = (name, skill) => {
-        passiveSkillScreen(name, skill);
+    const passiveSkill = (name) => {
+        passiveSkillScreen(name);
     };
 
-    const attackSkill = (name, skill) => {
-        activeSkillScreen(name, skill);
+    const attackSkill = (name) => {
+        activeSkillScreen(name);
     };
 
-    let skillsArray = [tanning, smelting, woodCutting];
+    const craftSkill = () => {
+        craftingScreen("Weapon Crafting");
+    };
 
-    const skillInfo = skillsArray.map((skill) => (
+    const skillInfo = skills.map((skill) => (
         <div key={Math.random().toString(36)} className="skills__listContainer">
             <div key={Math.random().toString(36)} className="skills__skillN">
                 {skill.name}
@@ -46,14 +48,17 @@ const Skills = () => {
                 <div className="skills__stats">{skillInfo}</div>
             </div>
             <div className="skills__buttons">
-                <button onClick={() => passiveSkill("Tanning", "tannable")} className="skills__button">
+                <button onClick={() => passiveSkill("Tanning")} className="skills__button">
                     Tanning
                 </button>
-                <button onClick={() => passiveSkill("Smelting", "smeltable")} className="skills__button">
+                <button onClick={() => passiveSkill("Smelting")} className="skills__button">
                     Smelting
                 </button>
-                <button onClick={() => attackSkill("woodCutting", "Wood Cutting")} className="skills__button">
+                <button onClick={() => attackSkill("Wood Cutting")} className="skills__button">
                     Wood Cutting
+                </button>
+                <button onClick={() => craftSkill("Weapon Crafting")} className="skills__button">
+                    Weapon Crafting
                 </button>
             </div>
         </div>

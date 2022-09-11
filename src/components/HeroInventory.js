@@ -45,7 +45,6 @@ const HeroInventory = () => {
         } else if (selectedEquipment.type === "armour") {
             heroArmourEquip(selectedEquipment);
         } else if (selectedEquipment.type === "pet") {
-            console.log("lkj2", selectedEquipment);
             equipPet(selectedEquipment);
         }
         document.getElementById("HeroInventoryEquiped").style.display = "none";
@@ -121,7 +120,6 @@ const HeroInventory = () => {
     );
 
     const inventoryClick = (selected) => {
-        console.log("lkj", selected);
         const targetDiv = document.getElementById("HeroInventorySelected");
         if (
             document.getElementById("HeroInventorySelected") !== null &&

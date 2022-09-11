@@ -4,7 +4,6 @@ import slimeImage from "../images/SlimeTransparent.png";
 import "./patrolBattle.css";
 
 const PatrolBattle = (props) => {
-    console.log("lkj", props);
     const {
         heroActionStore: { patrolBattleAttack, monsterHealth, monsterLevel, monsterName },
     } = useRootStore();

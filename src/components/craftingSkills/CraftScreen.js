@@ -1,9 +1,12 @@
 import { useRootStore } from "../../provider/RootStoreProvider";
 import { observer } from "mobx-react";
 
-const SkillScreen = () => {
+const CraftScreen = () => {
     const {
-        skillStore: { skillProgress, skillTime, skillProgressState, skilling, skillName, selectedSkill },
+        skillStore: { skillProgress, skillTime, skillProgressState, skilling, skillName, skillSlots },
+    } = useRootStore();
+    const {
+        countStore: { skills },
     } = useRootStore();
     const {
         heroActionStore: { patrolBattleStart },
@@ -12,7 +15,19 @@ const SkillScreen = () => {
         heroInventoryStore: { heroItemsInv },
     } = useRootStore();
 
-    const skillables = heroItemsInv.filter((heroItem) => heroItem.skill === skillName);
+    const selectedSkill = skills.find((skill) => skill.name === skillName);
+    const numberSlots = selectedSkill.slots;
+    const skillables = heroItemsInv.filter((heroItem) => heroItem.type === "item");
+
+    const openSlots = () => {
+        for (let i = 0; i < numberSlots; i++) {
+            <div>
+                <div src={""} alt="slot 1">
+                    {skillSlots[i]}
+                </div>
+            </div>;
+        }
+    };
 
     const skillItems = skillables.map((heroItemsInv) => (
         <div key={Math.random().toString(36)} className="HeroInventory__equipment">
@@ -38,9 +53,9 @@ const SkillScreen = () => {
 
     return (
         <div className="skillScreen__container">
-            <div className="skillScreen__title">{skillName}</div>
+            <div className="skillScreen__title">{skillName.name}</div>
             <div className="skillScreen__level">
-                {skillName} Level: {skillName}
+                {skillName.name} Level: {skillName.level}
             </div>
             <div className="skillScreen__xp">
                 {skillName} XP: {selectedSkill.experience}
@@ -59,4 +74,4 @@ const SkillScreen = () => {
     );
 };
 
-export default observer(SkillScreen);
+export default observer(CraftScreen);

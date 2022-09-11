@@ -4,20 +4,22 @@ import trees from "../monsters/trees.json";
 
 const SkillObjectChoice = () => {
     const {
-        skillStore: { skillProgress, skillTime, skillProgressState, activeSkilling, skillTypeName, skillName },
+        skillStore: { activeSkilling, skillName },
     } = useRootStore();
 
     const {
-        countStore: { woodCutting },
+        countStore: { skills },
     } = useRootStore();
 
-    const LocationText = () => {
-        if (skillName === "woodCutting") {
-            return "Choose your trees";
+    const locationText = () => {
+        if (skillName === "Wood Cutting") {
+            return "Choose your tree";
         }
     };
 
-    const treeSelection = trees.filter((tree) => tree.level <= woodCutting.level);
+    const selectedSkill = skills.find((skill) => skill.name === skillName);
+
+    const treeSelection = trees.filter((tree) => tree.level <= selectedSkill.level);
 
     const skillItems = treeSelection.map((tree) => (
         <div key={Math.random().toString(36)} className="HeroInventory__equipment">
@@ -35,10 +37,8 @@ const SkillObjectChoice = () => {
 
     return (
         <div className="SkillObjectChoice__container">
-            <div className="SkillObjectChoice__header">{skillTypeName}</div>
-            <div className="SkillObjectChoice__description">
-                <LocationText />
-            </div>
+            <div className="SkillObjectChoice__header">{skillName}</div>
+            <div className="SkillObjectChoice__description">{locationText()}</div>
             <div className="SkillObjectChoice__choiceContainer">
                 <div className="SkillObjectChoice__choice">{skillItems}</div>
             </div>

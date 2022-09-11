@@ -2,6 +2,7 @@ import ironCoinLogo from "./images/IronCoinTransparent.png";
 import copperCoinLogo from "./images/CopperCoinTransparent.png";
 import silverCoinLogo from "./images/SilverCoinTransparent.png";
 import goldCoinLogo from "./images/GoldCoinTransparent.png";
+import { useRootStore } from "../provider/RootStoreProvider";
 import "./helpers.css";
 
 export const heroMoneyConverter = (amount) => {

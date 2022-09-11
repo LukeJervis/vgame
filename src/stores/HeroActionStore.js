@@ -239,8 +239,8 @@ class HeroActionStore {
     };
 
     patrolWin = () => {
-        if (this.skillName === "woodCutting") {
-            this.allStores.countStore.skillExperienceIncrease(this.allStores.countStore.woodCutting, this.monster.xp);
+        if (this.skillName === "Wood Cutting") {
+            this.allStores.countStore.skillExperienceIncrease(this.allStores.skillStore.selectedSkill, this.monster.xp);
             this.allStores.skillStore.skillActive = false;
             this.lootDrops();
         } else {
