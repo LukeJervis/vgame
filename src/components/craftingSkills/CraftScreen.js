@@ -1,5 +1,6 @@
 import { useRootStore } from "../../provider/RootStoreProvider";
 import { observer } from "mobx-react";
+import "./craftScreen.css";
 
 const CraftScreen = () => {
     const {
@@ -22,7 +23,7 @@ const CraftScreen = () => {
     const openSlots = () => {
         for (let i = 0; i < numberSlots; i++) {
             <div>
-                <div src={""} alt="slot 1">
+                <div className="craftScreen__slot" src={""} alt="slot 1">
                     {skillSlots[i]}
                 </div>
             </div>;
@@ -60,10 +61,12 @@ const CraftScreen = () => {
             <div className="skillScreen__xp">
                 {skillName} XP: {selectedSkill.experience}
             </div>
+
             <div className="skillScreen__xpNeeded">XP Needed: {selectedSkill.experienceNeeded}</div>
             <div className="skillScreen__timer">Progress: {skillProgressState}</div>
             <div className="skillScreen__timer">Progress Needed: {skillTime}</div>
             <div className="skillScreen__inventory">{skillItems}</div>
+            <div>{openSlots}</div>
             <div className="skillScreen__clicker" onClick={() => skillProgress("click")}>
                 Click Here
             </div>

@@ -159,7 +159,6 @@ class HeroActionStore {
     };
 
     patrolBattleAttack = () => {
-        this.allStores.heroStatsStore.heroAttackCalc();
         if (this.monsterHealth <= 0) {
             console.log("He dead yo!");
         } else if (this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution >= this.monsterHealth) {
@@ -186,7 +185,6 @@ class HeroActionStore {
     };
 
     skillAttack = () => {
-        this.allStores.heroStatsStore.heroAttackCalc();
         if (this.monsterHealth <= 0) {
             console.log("He dead yo!");
         } else if (this.allStores.heroStatsStore.heroAttackAmount - this.monsterConstitution >= this.monsterHealth) {

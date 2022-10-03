@@ -1,11 +1,10 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, autorun } from "mobx";
 
 class HeroInventoryStore {
     allStores;
 
     heroInventorySlots = 100;
     heroInventoryUsedSlots = 0;
-    heroInventorySlotsArray = [];
 
     heroWeaponInv = [];
     heroArmourInv = [];
@@ -20,6 +19,9 @@ class HeroInventoryStore {
     constructor(store) {
         this.allStores = store;
         makeAutoObservable(this);
+        autorun(() => {
+            this.inventoryCheck();
+        });
     }
 
     inventoryPlacement = (item) => {
@@ -27,10 +29,8 @@ class HeroInventoryStore {
             console.log("Full Inventory");
         } else if (item.type === "weapon") {
             this.heroWeaponInv.push(item);
-            this.heroInventoryUsedSlots++;
         } else if (item.type === "armour") {
             this.heroArmourInv.push(item);
-            this.heroInventoryUsedSlots++;
         } else if (item.type === "item") {
             if (!!this.heroItemsInv.find((el) => el.name === item.name)) {
                 const foundItem = this.heroItemsInv.find((el) => el.name === item.name);
@@ -39,7 +39,6 @@ class HeroInventoryStore {
                 }
             } else {
                 this.heroItemsInv.push(item);
-                this.heroInventoryUsedSlots += 1;
             }
         }
     };
@@ -51,6 +50,7 @@ class HeroInventoryStore {
                 this.heroItemsInv.splice(position, 1);
             }
         }
+        this.heroInventoryUsedSlots = this.heroWeaponInv.length + this.heroArmourInv.length + this.heroItemsInv.length;
     };
 
     heroInventoryPurchase = (purchase) => {

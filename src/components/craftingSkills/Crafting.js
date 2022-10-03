@@ -1,7 +1,11 @@
 import { randomNumber, randomNumberToTwo } from "../helpers";
+import { observer } from "mobx-react";
 import { useRootStore } from "../../provider/RootStoreProvider";
 
 const Crafting = (skillLevel, craftType) => {
+    const {
+        skillStore: { inventoryPlacement },
+    } = useRootStore();
     const luck = 10;
     // const skillLevelAdjust = skillLevel + Math.round(randomNumber(0, luck / 10)); will be adjusted before it get here
     const wood = {
@@ -31,7 +35,6 @@ const Crafting = (skillLevel, craftType) => {
     let prefixNum = 1;
     let prefix = "";
     let dropArray = [];
-
     if (craftDiff < skillLevel || randomNumber(skillLevel, craftDiff) <= skillLevel) {
         if (rollMulti < 10) {
             rollMulti = 10;
@@ -93,8 +96,8 @@ const Crafting = (skillLevel, craftType) => {
     } else {
         console.log("Failed to craft");
     }
-
-    return dropArray;
+    console.log("lkj", dropArray);
+    return inventoryPlacement(dropArray);
 };
 
-export default Crafting;
+export default observer(Crafting);

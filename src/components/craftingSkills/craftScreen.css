@@ -1,0 +1,5 @@
+.craftScreen__slot {
+    height: 50px;
+    width: 50px;
+    border: solid black 4px;
+}

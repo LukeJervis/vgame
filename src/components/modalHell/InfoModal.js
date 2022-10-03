@@ -138,7 +138,7 @@ const InfoModal = () => {
                 <div id={`infoModal__${monsterName}`} className="infoModal__modal">
                     <div className="infoModal__modal--open">
                         <div className="infoModal__modalContents">
-                            {`You were killed by a ${monsterName} level: ${monsterLevel}!`}
+                            {`You were killed by ${monsterName} level: ${monsterLevel}!`}
                         </div>
                         <div className="infoModal__patrolWin__moneyLoss"></div>
                         <button

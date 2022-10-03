@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, autorun } from "mobx";
 import _ from "lodash";
 
 class HeroStatsStore {
@@ -15,7 +15,6 @@ class HeroStatsStore {
     statCool = false;
 
     equipedHeroWeapon = {};
-    equipedHeroWeaponDamage = 1;
 
     equipedHeroArmourHead = {};
     equipedHeroArmourChest = {};
@@ -32,6 +31,9 @@ class HeroStatsStore {
     constructor(store) {
         this.allStores = store;
         makeAutoObservable(this);
+        autorun(() => {
+            this.heroAttackCalc();
+        });
     }
 
     get heroDeath() {
@@ -44,31 +46,28 @@ class HeroStatsStore {
         this.constitution += 100;
         this.luck += 1000;
         this.allStores.countStore.heroMoney += 100000;
-        this.heroAttackCalc();
     };
 
     heroHeal = () => {
         this.health = this.maxHealth;
     };
 
+    //autorun
     heroAttackCalc = () => {
-        this.heroAttackAmount = this.strength * this.equipedHeroWeaponDamage;
-        this.equipedHeroArmour = 0;
-        if (!_.isEmpty(this.equipedHeroArmourHead)) {
-            this.equipedHeroArmour += this.equipedHeroArmourHead.constitution;
-        }
-        if (!_.isEmpty(this.equipedHeroArmourChest)) {
-            this.equipedHeroArmour += this.equipedHeroArmourChest.constitution;
-        }
-        if (!_.isEmpty(this.equipedHeroArmourLegs)) {
-            this.equipedHeroArmour += this.equipedHeroArmourLegs.constitution;
-        }
-        if (!_.isEmpty(this.equipedHeroArmourHands)) {
-            this.equipedHeroArmour += this.equipedHeroArmourHands.constitution;
-        }
-        if (!_.isEmpty(this.equipedHeroArmourFeet)) {
-            this.equipedHeroArmour += this.equipedHeroArmourFeet.constitution;
-        }
+        const isWeapon = this.equipedHeroWeapon.damage ? this.equipedHeroWeapon.damage : 1;
+        this.heroAttackAmount = this.strength * isWeapon;
+
+        this.equipedHeroArmour = this.equipedHeroArmourHead.constitution
+            ? this.equipedHeroArmourHead.constitution
+            : 0 + this.equipedHeroArmourChest.constitution
+            ? this.equipedHeroArmourChest.constitution
+            : 0 + this.equipedHeroArmourLegs.constitution
+            ? this.equipedHeroArmourLegs.constitution
+            : 0 + this.equipedHeroArmourHands.constitution
+            ? this.equipedHeroArmourHands.constitution
+            : 0 + this.equipedHeroArmourFeet.constitution
+            ? this.equipedHeroArmourFeet.constitution
+            : 0;
     };
 
     equipPet = (heroPet) => {
@@ -94,16 +93,13 @@ class HeroStatsStore {
             this.heroWeaponUnequip();
         }
         this.equipedHeroWeapon = weaponEquip;
-        this.equipedHeroWeaponDamage = weaponEquip.damage;
         const position = this.allStores.heroInventoryStore.heroWeaponInv.findIndex((el) => el.id === weaponEquip.id);
         this.allStores.heroInventoryStore.heroWeaponInv.splice(position, 1);
-        this.heroAttackCalc();
     };
 
     heroWeaponUnequip = () => {
         this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroWeapon);
         this.equipedHeroWeapon = {};
-        this.heroAttackCalc();
     };
 
     heroArmourEquip = (armour) => {
@@ -135,7 +131,6 @@ class HeroStatsStore {
         }
         const position = this.allStores.heroInventoryStore.heroArmourInv.findIndex((el) => el.id === armour.id);
         this.allStores.heroInventoryStore.heroArmourInv.splice(position, 1);
-        this.heroAttackCalc();
     };
 
     heroArmourUnequip = (armour) => {
@@ -155,7 +150,6 @@ class HeroStatsStore {
             this.allStores.heroInventoryStore.inventoryPlacement(this.equipedHeroArmourFeet);
             this.equipedHeroArmourFeet = {};
         }
-        this.heroAttackCalc();
     };
 
     handleStatBuy = (statPurchase) => {
@@ -174,7 +168,6 @@ class HeroStatsStore {
         } else {
             console.log("handleStatBuy Error");
         }
-        this.heroAttackCalc();
     };
 
     handlePetStatBuy = (petObject, petStat) => {
@@ -235,7 +228,6 @@ class HeroStatsStore {
         } else {
             console.log("Still cooling down");
         }
-        this.heroAttackCalc();
     };
 }
 

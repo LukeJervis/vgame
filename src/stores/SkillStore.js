@@ -11,7 +11,6 @@ class SkillStore {
     prefixNum = 1;
     prefix;
     suffix;
-    // skillItems;
 
     //Skilling
     skillActive = false;
@@ -73,7 +72,6 @@ class SkillStore {
             this.skillTime = this.skillItem.skillDiff / this.selectedSkill.level;
             this.skillInterval();
             skillItem.count--;
-            this.allStores.heroInventoryStore.inventoryCheck();
         }
     };
 
